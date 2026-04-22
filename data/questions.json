@@ -1,0 +1,1432 @@
+[
+  {
+    "prompt": "What is 22 + 5?",
+    "options": [
+      "34",
+      "24",
+      "27",
+      "28"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 23 + 25?",
+    "options": [
+      "53",
+      "47",
+      "48",
+      "58"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 4 + 8?",
+    "options": [
+      "14",
+      "22",
+      "7",
+      "12"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 24 + 22?",
+    "options": [
+      "46",
+      "51",
+      "42",
+      "53"
+    ],
+    "correctIndex": 0,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 27 + 29?",
+    "options": [
+      "56",
+      "54",
+      "57",
+      "67"
+    ],
+    "correctIndex": 0,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 6 + 8?",
+    "options": [
+      "13",
+      "17",
+      "14",
+      "20"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 29 + 13?",
+    "options": [
+      "54",
+      "47",
+      "39",
+      "42"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 19 + 5?",
+    "options": [
+      "24",
+      "28",
+      "34",
+      "23"
+    ],
+    "correctIndex": 0,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 20 + 8?",
+    "options": [
+      "27",
+      "28",
+      "39",
+      "29"
+    ],
+    "correctIndex": 1,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 29 + 9?",
+    "options": [
+      "38",
+      "39",
+      "34",
+      "46"
+    ],
+    "correctIndex": 0,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 7 + 13?",
+    "options": [
+      "23",
+      "20",
+      "31",
+      "18"
+    ],
+    "correctIndex": 1,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 21 + 22?",
+    "options": [
+      "38",
+      "54",
+      "43",
+      "45"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 14 + 10?",
+    "options": [
+      "29",
+      "35",
+      "24",
+      "22"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 28 + 3?",
+    "options": [
+      "27",
+      "34",
+      "39",
+      "31"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 8 + 22?",
+    "options": [
+      "26",
+      "34",
+      "30",
+      "41"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 6 + 9?",
+    "options": [
+      "15",
+      "20",
+      "10",
+      "23"
+    ],
+    "correctIndex": 0,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 13 + 9?",
+    "options": [
+      "24",
+      "17",
+      "31",
+      "22"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 6 + 22?",
+    "options": [
+      "38",
+      "24",
+      "30",
+      "28"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 21 + 16?",
+    "options": [
+      "42",
+      "47",
+      "34",
+      "37"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 23 + 30?",
+    "options": [
+      "65",
+      "58",
+      "53",
+      "50"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 15 + 7?",
+    "options": [
+      "26",
+      "22",
+      "33",
+      "21"
+    ],
+    "correctIndex": 1,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 18 + 5?",
+    "options": [
+      "18",
+      "33",
+      "23",
+      "26"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 26 + 7?",
+    "options": [
+      "39",
+      "33",
+      "38",
+      "28"
+    ],
+    "correctIndex": 1,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 5 + 13?",
+    "options": [
+      "24",
+      "18",
+      "16",
+      "21"
+    ],
+    "correctIndex": 1,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 4 + 25?",
+    "options": [
+      "28",
+      "41",
+      "29",
+      "33"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 19 + 7?",
+    "options": [
+      "29",
+      "21",
+      "26",
+      "38"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 24 + 11?",
+    "options": [
+      "39",
+      "32",
+      "35",
+      "44"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 9 + 4?",
+    "options": [
+      "23",
+      "13",
+      "12",
+      "16"
+    ],
+    "correctIndex": 1,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 2 + 4?",
+    "options": [
+      "4",
+      "12",
+      "7",
+      "6"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 18 + 9?",
+    "options": [
+      "27",
+      "34",
+      "23",
+      "30"
+    ],
+    "correctIndex": 0,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 9 + 27?",
+    "options": [
+      "32",
+      "40",
+      "43",
+      "36"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 13 + 15?",
+    "options": [
+      "32",
+      "40",
+      "24",
+      "28"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 3 + 14?",
+    "options": [
+      "16",
+      "24",
+      "17",
+      "20"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 6 + 15?",
+    "options": [
+      "18",
+      "30",
+      "21",
+      "23"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 27 + 29?",
+    "options": [
+      "61",
+      "55",
+      "62",
+      "56"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 7 + 15?",
+    "options": [
+      "26",
+      "18",
+      "22",
+      "29"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 14 + 2?",
+    "options": [
+      "16",
+      "13",
+      "20",
+      "28"
+    ],
+    "correctIndex": 0,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 24 + 25?",
+    "options": [
+      "45",
+      "49",
+      "56",
+      "54"
+    ],
+    "correctIndex": 1,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 3 + 20?",
+    "options": [
+      "28",
+      "34",
+      "23",
+      "22"
+    ],
+    "correctIndex": 2,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 20 + 17?",
+    "options": [
+      "42",
+      "44",
+      "32",
+      "37"
+    ],
+    "correctIndex": 3,
+    "explanation": "Add both numbers."
+  },
+  {
+    "prompt": "What is 74 - 7?",
+    "options": [
+      "62",
+      "67",
+      "75",
+      "68"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 80 - 9?",
+    "options": [
+      "79",
+      "66",
+      "76",
+      "71"
+    ],
+    "correctIndex": 3,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 79 - 10?",
+    "options": [
+      "82",
+      "71",
+      "69",
+      "63"
+    ],
+    "correctIndex": 2,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 45 - 6?",
+    "options": [
+      "33",
+      "39",
+      "45",
+      "49"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 20 - 16?",
+    "options": [
+      "9",
+      "12",
+      "-1",
+      "4"
+    ],
+    "correctIndex": 3,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 52 - 10?",
+    "options": [
+      "42",
+      "39",
+      "50",
+      "44"
+    ],
+    "correctIndex": 0,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 30 - 16?",
+    "options": [
+      "21",
+      "14",
+      "27",
+      "9"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 62 - 19?",
+    "options": [
+      "37",
+      "43",
+      "51",
+      "46"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 76 - 5?",
+    "options": [
+      "80",
+      "71",
+      "77",
+      "66"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 65 - 12?",
+    "options": [
+      "53",
+      "55",
+      "66",
+      "47"
+    ],
+    "correctIndex": 0,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 36 - 3?",
+    "options": [
+      "34",
+      "44",
+      "33",
+      "27"
+    ],
+    "correctIndex": 2,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 41 - 6?",
+    "options": [
+      "35",
+      "41",
+      "32",
+      "44"
+    ],
+    "correctIndex": 0,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 55 - 2?",
+    "options": [
+      "66",
+      "53",
+      "52",
+      "54"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 73 - 13?",
+    "options": [
+      "65",
+      "55",
+      "60",
+      "69"
+    ],
+    "correctIndex": 2,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 39 - 13?",
+    "options": [
+      "33",
+      "34",
+      "26",
+      "19"
+    ],
+    "correctIndex": 2,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 62 - 5?",
+    "options": [
+      "60",
+      "57",
+      "50",
+      "69"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 79 - 9?",
+    "options": [
+      "68",
+      "70",
+      "84",
+      "77"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 31 - 12?",
+    "options": [
+      "15",
+      "19",
+      "33",
+      "26"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 70 - 5?",
+    "options": [
+      "69",
+      "58",
+      "65",
+      "73"
+    ],
+    "correctIndex": 2,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 72 - 16?",
+    "options": [
+      "70",
+      "53",
+      "56",
+      "59"
+    ],
+    "correctIndex": 2,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 62 - 8?",
+    "options": [
+      "64",
+      "51",
+      "58",
+      "54"
+    ],
+    "correctIndex": 3,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 61 - 18?",
+    "options": [
+      "47",
+      "57",
+      "43",
+      "37"
+    ],
+    "correctIndex": 2,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 76 - 10?",
+    "options": [
+      "61",
+      "68",
+      "76",
+      "66"
+    ],
+    "correctIndex": 3,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 42 - 12?",
+    "options": [
+      "25",
+      "42",
+      "34",
+      "30"
+    ],
+    "correctIndex": 3,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 36 - 3?",
+    "options": [
+      "33",
+      "29",
+      "41",
+      "39"
+    ],
+    "correctIndex": 0,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 24 - 12?",
+    "options": [
+      "25",
+      "17",
+      "9",
+      "12"
+    ],
+    "correctIndex": 3,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 52 - 11?",
+    "options": [
+      "41",
+      "47",
+      "37",
+      "51"
+    ],
+    "correctIndex": 0,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 55 - 6?",
+    "options": [
+      "51",
+      "49",
+      "45",
+      "62"
+    ],
+    "correctIndex": 1,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 59 - 11?",
+    "options": [
+      "62",
+      "43",
+      "52",
+      "48"
+    ],
+    "correctIndex": 3,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 33 - 15?",
+    "options": [
+      "18",
+      "30",
+      "25",
+      "13"
+    ],
+    "correctIndex": 0,
+    "explanation": "Subtract the second number from the first."
+  },
+  {
+    "prompt": "What is 9 \u00d7 12?",
+    "options": [
+      "117",
+      "108",
+      "96",
+      "119"
+    ],
+    "correctIndex": 1,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 12 \u00d7 3?",
+    "options": [
+      "48",
+      "50",
+      "36",
+      "33"
+    ],
+    "correctIndex": 2,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 12 \u00d7 6?",
+    "options": [
+      "84",
+      "66",
+      "72",
+      "84"
+    ],
+    "correctIndex": 2,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 2 \u00d7 5?",
+    "options": [
+      "30",
+      "5",
+      "12",
+      "10"
+    ],
+    "correctIndex": 3,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 12 \u00d7 11?",
+    "options": [
+      "132",
+      "121",
+      "144",
+      "143"
+    ],
+    "correctIndex": 0,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 5 \u00d7 4?",
+    "options": [
+      "16",
+      "25",
+      "25",
+      "20"
+    ],
+    "correctIndex": 3,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 4 \u00d7 10?",
+    "options": [
+      "44",
+      "59",
+      "30",
+      "40"
+    ],
+    "correctIndex": 3,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 3 \u00d7 9?",
+    "options": [
+      "27",
+      "30",
+      "18",
+      "36"
+    ],
+    "correctIndex": 0,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 9 \u00d7 11?",
+    "options": [
+      "88",
+      "108",
+      "99",
+      "117"
+    ],
+    "correctIndex": 2,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 9 \u00d7 6?",
+    "options": [
+      "54",
+      "63",
+      "66",
+      "48"
+    ],
+    "correctIndex": 0,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 12 \u00d7 5?",
+    "options": [
+      "55",
+      "72",
+      "60",
+      "73"
+    ],
+    "correctIndex": 2,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 5 \u00d7 6?",
+    "options": [
+      "35",
+      "30",
+      "45",
+      "24"
+    ],
+    "correctIndex": 1,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 4 \u00d7 4?",
+    "options": [
+      "20",
+      "16",
+      "12",
+      "28"
+    ],
+    "correctIndex": 1,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 5 \u00d7 3?",
+    "options": [
+      "15",
+      "12",
+      "20",
+      "33"
+    ],
+    "correctIndex": 0,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 8 \u00d7 2?",
+    "options": [
+      "14",
+      "16",
+      "24",
+      "27"
+    ],
+    "correctIndex": 1,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 11 \u00d7 8?",
+    "options": [
+      "108",
+      "80",
+      "99",
+      "88"
+    ],
+    "correctIndex": 3,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 8 \u00d7 8?",
+    "options": [
+      "56",
+      "72",
+      "64",
+      "76"
+    ],
+    "correctIndex": 2,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 8 \u00d7 9?",
+    "options": [
+      "72",
+      "63",
+      "80",
+      "77"
+    ],
+    "correctIndex": 0,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 4 \u00d7 9?",
+    "options": [
+      "27",
+      "45",
+      "40",
+      "36"
+    ],
+    "correctIndex": 3,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "What is 3 \u00d7 12?",
+    "options": [
+      "24",
+      "36",
+      "54",
+      "39"
+    ],
+    "correctIndex": 1,
+    "explanation": "Multiply the two numbers."
+  },
+  {
+    "prompt": "Which company created Node.js?",
+    "options": [
+      "Google",
+      "Ryan Dahl",
+      "Microsoft",
+      "Meta"
+    ],
+    "correctIndex": 1,
+    "explanation": "Ryan Dahl started Node.js"
+  },
+  {
+    "prompt": "Which language runs in a web browser?",
+    "options": [
+      "Python",
+      "Java",
+      "C",
+      "JavaScript"
+    ],
+    "correctIndex": 3,
+    "explanation": "JavaScript runs in browsers."
+  },
+  {
+    "prompt": "What does HTML stand for?",
+    "options": [
+      "Hyper Trainer Marking Language",
+      "HyperText Markup Language",
+      "HighText Markdown Language",
+      "Home Tool Markup Language"
+    ],
+    "correctIndex": 1,
+    "explanation": "It is HyperText Markup Language."
+  },
+  {
+    "prompt": "What does CSS primarily control?",
+    "options": [
+      "Database queries",
+      "Server routing",
+      "Visual styling",
+      "Audio playback"
+    ],
+    "correctIndex": 2,
+    "explanation": "CSS controls page style."
+  },
+  {
+    "prompt": "Which protocol powers most websites?",
+    "options": [
+      "FTP",
+      "SMTP",
+      "HTTP",
+      "SSH"
+    ],
+    "correctIndex": 2,
+    "explanation": "HTTP/HTTPS serves web content."
+  },
+  {
+    "prompt": "Socket.IO is mainly used for?",
+    "options": [
+      "Image editing",
+      "Realtime communication",
+      "Machine learning",
+      "Video compression"
+    ],
+    "correctIndex": 1,
+    "explanation": "It enables realtime bidirectional communication."
+  },
+  {
+    "prompt": "Which method creates a new array from elements that pass a test?",
+    "options": [
+      "reduce",
+      "slice",
+      "filter",
+      "push"
+    ],
+    "correctIndex": 2,
+    "explanation": "filter returns matching items."
+  },
+  {
+    "prompt": "Git command to create a commit?",
+    "options": [
+      "git save",
+      "git commit",
+      "git stage",
+      "git publish"
+    ],
+    "correctIndex": 1,
+    "explanation": "git commit records changes."
+  },
+  {
+    "prompt": "JSON is best described as?",
+    "options": [
+      "A database engine",
+      "A styling language",
+      "A data-interchange format",
+      "A CPU architecture"
+    ],
+    "correctIndex": 2,
+    "explanation": "A lightweight data-interchange format."
+  },
+  {
+    "prompt": "Which environment variable is commonly used for app ports on Heroku?",
+    "options": [
+      "HOST",
+      "PORT",
+      "NODE_ENV",
+      "APP_PORT"
+    ],
+    "correctIndex": 1,
+    "explanation": "PORT is assigned by Heroku."
+  },
+  {
+    "prompt": "What is the capital of France?",
+    "options": [
+      "Seoul",
+      "Vienna",
+      "Lisbon",
+      "Paris"
+    ],
+    "correctIndex": 3,
+    "explanation": "Paris is the capital city of France."
+  },
+  {
+    "prompt": "What is the capital of Japan?",
+    "options": [
+      "Seoul",
+      "Lisbon",
+      "Tokyo",
+      "Vienna"
+    ],
+    "correctIndex": 2,
+    "explanation": "Tokyo is the capital city of Japan."
+  },
+  {
+    "prompt": "What is the capital of Canada?",
+    "options": [
+      "Ottawa",
+      "Seoul",
+      "Lisbon",
+      "Vienna"
+    ],
+    "correctIndex": 0,
+    "explanation": "Ottawa is the capital city of Canada."
+  },
+  {
+    "prompt": "What is the capital of Brazil?",
+    "options": [
+      "Bras\u00edlia",
+      "Seoul",
+      "Lisbon",
+      "Vienna"
+    ],
+    "correctIndex": 0,
+    "explanation": "Bras\u00edlia is the capital city of Brazil."
+  },
+  {
+    "prompt": "What is the capital of Australia?",
+    "options": [
+      "Vienna",
+      "Seoul",
+      "Lisbon",
+      "Canberra"
+    ],
+    "correctIndex": 3,
+    "explanation": "Canberra is the capital city of Australia."
+  },
+  {
+    "prompt": "What is the capital of Italy?",
+    "options": [
+      "Vienna",
+      "Seoul",
+      "Lisbon",
+      "Rome"
+    ],
+    "correctIndex": 3,
+    "explanation": "Rome is the capital city of Italy."
+  },
+  {
+    "prompt": "What is the capital of Spain?",
+    "options": [
+      "Lisbon",
+      "Seoul",
+      "Vienna",
+      "Madrid"
+    ],
+    "correctIndex": 3,
+    "explanation": "Madrid is the capital city of Spain."
+  },
+  {
+    "prompt": "What is the capital of India?",
+    "options": [
+      "Lisbon",
+      "Vienna",
+      "Seoul",
+      "New Delhi"
+    ],
+    "correctIndex": 3,
+    "explanation": "New Delhi is the capital city of India."
+  },
+  {
+    "prompt": "What is the capital of Egypt?",
+    "options": [
+      "Lisbon",
+      "Seoul",
+      "Vienna",
+      "Cairo"
+    ],
+    "correctIndex": 3,
+    "explanation": "Cairo is the capital city of Egypt."
+  },
+  {
+    "prompt": "What is the capital of Kenya?",
+    "options": [
+      "Vienna",
+      "Seoul",
+      "Nairobi",
+      "Lisbon"
+    ],
+    "correctIndex": 2,
+    "explanation": "Nairobi is the capital city of Kenya."
+  },
+  {
+    "prompt": "H2O is the chemical formula for what?",
+    "options": [
+      "Oxygen",
+      "Hydrogen",
+      "Water",
+      "Salt"
+    ],
+    "correctIndex": 2,
+    "explanation": "H2O is water."
+  },
+  {
+    "prompt": "How many planets are in our solar system?",
+    "options": [
+      "7",
+      "8",
+      "9",
+      "10"
+    ],
+    "correctIndex": 1,
+    "explanation": "There are 8 recognized planets."
+  },
+  {
+    "prompt": "What gas do plants absorb from the atmosphere?",
+    "options": [
+      "Oxygen",
+      "Carbon Dioxide",
+      "Nitrogen",
+      "Helium"
+    ],
+    "correctIndex": 1,
+    "explanation": "Plants absorb carbon dioxide."
+  },
+  {
+    "prompt": "What is the center of an atom called?",
+    "options": [
+      "Orbit",
+      "Shell",
+      "Nucleus",
+      "Electron"
+    ],
+    "correctIndex": 2,
+    "explanation": "The nucleus is at the center."
+  },
+  {
+    "prompt": "What force keeps us on the ground?",
+    "options": [
+      "Magnetism",
+      "Friction",
+      "Gravity",
+      "Pressure"
+    ],
+    "correctIndex": 2,
+    "explanation": "Gravity attracts objects toward Earth."
+  },
+  {
+    "prompt": "What is the boiling point of water at sea level?",
+    "options": [
+      "90\u00b0C",
+      "95\u00b0C",
+      "100\u00b0C",
+      "110\u00b0C"
+    ],
+    "correctIndex": 2,
+    "explanation": "Water boils at 100\u00b0C at sea level."
+  },
+  {
+    "prompt": "Which planet is known as the Red Planet?",
+    "options": [
+      "Venus",
+      "Mars",
+      "Jupiter",
+      "Saturn"
+    ],
+    "correctIndex": 1,
+    "explanation": "Mars is called the Red Planet."
+  },
+  {
+    "prompt": "The process by which plants make food is called?",
+    "options": [
+      "Respiration",
+      "Fermentation",
+      "Photosynthesis",
+      "Digestion"
+    ],
+    "correctIndex": 2,
+    "explanation": "Plants use photosynthesis."
+  },
+  {
+    "prompt": "What part of the human body pumps blood?",
+    "options": [
+      "Lungs",
+      "Brain",
+      "Heart",
+      "Liver"
+    ],
+    "correctIndex": 2,
+    "explanation": "The heart pumps blood."
+  },
+  {
+    "prompt": "What is Earth\u2019s natural satellite?",
+    "options": [
+      "Mars",
+      "Moon",
+      "Sun",
+      "Venus"
+    ],
+    "correctIndex": 1,
+    "explanation": "The Moon orbits Earth."
+  },
+  {
+    "prompt": "Which number is greater: 43 or 8?",
+    "options": [
+      "43",
+      "51",
+      "35",
+      "8"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 50 or 24?",
+    "options": [
+      "26",
+      "50",
+      "74",
+      "24"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 50 or 11?",
+    "options": [
+      "11",
+      "39",
+      "50",
+      "61"
+    ],
+    "correctIndex": 2,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 20 or 37?",
+    "options": [
+      "57",
+      "37",
+      "20",
+      "17"
+    ],
+    "correctIndex": 1,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 5 or 38?",
+    "options": [
+      "43",
+      "33",
+      "38",
+      "5"
+    ],
+    "correctIndex": 2,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 44 or 39?",
+    "options": [
+      "39",
+      "5",
+      "83",
+      "44"
+    ],
+    "correctIndex": 3,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 23 or 35?",
+    "options": [
+      "35",
+      "23",
+      "58",
+      "12"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 5 or 33?",
+    "options": [
+      "28",
+      "5",
+      "33",
+      "38"
+    ],
+    "correctIndex": 2,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 32 or 7?",
+    "options": [
+      "32",
+      "39",
+      "7",
+      "25"
+    ],
+    "correctIndex": 0,
+    "explanation": "Pick the larger number."
+  },
+  {
+    "prompt": "Which number is greater: 46 or 10?",
+    "options": [
+      "56",
+      "10",
+      "46",
+      "36"
+    ],
+    "correctIndex": 2,
+    "explanation": "Pick the larger number."
+  }
+]

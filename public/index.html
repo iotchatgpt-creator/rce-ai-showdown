@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RCE AI Sprint Showdown</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header>
+        <h1>RCE AI Sprint Showdown</h1>
+        <p class="subtitle">Fast quiz battles. Real-time. No sign-up.</p>
+      </header>
+
+      <main>
+        <section id="view-landing" class="view active card">
+          <h2>Choose your mode</h2>
+          <div class="actions two-col">
+            <button id="show-host" class="btn btn-primary">Host Game</button>
+            <button id="show-join" class="btn">Join Game</button>
+          </div>
+
+          <div id="host-form" class="panel hidden">
+            <label>Your Name</label>
+            <input id="host-name" placeholder="Moderator name" maxlength="24" />
+            <button id="create-room" class="btn btn-primary">Create Room</button>
+          </div>
+
+          <div id="join-form" class="panel hidden">
+            <label>Your Name</label>
+            <input id="join-name" placeholder="Player name" maxlength="24" />
+            <label>Room Code</label>
+            <input id="join-room-code" placeholder="ABC123" maxlength="6" />
+            <button id="join-room" class="btn btn-primary">Join Room</button>
+          </div>
+          <p id="landing-error" class="error"></p>
+        </section>
+
+        <section id="view-lobby" class="view card hidden">
+          <div class="row space-between">
+            <h2>Lobby</h2>
+            <span>Room: <strong id="room-code">------</strong></span>
+          </div>
+          <p>Share the room code and get ready.</p>
+          <ul id="players-list" class="players"></ul>
+          <div class="actions">
+            <button id="start-game" class="btn btn-primary hidden">Start Game</button>
+          </div>
+        </section>
+
+        <section id="view-question" class="view card hidden">
+          <div class="row space-between">
+            <h2 id="question-progress">Question 1 / 10</h2>
+            <div class="timer" id="timer">15</div>
+          </div>
+          <p id="question-prompt" class="question"></p>
+          <div id="question-options" class="options"></div>
+          <p id="answer-status" class="notice"></p>
+        </section>
+
+        <section id="view-reveal" class="view card hidden">
+          <h2>Answer Reveal</h2>
+          <p id="reveal-text"></p>
+          <p id="reveal-explanation" class="notice"></p>
+        </section>
+
+        <section id="view-leaderboard" class="view card hidden">
+          <h2>Leaderboard</h2>
+          <ol id="leaderboard-list" class="leaderboard"></ol>
+        </section>
+
+        <section id="view-final" class="view card hidden final-screen">
+          <h2>🏆 RCE AI Champion — Iteration 2.14</h2>
+          <p id="champion-name" class="champion"></p>
+          <p>Celebration mode activated 🎉</p>
+          <div class="confetti" aria-hidden="true"></div>
+          <ol id="final-board" class="leaderboard"></ol>
+        </section>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/app.js"></script>
+  </body>
+</html>
