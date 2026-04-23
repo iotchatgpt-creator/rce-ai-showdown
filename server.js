@@ -13,6 +13,7 @@ const QUESTION_TIME_MS = 15000;
 const REVEAL_TIME_MS = 4000;
 const LEADERBOARD_TIME_MS = 4000;
 const QUESTIONS_PER_GAME = 10;
+const AVAILABLE_AVATARS = ['cat', 'bear', 'duck', 'bunny', 'fox', 'frog'];
 
 const questionBank = JSON.parse(
   fs.readFileSync(path.join(__dirname, 'data', 'questions.json'), 'utf8')
@@ -70,6 +71,7 @@ function serializePlayers(room) {
     name: p.name,
     score: p.score,
     isHost: p.id === room.hostId,
+    avatarId: p.avatarId || null,
   }));
 }
 
@@ -82,9 +84,19 @@ function emitRoomState(roomCode) {
     phase: room.phase,
     hostId: room.hostId,
     players: serializePlayers(room),
+    availableAvatars: AVAILABLE_AVATARS,
     questionIndex: room.questionIndex,
     totalQuestions: room.questions.length,
   });
+}
+
+function isAvatarTaken(room, avatarId, ignorePlayerId = null) {
+  for (const player of room.players.values()) {
+    if (player.id !== ignorePlayerId && player.avatarId === avatarId) {
+      return true;
+    }
+  }
+  return false;
 }
 
 function emitLeaderboard(roomCode, final = false) {
@@ -229,6 +241,7 @@ io.on('connection', (socket) => {
       id: socket.id,
       name: hostName,
       score: 0,
+      avatarId: null,
     });
 
     rooms.set(roomCode, room);
@@ -261,6 +274,7 @@ io.on('connection', (socket) => {
       id: socket.id,
       name: playerName,
       score: 0,
+      avatarId: null,
     });
 
     socket.join(cleanCode);
@@ -284,6 +298,10 @@ io.on('connection', (socket) => {
       callback({ ok: false, error: 'Need at least one player.' });
       return;
     }
+    if ([...room.players.values()].some((player) => !player.avatarId)) {
+      callback({ ok: false, error: 'Everyone needs to pick an avatar first.' });
+      return;
+    }
 
     room.questions = pickQuestions();
     room.questionIndex = 0;
@@ -293,6 +311,34 @@ io.on('connection', (socket) => {
 
     callback({ ok: true });
     startQuestion(roomCode);
+  });
+
+  socket.on('chooseAvatar', ({ roomCode, avatarId }, callback = () => {}) => {
+    const room = rooms.get(roomCode);
+    if (!room) {
+      callback({ ok: false, error: 'Room not found.' });
+      return;
+    }
+    if (room.phase !== 'lobby') {
+      callback({ ok: false, error: 'Avatar selection is closed.' });
+      return;
+    }
+    if (!room.players.has(socket.id)) {
+      callback({ ok: false, error: 'Not in room.' });
+      return;
+    }
+    if (!AVAILABLE_AVATARS.includes(avatarId)) {
+      callback({ ok: false, error: 'Unknown avatar.' });
+      return;
+    }
+    if (isAvatarTaken(room, avatarId, socket.id)) {
+      callback({ ok: false, error: 'That avatar is already taken.' });
+      return;
+    }
+
+    room.players.get(socket.id).avatarId = avatarId;
+    callback({ ok: true, avatarId });
+    emitRoomState(roomCode);
   });
 
   socket.on('submitAnswer', ({ roomCode, answerIndex }, callback = () => {}) => {
