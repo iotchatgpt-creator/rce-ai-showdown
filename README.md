@@ -9,9 +9,10 @@ Players join with a room code, pick a name, choose an avatar in the lobby, and p
 - Creates a private room with a 6-character room code
 - Lets players join from different browsers/devices
 - Requires each player to pick a unique avatar before the host starts
-- Runs 10 timed AI quiz questions per game
+- Runs up to 20 timed AI quiz questions per game
 - Shows live question, reveal, leaderboard, and final winner screens
 - Uses a cozy animated front-end with rotating seasonal background scenes
+- Uses a local embedded JSON data store for room/player persistence and auto-seeded master data
 
 ## How To Play
 
@@ -23,7 +24,7 @@ Players join with a room code, pick a name, choose an avatar in the lobby, and p
 6. The host starts the game after everyone is ready.
 7. Players answer each AI question before the timer runs out.
 8. Correct answers earn points, and faster answers earn extra bonus points.
-9. After 10 questions, the app shows the final champion screen.
+9. After up to 20 questions, the app shows the final champion screen.
 
 ## Scoring
 
@@ -45,8 +46,81 @@ Players join with a room code, pick a name, choose an avatar in the lobby, and p
 - `server.js` - game server and real-time room logic
 - `public/` - front-end UI
 - `data/questions.json` - AI quiz question bank
+- `data/db-schema.json` - logical schema for the embedded local data store
+- `data/app-db.json` - auto-created local data file on first run
 - `package.json` - scripts and dependencies
 - `Procfile` - optional process file for platform deploys
+
+## Local Data Store
+
+The app now auto-creates a local embedded JSON data store on startup.
+
+You do not need to install Postgres, MySQL, or SQLite for local use.
+
+On first run, the server creates:
+
+- `data/app-db.json`
+
+It also auto-seeds master data from:
+
+- `data/questions.json`
+- the built-in avatar list in `server.js`
+
+## Schema
+
+The logical schema is defined in:
+
+- `data/db-schema.json`
+
+Current tables:
+
+### `master_questions`
+
+- Purpose: stores the question pool used by the game
+- Primary key: `id`
+- Columns:
+  - `id`
+  - `prompt`
+  - `options`
+  - `correctIndex`
+  - `explanation`
+
+### `player_profiles`
+
+- Purpose: stores saved host/participant identity records for reconnect and refresh recovery
+- Primary key: `token`
+- Columns:
+  - `token`
+  - `playerId`
+  - `name`
+  - `lastRoomCode`
+  - `role`
+  - `avatarId`
+  - `lastSeenAt`
+
+### `active_rooms`
+
+- Purpose: stores lobby/game room state so rooms are not only kept in memory
+- Primary key: `code`
+- Columns:
+  - `code`
+  - `hostId`
+  - `phase`
+  - `questionIndex`
+  - `players`
+  - `questions`
+  - `savedAt`
+
+### `completed_games`
+
+- Purpose: stores recent finished game history
+- Primary key: `finishedAt`
+- Columns:
+  - `roomCode`
+  - `finishedAt`
+  - `champion`
+  - `leaderboard`
+  - `totalQuestions`
 
 ## Install And Run Locally
 
@@ -140,6 +214,47 @@ Render will provide a public URL after deploy.
 npm start
 ```
 
+## REST API
+
+The server exposes a JSON CRUD API for managing the question pool.
+
+Base route:
+
+- `/api/questions`
+
+Endpoints:
+
+- `GET /api/questions` - list all questions
+- `GET /api/questions/:id` - fetch one question
+- `POST /api/questions` - create a new question
+- `PUT /api/questions/:id` - replace an existing question
+- `PATCH /api/questions/:id` - update part of a question
+- `DELETE /api/questions/:id` - remove a question
+
+Question JSON shape:
+
+```json
+{
+  "prompt": "What does AI stand for?",
+  "options": ["Automated Internet", "Artificial Intelligence", "Applied Interface", "Analog Instruction"],
+  "correctIndex": 1,
+  "explanation": "AI stands for Artificial Intelligence."
+}
+```
+
+Example create request:
+
+```bash
+curl -X POST http://localhost:3000/api/questions \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "Which emoji best matches a chatbot?",
+    "options": ["🧠", "💬", "🌮", "🪴"],
+    "correctIndex": 1,
+    "explanation": "A chatbot is mainly about conversation."
+  }'
+```
+
 ## Push To GitHub
 
 If you want to publish the code to GitHub:
@@ -159,3 +274,5 @@ git push -u origin main
 - Avatars are locked per player in the lobby.
 - Questions are loaded from `data/questions.json`.
 - Refreshing the app shows a random seasonal background scene.
+- The app auto-creates its local data file and schema-backed structure at startup.
+- Browser refresh recovery works by saving a local player session token and restoring it on reconnect.

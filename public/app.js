@@ -10,6 +10,9 @@ const state = {
   timerInterval: null,
   players: [],
   availableAvatars: [],
+  questionQueue: [],
+  lockedCount: 0,
+  totalParticipants: 0,
 };
 
 const views = {
@@ -24,16 +27,29 @@ const views = {
 const landingError = document.getElementById('landing-error');
 const hostForm = document.getElementById('host-form');
 const joinForm = document.getElementById('join-form');
+const lobbyNotice = document.getElementById('lobby-notice');
 const roomCodeEl = document.getElementById('room-code');
 const playersListEl = document.getElementById('players-list');
 const startButton = document.getElementById('start-game');
+const hostLobbyPanel = document.getElementById('host-lobby-panel');
+const hostQuestionQueue = document.getElementById('host-question-queue');
+const hostReadyStat = document.getElementById('host-ready-stat');
+const hostPlayerStat = document.getElementById('host-player-stat');
 const questionProgress = document.getElementById('question-progress');
 const questionPrompt = document.getElementById('question-prompt');
 const questionOptions = document.getElementById('question-options');
+const questionSticker = document.getElementById('question-sticker');
+const questionVibe = document.getElementById('question-vibe');
 const timerEl = document.getElementById('timer');
 const answerStatus = document.getElementById('answer-status');
 const revealText = document.getElementById('reveal-text');
 const revealExplanation = document.getElementById('reveal-explanation');
+const revealRace = document.getElementById('reveal-race');
+const hostLivePanel = document.getElementById('host-live-panel');
+const hostLockedCount = document.getElementById('host-locked-count');
+const hostLeaderName = document.getElementById('host-leader-name');
+const hostNextQuestion = document.getElementById('host-next-question');
+const hostLiveStandings = document.getElementById('host-live-standings');
 const leaderboardList = document.getElementById('leaderboard-list');
 const championName = document.getElementById('champion-name');
 const finalBoard = document.getElementById('final-board');
@@ -48,15 +64,50 @@ const meadowScene = document.getElementById('meadow-scene');
 const sceneWeather = document.getElementById('scene-weather');
 const scenePicnic = document.getElementById('scene-picnic');
 const sceneFriends = document.getElementById('scene-friends');
+const SESSION_KEY = 'rce-ai-showdown-session';
 
 const optionBadges = ['🍃', '🐟', '⭐', '🎁'];
+const avatarEmojiMap = {
+  cat: '🐱',
+  bear: '🐻',
+  duck: '🐥',
+  bunny: '🐰',
+  fox: '🦊',
+  frog: '🐸',
+};
+const questionFunMoments = [
+  { sticker: '🤖', vibe: 'Warm up those AI brains.' },
+  { sticker: '✨', vibe: 'This one is tiny, silly, and sneaky.' },
+  { sticker: '🚀', vibe: 'Fast answers get the big zoomies.' },
+  { sticker: '🧠', vibe: 'Team genius mode is officially on.' },
+  { sticker: '🎉', vibe: 'A fun one is landing on the board.' },
+  { sticker: '😆', vibe: 'No overthinking. Just vibes and guesses.' },
+  { sticker: '🌮', vibe: 'Brain snack question incoming.' },
+  { sticker: '🎯', vibe: 'Aim for the clean easy win.' },
+  { sticker: '🛼', vibe: 'Someone is about to glide into first.' },
+  { sticker: '🍿', vibe: 'This reveal might get dramatic.' },
+];
 const avatarCatalog = [
-  { id: 'cat', name: 'Miso', species: 'Cat', accent: 'peach' },
-  { id: 'bear', name: 'Maple', species: 'Bear', accent: 'honey' },
-  { id: 'duck', name: 'Puddles', species: 'Duck', accent: 'sky' },
-  { id: 'bunny', name: 'Clover', species: 'Bunny', accent: 'mint' },
-  { id: 'fox', name: 'Rusty', species: 'Fox', accent: 'sunset' },
-  { id: 'frog', name: 'Sprig', species: 'Frog', accent: 'leaf' },
+  { id: 'cat', type: 'cat', name: 'Miso', species: 'Cat', accent: 'peach' },
+  { id: 'bear', type: 'bear', name: 'Maple', species: 'Bear', accent: 'honey' },
+  { id: 'duck', type: 'duck', name: 'Puddles', species: 'Duck', accent: 'sky' },
+  { id: 'bunny', type: 'bunny', name: 'Clover', species: 'Bunny', accent: 'mint' },
+  { id: 'fox', type: 'fox', name: 'Rusty', species: 'Fox', accent: 'sunset' },
+  { id: 'frog', type: 'frog', name: 'Sprig', species: 'Frog', accent: 'leaf' },
+  { id: 'cat-pearl', type: 'cat', name: 'Pearl', species: 'Cat', accent: 'mint' },
+  { id: 'cat-toffee', type: 'cat', name: 'Toffee', species: 'Cat', accent: 'honey' },
+  { id: 'bear-hazel', type: 'bear', name: 'Hazel', species: 'Bear', accent: 'peach' },
+  { id: 'bear-mocha', type: 'bear', name: 'Mocha', species: 'Bear', accent: 'sunset' },
+  { id: 'duck-daisy', type: 'duck', name: 'Daisy', species: 'Duck', accent: 'mint' },
+  { id: 'duck-sunny', type: 'duck', name: 'Sunny', species: 'Duck', accent: 'honey' },
+  { id: 'bunny-rose', type: 'bunny', name: 'Rose', species: 'Bunny', accent: 'peach' },
+  { id: 'bunny-lulu', type: 'bunny', name: 'Lulu', species: 'Bunny', accent: 'sky' },
+  { id: 'fox-ember', type: 'fox', name: 'Ember', species: 'Fox', accent: 'honey' },
+  { id: 'fox-sienna', type: 'fox', name: 'Sienna', species: 'Fox', accent: 'peach' },
+  { id: 'frog-mint', type: 'frog', name: 'Minty', species: 'Frog', accent: 'mint' },
+  { id: 'frog-olive', type: 'frog', name: 'Olive', species: 'Frog', accent: 'leaf' },
+  { id: 'cat-honey', type: 'cat', name: 'Honey', species: 'Cat', accent: 'sunset' },
+  { id: 'bear-coco', type: 'bear', name: 'Coco', species: 'Bear', accent: 'leaf' },
 ];
 const seasonCatalog = ['spring', 'summer', 'autumn', 'winter'];
 
@@ -73,8 +124,41 @@ function formatPhaseLabel(phase) {
   return labels[phase] || 'Live';
 }
 
+function saveSession(details) {
+  try {
+    localStorage.setItem(SESSION_KEY, JSON.stringify(details));
+  } catch (error) {
+    // Ignore storage failures.
+  }
+}
+
+function loadSession() {
+  try {
+    const raw = localStorage.getItem(SESSION_KEY);
+    return raw ? JSON.parse(raw) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function clearSession() {
+  try {
+    localStorage.removeItem(SESSION_KEY);
+  } catch (error) {
+    // Ignore storage failures.
+  }
+}
+
+function isHostView() {
+  return Boolean(state.playerId) && state.playerId === state.hostId;
+}
+
+function getParticipantPlayers() {
+  return state.players.filter((player) => !player.isHost);
+}
+
 function updateChrome() {
-  const role = state.playerId && state.playerId === state.hostId ? 'Host' : 'Player';
+  const role = isHostView() ? 'Host' : 'Player';
   phasePill.textContent = formatPhaseLabel(state.phase);
   rolePill.textContent = role;
   heroRoomCode.textContent = state.roomCode || '------';
@@ -83,6 +167,11 @@ function updateChrome() {
 function getPlayerAvatarId(playerId = state.playerId) {
   const player = state.players.find((item) => item.id === playerId);
   return player ? player.avatarId || null : null;
+}
+
+function getAvatarEmoji(avatarId) {
+  const avatar = avatarCatalog.find((item) => item.id === avatarId);
+  return avatarEmojiMap[avatar ? avatar.type : 'cat'] || '✨';
 }
 
 function getAvatarSvg(avatarId) {
@@ -206,9 +295,9 @@ function createAvatarMarkup(avatarId, mood = 'idle', variant = 'default') {
   if (!avatar) return '';
 
   return `
-    <span class="avatar-art avatar-${avatar.id} ${avatar.accent} ${mood} ${variant === 'scene' ? 'scene-avatar' : ''}">
-      ${getAvatarSvg(avatar.id)}
-      ${getAvatarExtras(avatar.id, variant)}
+    <span class="avatar-art avatar-${avatar.type} ${avatar.accent} ${mood} ${variant === 'scene' ? 'scene-avatar' : ''}">
+      ${getAvatarSvg(avatar.type)}
+      ${getAvatarExtras(avatar.type, variant)}
     </span>
   `;
 }
@@ -342,10 +431,14 @@ function setLandingError(message = '') {
 
 function renderPlayers(players) {
   state.players = players;
-  playerCount.textContent = String(players.length);
-  avatarReadyCount.textContent = `${players.filter((player) => player.avatarId).length} ready`;
+  const participants = getParticipantPlayers();
+  const readyPlayers = participants.filter((player) => player.avatarId).length;
+  playerCount.textContent = String(participants.length);
+  avatarReadyCount.textContent = `${readyPlayers} ready`;
+  if (hostReadyStat) hostReadyStat.textContent = `${readyPlayers} ready`;
+  if (hostPlayerStat) hostPlayerStat.textContent = `${participants.length} players`;
   playersListEl.innerHTML = '';
-  players.forEach((player) => {
+  participants.forEach((player) => {
     const li = document.createElement('li');
     li.className = 'player-card';
     const avatarId = player.avatarId || avatarCatalog[0].id;
@@ -364,6 +457,8 @@ function renderPlayers(players) {
   });
 
   renderAvatarPicker();
+  renderHostLobbyPanel();
+  renderHostLiveStats();
 }
 
 function renderLeaderboard(targetElement, leaderboard) {
@@ -382,11 +477,128 @@ function renderLeaderboard(targetElement, leaderboard) {
   });
 }
 
+function renderRevealRace(answerSummary = []) {
+  if (!revealRace) return;
+
+  const ranked = [...answerSummary].sort((a, b) => b.score - a.score);
+  const topScore = ranked.length ? Math.max(...ranked.map((item) => item.score), 1) : 1;
+
+  revealRace.innerHTML = '';
+
+  ranked.forEach((item, index) => {
+    const player = state.players.find((entry) => entry.id === item.playerId);
+    const playerAvatarId = player ? player.avatarId : null;
+    const progress = topScore > 0 ? Math.max(6, Math.round((item.score / topScore) * 100)) : 6;
+    const lane = document.createElement('div');
+    lane.className = 'race-lane';
+    lane.innerHTML = `
+      <div class="race-player-meta">
+        <span class="race-emoji">${getAvatarEmoji(playerAvatarId)}</span>
+        <div>
+          <strong>${item.name}</strong>
+          <span>${item.correct ? `+${item.earned} points` : item.answered ? 'Oops, no points' : 'No answer this time'}</span>
+        </div>
+      </div>
+      <div class="race-track">
+        <span class="race-start">Start</span>
+        <div class="race-line">
+          <span class="race-runner" style="left: calc(${progress}% - 20px)">${getAvatarEmoji(playerAvatarId)}</span>
+        </div>
+        <span class="race-finish">${index === 0 ? 'Leading' : `${item.score} pts`}</span>
+      </div>
+    `;
+    revealRace.appendChild(lane);
+  });
+}
+
+function renderHostLobbyPanel() {
+  if (!hostLobbyPanel || !hostQuestionQueue) return;
+
+  const show = isHostView() && state.phase === 'lobby';
+  hostLobbyPanel.classList.toggle('hidden', !show);
+  if (!show) return;
+
+  hostQuestionQueue.innerHTML = '';
+
+  state.questionQueue.forEach((question, index) => {
+    const card = document.createElement('div');
+    card.className = 'queue-card';
+    card.innerHTML = `
+      <div class="queue-meta">
+        <span class="queue-index">#${index + 1}</span>
+        <strong>${question.prompt}</strong>
+      </div>
+      <div class="queue-actions">
+        <button class="queue-btn" data-action="up" ${index === 0 ? 'disabled' : ''}>Up</button>
+        <button class="queue-btn" data-action="top" ${index === 0 ? 'disabled' : ''}>Top</button>
+      </div>
+    `;
+
+    card.querySelectorAll('.queue-btn').forEach((button) => {
+      button.addEventListener('click', () => {
+        socket.emit(
+          'prioritizeQuestion',
+          {
+            roomCode: state.roomCode,
+            questionId: question.id,
+            action: button.getAttribute('data-action'),
+          },
+          (response) => {
+            if (!response.ok) {
+              avatarStatus.textContent = response.error || 'Could not reorder questions.';
+            }
+          }
+        );
+      });
+    });
+
+    hostQuestionQueue.appendChild(card);
+  });
+}
+
+function renderHostLiveStats() {
+  if (!hostLivePanel || !hostLiveStandings) return;
+
+  const show = isHostView() && ['question', 'reveal', 'leaderboard'].includes(state.phase);
+  hostLivePanel.classList.toggle('hidden', !show);
+  if (!show) return;
+
+  const leaderboard = getParticipantPlayers().slice().sort((a, b) => b.score - a.score);
+  if (hostLockedCount) hostLockedCount.textContent = `${state.lockedCount} / ${state.totalParticipants}`;
+  if (hostLeaderName) {
+    hostLeaderName.textContent = leaderboard.length
+      ? `${leaderboard[0].name} (${leaderboard[0].score} pts)`
+      : 'Waiting...';
+  }
+  if (hostNextQuestion) {
+    const nextPrompt = state.questionQueue[state.currentQuestion ? state.currentQuestion.index : 0];
+    hostNextQuestion.textContent = nextPrompt ? nextPrompt.prompt : 'Queue complete';
+  }
+
+  hostLiveStandings.innerHTML = '';
+  leaderboard.slice(0, 5).forEach((player, index) => {
+    const row = document.createElement('div');
+    row.className = 'host-standing-row';
+    row.innerHTML = `
+      <span class="host-standing-rank">${index + 1}</span>
+      <span class="host-standing-name">${player.name}</span>
+      <strong>${player.score} pts</strong>
+    `;
+    hostLiveStandings.appendChild(row);
+  });
+}
+
 function renderAvatarPicker() {
   if (!avatarPicker) return;
 
+  if (isHostView()) {
+    avatarPicker.innerHTML = '<div class="host-avatar-note">Host mode is live. Players pick avatars. You run the room.</div>';
+    avatarStatus.textContent = 'Host mode active';
+    return;
+  }
+
   const takenByAvatar = new Map(
-    state.players.filter((player) => player.avatarId).map((player) => [player.avatarId, player.id])
+    getParticipantPlayers().filter((player) => player.avatarId).map((player) => [player.avatarId, player.id])
   );
   const myAvatarId = getPlayerAvatarId();
 
@@ -453,42 +665,66 @@ function lockOptionButtons() {
   });
 }
 
+function markSelectedOption(button) {
+  [...questionOptions.querySelectorAll('.option')].forEach((btn) => {
+    btn.classList.remove('selected');
+  });
+  button.classList.add('selected');
+}
+
 function renderQuestion(payload) {
   state.currentQuestion = payload;
   state.selectedAnswer = null;
+  state.lockedCount = 0;
+  state.totalParticipants = payload.totalParticipants || state.totalParticipants;
+  const funMoment = questionFunMoments[(payload.index - 1) % questionFunMoments.length];
 
   questionProgress.textContent = `Question ${payload.index} / ${payload.total}`;
   questionPrompt.textContent = payload.prompt;
   answerStatus.textContent = '';
+  if (questionSticker) questionSticker.textContent = funMoment.sticker;
+  if (questionVibe) questionVibe.textContent = funMoment.vibe;
 
   questionOptions.innerHTML = '';
   payload.options.forEach((optionText, idx) => {
     const btn = document.createElement('button');
     btn.className = `option option-${idx % optionBadges.length}`;
     btn.innerHTML = `<span class="option-badge">${optionBadges[idx % optionBadges.length]}</span><span>${optionText}</span>`;
-    btn.addEventListener('click', () => {
-      if (state.selectedAnswer !== null) return;
+    if (!isHostView()) {
+      btn.addEventListener('click', () => {
+        if (state.selectedAnswer !== null) return;
+        markSelectedOption(btn);
+        answerStatus.textContent = 'Locking answer...';
 
-      socket.emit(
-        'submitAnswer',
-        { roomCode: state.roomCode, answerIndex: idx },
-        (response) => {
-          if (!response.ok) {
-            answerStatus.textContent = response.error || 'Unable to submit answer.';
-            return;
+        socket.emit(
+          'submitAnswer',
+          { roomCode: state.roomCode, answerIndex: idx },
+          (response) => {
+            if (!response.ok) {
+              btn.classList.remove('selected');
+              answerStatus.textContent = response.error || 'Unable to submit answer.';
+              return;
+            }
+            state.selectedAnswer = idx;
+            lockOptionButtons();
+            btn.classList.add('correct');
+            answerStatus.textContent = 'Answer locked!';
           }
-          state.selectedAnswer = idx;
-          lockOptionButtons();
-          btn.classList.add('correct');
-          answerStatus.textContent = 'Answer locked!';
-        }
-      );
-    });
+        );
+      });
+    } else {
+      btn.disabled = true;
+      btn.classList.add('host-readonly');
+    }
     questionOptions.appendChild(btn);
   });
 
   showView('question');
   startQuestionTimer(payload.startedAt, payload.durationMs);
+  answerStatus.textContent = isHostView()
+    ? 'Host mode: watch the room, track who is answering, and prep the next question.'
+    : '';
+  renderHostLiveStats();
 }
 
 function revealAnswer(payload) {
@@ -503,6 +739,8 @@ function revealAnswer(payload) {
 
   revealText.textContent = `${selectedText} Correct answer: option ${payload.correctIndex + 1}.`;
   revealExplanation.textContent = payload.explanation || '';
+  renderRevealRace(payload.answerSummary || []);
+  renderHostLiveStats();
 
   if (state.currentQuestion) {
     [...questionOptions.querySelectorAll('.option')].forEach((btn, idx) => {
@@ -522,13 +760,15 @@ socket.on('roomState', (payload) => {
   state.phase = payload.phase;
   state.roomCode = payload.roomCode;
   state.availableAvatars = payload.availableAvatars || [];
+  state.questionQueue = payload.questionQueue || [];
   roomCodeEl.textContent = payload.roomCode;
   heroRoomCode.textContent = payload.roomCode;
 
   renderPlayers(payload.players);
 
   const isHost = state.playerId === state.hostId;
-  const allReady = payload.players.length > 0 && payload.players.every((player) => player.avatarId);
+  const participantPlayers = payload.players.filter((player) => !player.isHost);
+  const allReady = participantPlayers.length > 0 && participantPlayers.every((player) => player.avatarId);
   if (isHost && payload.phase === 'lobby') {
     startButton.classList.remove('hidden');
     startButton.disabled = !allReady;
@@ -537,6 +777,11 @@ socket.on('roomState', (payload) => {
   }
 
   if (payload.phase === 'lobby') {
+    if (lobbyNotice) {
+      lobbyNotice.textContent = isHost
+        ? 'You are hosting. Watch readiness, reorder the question queue, and launch when everyone is set.'
+        : 'Pick an avatar before the host starts. One avatar per player.';
+    }
     showView('lobby');
   }
 });
@@ -547,7 +792,12 @@ socket.on('questionStart', (payload) => {
 
 socket.on('answerLocked', (payload) => {
   if (state.phase !== 'question') return;
-  answerStatus.textContent = `Locked answers: ${payload.lockedCount}/${payload.totalPlayers}`;
+  state.lockedCount = payload.lockedCount;
+  state.totalParticipants = payload.totalPlayers;
+  answerStatus.textContent = isHostView()
+    ? `Live status: ${payload.lockedCount}/${payload.totalPlayers} players have answered.`
+    : `Locked answers: ${payload.lockedCount}/${payload.totalPlayers}`;
+  renderHostLiveStats();
 });
 
 socket.on('answerReveal', (payload) => {
@@ -567,6 +817,7 @@ socket.on('leaderboard', (payload) => {
 
   showView('leaderboard');
   renderLeaderboard(leaderboardList, payload.leaderboard);
+  renderHostLiveStats();
 });
 
 document.getElementById('show-host').addEventListener('click', () => {
@@ -591,6 +842,12 @@ document.getElementById('create-room').addEventListener('click', () => {
 
     state.playerId = response.playerId;
     state.roomCode = response.roomCode;
+    saveSession({
+      roomCode: response.roomCode,
+      playerId: response.playerId,
+      playerToken: response.playerToken,
+      playerName: response.playerName || name,
+    });
     setLandingError('');
   });
 });
@@ -607,6 +864,12 @@ document.getElementById('join-room').addEventListener('click', () => {
 
     state.playerId = response.playerId;
     state.roomCode = response.roomCode;
+    saveSession({
+      roomCode: response.roomCode,
+      playerId: response.playerId,
+      playerToken: response.playerToken,
+      playerName: response.playerName || name,
+    });
     setLandingError('');
   });
 });
@@ -622,6 +885,32 @@ startButton.addEventListener('click', () => {
 showView('landing');
 updateChrome();
 renderDecor();
+
+const savedSession = loadSession();
+if (savedSession && savedSession.roomCode && savedSession.playerToken) {
+  socket.emit(
+    'resumeSession',
+    {
+      roomCode: savedSession.roomCode,
+      playerToken: savedSession.playerToken,
+    },
+    (response) => {
+      if (!response.ok) {
+        clearSession();
+        return;
+      }
+
+      state.playerId = response.playerId;
+      state.roomCode = response.roomCode;
+      saveSession({
+        roomCode: response.roomCode,
+        playerId: response.playerId,
+        playerToken: response.playerToken,
+        playerName: response.playerName || savedSession.playerName,
+      });
+    }
+  );
+}
 
 // Prevent accidental refresh: show confirmation dialog
 window.addEventListener('beforeunload', function (e) {

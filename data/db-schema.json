@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "engine": "embedded-json-store",
+  "tables": [
+    {
+      "name": "master_questions",
+      "description": "Seeded from data/questions.json on startup",
+      "primaryKey": "id",
+      "columns": ["id", "prompt", "options", "correctIndex", "explanation"]
+    },
+    {
+      "name": "player_profiles",
+      "description": "Saved host and participant identity records",
+      "primaryKey": "token",
+      "columns": ["token", "playerId", "name", "lastRoomCode", "role", "avatarId", "lastSeenAt"]
+    },
+    {
+      "name": "active_rooms",
+      "description": "Saved room, player, and lobby/game state",
+      "primaryKey": "code",
+      "columns": ["code", "hostId", "phase", "questionIndex", "players", "questions", "savedAt"]
+    },
+    {
+      "name": "completed_games",
+      "description": "Recent finished game history",
+      "primaryKey": "finishedAt",
+      "columns": ["roomCode", "finishedAt", "champion", "leaderboard", "totalQuestions"]
+    }
+  ]
+}
