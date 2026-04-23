@@ -7,18 +7,73 @@
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
+    <div class="bg-orb orb-a" aria-hidden="true"></div>
+    <div class="bg-orb orb-b" aria-hidden="true"></div>
+    <div class="bg-grid" aria-hidden="true"></div>
+    <div class="bg-hills" aria-hidden="true">
+      <div class="hill hill-back"></div>
+      <div class="hill hill-front"></div>
+    </div>
     <div class="app-shell">
-      <header>
-        <h1>RCE AI Sprint Showdown</h1>
-        <p class="subtitle">Fast quiz battles. Real-time. No sign-up.</p>
+      <header class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Cozy island trivia</p>
+          <h1>RCE AI Sprint Showdown</h1>
+          <p class="subtitle">A soft, playful AI quiz night with friendly energy, real-time rounds, and tiny village vibes.</p>
+          <div class="hero-characters" aria-hidden="true">
+            <div class="character character-bear">
+              <span class="ear ear-left"></span>
+              <span class="ear ear-right"></span>
+              <span class="face">
+                <span class="eye eye-left"></span>
+                <span class="eye eye-right"></span>
+                <span class="blush blush-left"></span>
+                <span class="blush blush-right"></span>
+                <span class="nose"></span>
+              </span>
+            </div>
+            <div class="character character-cat">
+              <span class="ear ear-left"></span>
+              <span class="ear ear-right"></span>
+              <span class="face">
+                <span class="eye eye-left"></span>
+                <span class="eye eye-right"></span>
+                <span class="blush blush-left"></span>
+                <span class="blush blush-right"></span>
+                <span class="nose"></span>
+              </span>
+            </div>
+            <div class="leaf-badge">AI Club</div>
+          </div>
+        </div>
+        <div class="hero-status card">
+          <p class="status-label">Town Bulletin</p>
+          <div class="status-row">
+            <span class="status-chip" id="phase-pill">Landing</span>
+            <span class="status-chip muted" id="role-pill">Player</span>
+          </div>
+          <div class="hero-metrics">
+            <div>
+              <span class="metric-label">Players</span>
+              <strong id="player-count">0</strong>
+            </div>
+            <div>
+              <span class="metric-label">Room</span>
+              <strong id="hero-room-code">------</strong>
+            </div>
+          </div>
+        </div>
       </header>
 
       <main>
-        <section id="view-landing" class="view active card">
-          <h2>Choose your mode</h2>
+        <section id="view-landing" class="view active card card-landing">
+          <div class="section-heading">
+            <span class="section-kicker">Tonight's gathering</span>
+            <h2>Choose your mode</h2>
+          </div>
           <div class="actions two-col">
             <button id="show-host" class="btn btn-primary">Host Game</button>
-            <button id="show-join" class="btn">Join Game</button>
+            <button id="show-join" class="btn btn-secondary">Join Game</button>
           </div>
 
           <div id="host-form" class="panel hidden">
@@ -39,10 +94,13 @@
 
         <section id="view-lobby" class="view card hidden">
           <div class="row space-between">
-            <h2>Lobby</h2>
-            <span>Room: <strong id="room-code">------</strong></span>
+            <div class="section-heading compact">
+              <span class="section-kicker">Town square</span>
+              <h2>Lobby</h2>
+            </div>
+            <span class="room-pill">Room: <strong id="room-code">------</strong></span>
           </div>
-          <p>Share the room code and get ready.</p>
+          <p class="notice">Share the room code and let the neighbors wander in before the quiz begins.</p>
           <ul id="players-list" class="players"></ul>
           <div class="actions">
             <button id="start-game" class="btn btn-primary hidden">Start Game</button>
@@ -50,30 +108,47 @@
         </section>
 
         <section id="view-question" class="view card hidden">
-          <div class="row space-between">
-            <h2 id="question-progress">Question 1 / 10</h2>
-            <div class="timer" id="timer">15</div>
+          <div class="question-stage">
+            <div class="row space-between">
+              <h2 id="question-progress">Question 1 / 10</h2>
+              <div class="timer" id="timer">15</div>
+            </div>
+            <p id="question-prompt" class="question"></p>
           </div>
-          <p id="question-prompt" class="question"></p>
-          <div id="question-options" class="options"></div>
-          <p id="answer-status" class="notice"></p>
+          <div class="question-board">
+            <div class="question-board-header row space-between">
+              <span>Pick the best answer</span>
+              <span class="tiny-note">Quick thinking still earns more bells</span>
+            </div>
+            <div id="question-options" class="options"></div>
+          </div>
+          <p id="answer-status" class="notice answer-banner"></p>
         </section>
 
         <section id="view-reveal" class="view card hidden">
-          <h2>Answer Reveal</h2>
+          <div class="section-heading compact">
+            <span class="section-kicker">Results in</span>
+            <h2>Answer Reveal</h2>
+          </div>
           <p id="reveal-text"></p>
           <p id="reveal-explanation" class="notice"></p>
         </section>
 
         <section id="view-leaderboard" class="view card hidden">
-          <h2>Leaderboard</h2>
+          <div class="section-heading compact">
+            <span class="section-kicker">Rankings</span>
+            <h2>Leaderboard</h2>
+          </div>
           <ol id="leaderboard-list" class="leaderboard"></ol>
         </section>
 
         <section id="view-final" class="view card hidden final-screen">
-          <h2>🏆 RCE AI Champion — Iteration 2.14</h2>
+          <div class="section-heading compact center">
+            <span class="section-kicker">Festival results</span>
+            <h2>RCE AI Champion — Iteration 2.14</h2>
+          </div>
           <p id="champion-name" class="champion"></p>
-          <p>Celebration mode activated 🎉</p>
+          <p>The plaza is cheering.</p>
           <div class="confetti" aria-hidden="true"></div>
           <ol id="final-board" class="leaderboard"></ol>
         </section>

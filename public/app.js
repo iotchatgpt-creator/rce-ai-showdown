@@ -35,6 +35,32 @@ const revealExplanation = document.getElementById('reveal-explanation');
 const leaderboardList = document.getElementById('leaderboard-list');
 const championName = document.getElementById('champion-name');
 const finalBoard = document.getElementById('final-board');
+const phasePill = document.getElementById('phase-pill');
+const rolePill = document.getElementById('role-pill');
+const playerCount = document.getElementById('player-count');
+const heroRoomCode = document.getElementById('hero-room-code');
+
+const optionBadges = ['🍃', '🐟', '⭐', '🎁'];
+
+function formatPhaseLabel(phase) {
+  const labels = {
+    landing: 'Landing',
+    lobby: 'Lobby',
+    question: 'Question Live',
+    reveal: 'Answer Reveal',
+    leaderboard: 'Leaderboard',
+    final: 'Final Podium',
+  };
+
+  return labels[phase] || 'Live';
+}
+
+function updateChrome() {
+  const role = state.playerId && state.playerId === state.hostId ? 'Host' : 'Player';
+  phasePill.textContent = formatPhaseLabel(state.phase);
+  rolePill.textContent = role;
+  heroRoomCode.textContent = state.roomCode || '------';
+}
 
 function showView(viewName) {
   Object.values(views).forEach((v) => {
@@ -47,6 +73,9 @@ function showView(viewName) {
     selected.classList.remove('hidden');
     selected.classList.add('active');
   }
+
+  state.phase = viewName;
+  updateChrome();
 }
 
 function setLandingError(message = '') {
@@ -54,6 +83,7 @@ function setLandingError(message = '') {
 }
 
 function renderPlayers(players) {
+  playerCount.textContent = String(players.length);
   playersListEl.innerHTML = '';
   players.forEach((player) => {
     const li = document.createElement('li');
@@ -107,8 +137,8 @@ function renderQuestion(payload) {
   questionOptions.innerHTML = '';
   payload.options.forEach((optionText, idx) => {
     const btn = document.createElement('button');
-    btn.className = 'option';
-    btn.textContent = optionText;
+    btn.className = `option option-${idx % optionBadges.length}`;
+    btn.innerHTML = `<span class="option-badge">${optionBadges[idx % optionBadges.length]}</span><span>${optionText}</span>`;
     btn.addEventListener('click', () => {
       if (state.selectedAnswer !== null) return;
 
@@ -165,6 +195,7 @@ socket.on('roomState', (payload) => {
   state.phase = payload.phase;
   state.roomCode = payload.roomCode;
   roomCodeEl.textContent = payload.roomCode;
+  heroRoomCode.textContent = payload.roomCode;
 
   renderPlayers(payload.players);
 
@@ -195,6 +226,7 @@ socket.on('answerReveal', (payload) => {
 
 socket.on('leaderboard', (payload) => {
   if (payload.final) {
+    state.phase = 'final';
     showView('final');
     championName.textContent = payload.champion
       ? `${payload.champion.name} with ${payload.champion.score} points!`
@@ -258,3 +290,30 @@ startButton.addEventListener('click', () => {
 });
 
 showView('landing');
+updateChrome();
+
+// Prevent accidental refresh: show confirmation dialog
+window.addEventListener('beforeunload', function (e) {
+  // Modern browsers ignore custom messages, but returning a string triggers the dialog
+  e.preventDefault();
+  e.returnValue = '';
+  return '';
+});
+
+// Optional: Listen for refresh and show a custom popup (in-app)
+let refreshPending = false;
+window.addEventListener('keydown', function (e) {
+  // Detect F5 or Ctrl+R/Command+R
+  if ((e.key === 'F5') || (e.key === 'r' && (e.ctrlKey || e.metaKey))) {
+    e.preventDefault();
+    if (!refreshPending) {
+      refreshPending = true;
+      if (confirm('Do you want to restart the game?')) {
+        window.removeEventListener('beforeunload', () => {}); // Remove handler to allow refresh
+        location.reload();
+      } else {
+        refreshPending = false;
+      }
+    }
+  }
+});
