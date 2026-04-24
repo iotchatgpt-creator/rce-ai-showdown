@@ -2,7 +2,7 @@
   "meta": {
     "schemaVersion": 1,
     "initializedAt": "2026-04-23T21:52:35.909Z",
-    "lastUpdatedAt": "2026-04-24T03:17:32.311Z"
+    "lastUpdatedAt": "2026-04-24T04:25:43.018Z"
   },
   "schema": {
     "version": 1,
@@ -17,7 +17,9 @@
           "prompt",
           "options",
           "correctIndex",
-          "explanation"
+          "explanation",
+          "difficulty",
+          "tags"
         ]
       },
       {
@@ -65,1444 +67,578 @@
   "masterData": {
     "questions": [
       {
-        "id": "question_ecd59d4f0068",
+        "id": "question_a17c63d1bbc3",
         "prompt": "What does AI stand for?",
         "options": [
           "Automated Internet",
           "Artificial Intelligence",
-          "Applied Interface",
-          "Analog Instruction"
+          "Advanced Interface",
+          "Angry Intern"
         ],
         "correctIndex": 1,
-        "explanation": "AI stands for Artificial Intelligence."
+        "explanation": "AI stands for Artificial Intelligence.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_cd510c544a8b",
-        "prompt": "Which of these is a common AI tool for chatting?",
-        "options": [
-          "Chatbot",
-          "Stapler",
-          "Toaster",
-          "Hole punch"
-        ],
-        "correctIndex": 0,
-        "explanation": "A chatbot is designed to hold a conversation."
-      },
-      {
-        "id": "question_9826c444ad93",
-        "prompt": "What is a prompt in AI?",
-        "options": [
-          "A user instruction",
-          "A battery warning",
-          "A browser tab",
-          "A Wi-Fi password"
-        ],
-        "correctIndex": 0,
-        "explanation": "A prompt is the instruction or input you give the model."
-      },
-      {
-        "id": "question_8ad245c3157f",
-        "prompt": "What is generative AI especially known for?",
-        "options": [
-          "Creating new content",
-          "Fixing printers",
-          "Sorting socks",
-          "Charging laptops"
-        ],
-        "correctIndex": 0,
-        "explanation": "Generative AI can create text, images, audio, and more."
-      },
-      {
-        "id": "question_ae4b918201d1",
-        "prompt": "Which of these is the best prompt?",
-        "options": [
-          "Help",
-          "Write a friendly 3-line welcome email for a new teammate",
-          "Maybe do something",
-          "Words please"
-        ],
-        "correctIndex": 1,
-        "explanation": "Specific prompts usually lead to better results."
-      },
-      {
-        "id": "question_32f898cd5a54",
-        "prompt": "If AI makes something up confidently, that is called:",
-        "options": [
-          "A celebration",
-          "A hallucination",
-          "A screenshot",
-          "A shortcut"
-        ],
-        "correctIndex": 1,
-        "explanation": "Hallucination means the model gave inaccurate or invented information."
-      },
-      {
-        "id": "question_fdf5487d604b",
-        "prompt": "Which job is AI often good at?",
-        "options": [
-          "Drafting a first version",
-          "Drinking coffee",
-          "Watering office plants",
-          "Untangling cables"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI is often useful for first drafts and brainstorming."
-      },
-      {
-        "id": "question_fbfc06c5389b",
-        "prompt": "What should you do before sending AI-written work to your boss?",
-        "options": [
-          "Review it",
-          "Never read it",
-          "Print it immediately",
-          "Blame the robot"
-        ],
-        "correctIndex": 0,
-        "explanation": "Human review is still important."
-      },
-      {
-        "id": "question_37b30beed43c",
-        "prompt": "Which of these is an example of AI in daily life?",
-        "options": [
-          "Movie recommendations",
-          "A manual pencil sharpener",
-          "A sticky note",
-          "A paper calendar"
-        ],
-        "correctIndex": 0,
-        "explanation": "Recommendation systems often use AI."
-      },
-      {
-        "id": "question_692ec7c1310f",
-        "prompt": "What does NLP stand for?",
-        "options": [
-          "Natural Language Processing",
-          "Network Light Power",
-          "New Laptop Program",
-          "Numeric Logic Pack"
-        ],
-        "correctIndex": 0,
-        "explanation": "NLP stands for Natural Language Processing."
-      },
-      {
-        "id": "question_e9ecde971cc0",
-        "prompt": "Which task belongs to computer vision?",
-        "options": [
-          "Recognizing objects in photos",
-          "Making coffee",
-          "Organizing folders by color",
-          "Cleaning a monitor"
-        ],
-        "correctIndex": 0,
-        "explanation": "Computer vision focuses on understanding images and video."
-      },
-      {
-        "id": "question_c4410ba6cdd3",
-        "prompt": "What is training data?",
-        "options": [
-          "Information used to teach a model",
-          "A desk for meetings",
-          "A stronger internet signal",
-          "A game controller"
-        ],
-        "correctIndex": 0,
-        "explanation": "Training data is the information the model learns from."
-      },
-      {
-        "id": "question_eeef202e9bce",
-        "prompt": "What is one smart reason to fact-check AI output?",
-        "options": [
-          "AI can be wrong",
-          "It makes the font bigger",
-          "It improves your mouse battery",
-          "It unlocks a secret level"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI can still be wrong, outdated, or incomplete."
-      },
-      {
-        "id": "question_7414ee6c4cf2",
-        "prompt": "If you want an answer in bullet points, what should you do?",
-        "options": [
-          "Say 'use bullet points'",
-          "Whisper to the laptop",
-          "Use only emojis",
-          "Close and reopen the tab"
-        ],
-        "correctIndex": 0,
-        "explanation": "It helps to directly ask for the format you want."
-      },
-      {
-        "id": "question_793aa7a69012",
-        "prompt": "Which of these is an AI image task?",
-        "options": [
-          "Text-to-image generation",
-          "Window cleaning",
-          "Lamp repair",
-          "Keyboard washing"
-        ],
-        "correctIndex": 0,
-        "explanation": "Text-to-image tools create pictures from prompts."
-      },
-      {
-        "id": "question_efc99a426abc",
-        "prompt": "What is one good use of AI for a team?",
-        "options": [
-          "Brainstorming ideas quickly",
-          "Replacing lunch",
-          "Turning off gravity",
-          "Making meetings disappear"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI can help teams brainstorm fast."
-      },
-      {
-        "id": "question_e6e377836499",
-        "prompt": "Which phrase best describes machine learning?",
+        "id": "question_a82c3344db52",
+        "prompt": "What is Machine Learning?",
         "options": [
           "Learning patterns from data",
-          "Robots taking naps",
-          "Typing extra fast",
-          "A fancy mouse pad"
+          "Machines going to school",
+          "Manual Learning",
+          "Robots gossiping"
         ],
         "correctIndex": 0,
-        "explanation": "Machine learning finds patterns in data."
+        "explanation": "Machine Learning is about learning patterns from data.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_cef27cd0a199",
-        "prompt": "What is speech recognition?",
+        "id": "question_c517316c3bfa",
+        "prompt": "What is an LLM?",
         "options": [
-          "Turning spoken words into text",
-          "Making speakers louder",
-          "Picking a microphone color",
-          "Recording silence"
+          "Large Language Model",
+          "Long Logic Machine",
+          "Little Learning Module",
+          "Loud Laptop Mode"
         ],
         "correctIndex": 0,
-        "explanation": "Speech recognition converts speech into written text."
+        "explanation": "LLM stands for Large Language Model.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_1828b6fd0cb4",
-        "prompt": "If a team shares private data with AI carelessly, the biggest concern is:",
+        "id": "question_d230d237c0b7",
+        "prompt": "What does RAG stand for in AI?",
         "options": [
-          "Privacy",
-          "Chair height",
-          "Monitor brightness",
-          "Keyboard color"
+          "Retrieval Augmented Generation",
+          "Random Answer Generator",
+          "Recursive AI Graph",
+          "Really Awesome GPT"
         ],
         "correctIndex": 0,
-        "explanation": "Sensitive data should be handled carefully."
+        "explanation": "RAG combines retrieval with generation for better answers.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_1914963dbc35",
-        "prompt": "Which response sounds most useful for AI help?",
+        "id": "question_b75ae1aa6d4e",
+        "prompt": "What is Generative AI known for?",
         "options": [
-          "Summarize this in 3 short bullet points",
-          "Do magic",
-          "Fix life",
-          "Just guess everything"
+          "Creating new content",
+          "Fixing Wi-Fi",
+          "Sorting socks",
+          "Generating electricity"
         ],
         "correctIndex": 0,
-        "explanation": "Clear instructions help the model give better answers."
+        "explanation": "Generative AI creates text, images, and more.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_6b3a9ba2a75b",
+        "id": "question_f410c1425148",
+        "prompt": "What is AGI?",
+        "options": [
+          "Artificial General Intelligence",
+          "Automated Game Interface",
+          "Advanced GPT Instance",
+          "Angry Genius Interface"
+        ],
+        "correctIndex": 0,
+        "explanation": "AGI refers to human-level general intelligence.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_5fd7348420a3",
+        "prompt": "What is a prompt in AI?",
+        "options": [
+          "User instruction",
+          "Battery alert",
+          "Keyboard shortcut",
+          "Secret code"
+        ],
+        "correctIndex": 0,
+        "explanation": "A prompt is what you ask the AI.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_5a0a410a47a5",
+        "prompt": "What is hallucination in AI?",
+        "options": [
+          "Wrong confident answer",
+          "AI dreaming",
+          "Visual glitch",
+          "GPU overheating"
+        ],
+        "correctIndex": 0,
+        "explanation": "Hallucination is when AI generates incorrect info confidently.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_dbdf96f968a6",
+        "prompt": "What is vibe coding?",
+        "options": [
+          "Coding with intuition + AI",
+          "Coding with music only",
+          "Writing code blindly",
+          "Typing with closed eyes"
+        ],
+        "correctIndex": 0,
+        "explanation": "Vibe coding is intuitive coding with AI assistance.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_fc2e97b4650f",
+        "prompt": "What is Spec Driven Development?",
+        "options": [
+          "Building from detailed specs",
+          "Coding randomly",
+          "Speculating features",
+          "Debugging dreams"
+        ],
+        "correctIndex": 0,
+        "explanation": "It means developing based on clear specifications.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_2aa8d9ccc0f4",
+        "prompt": "What is an AI agent?",
+        "options": [
+          "System that takes actions autonomously",
+          "Call center bot",
+          "Random script",
+          "Excel macro"
+        ],
+        "correctIndex": 0,
+        "explanation": "Agents act independently to complete tasks.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_aed11126210d",
+        "prompt": "What is Agentic AI?",
+        "options": [
+          "AI that can plan and act",
+          "AI that argues",
+          "AI that sleeps",
+          "AI that paints walls"
+        ],
+        "correctIndex": 0,
+        "explanation": "Agentic AI can plan and execute tasks.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_a2e5b555a943",
+        "prompt": "What is MCP (Model Context Protocol)?",
+        "options": [
+          "Standard for connecting AI to tools",
+          "Memory Cache Processor",
+          "Model Control Panel",
+          "Magic Coding Portal"
+        ],
+        "correctIndex": 0,
+        "explanation": "MCP helps AI interact with external tools.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_822da60183a6",
+        "prompt": "What is fine-tuning?",
+        "options": [
+          "Training model on specific data",
+          "Adjusting brightness",
+          "Fixing bugs",
+          "Charging battery"
+        ],
+        "correctIndex": 0,
+        "explanation": "Fine-tuning adapts models to specific tasks.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_28b683d02776",
+        "prompt": "What is embedding in AI?",
+        "options": [
+          "Numeric representation of data",
+          "File compression",
+          "Code formatting",
+          "Image resizing"
+        ],
+        "correctIndex": 0,
+        "explanation": "Embeddings convert data into vectors.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_d07e25ef873a",
+        "prompt": "Which tool is used for code assistance?",
+        "options": [
+          "GitHub Copilot",
+          "MS Paint",
+          "Calculator",
+          "WordPad AI"
+        ],
+        "correctIndex": 0,
+        "explanation": "Copilot assists developers with code.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_0195b43b2df6",
+        "prompt": "What is prompt engineering?",
+        "options": [
+          "Designing better AI inputs",
+          "Building engines",
+          "Coding hardware",
+          "Fixing keyboards"
+        ],
+        "correctIndex": 0,
+        "explanation": "It focuses on crafting effective prompts.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_3b343aee094c",
+        "prompt": "What is zero-shot learning?",
+        "options": [
+          "Answer without examples",
+          "Learning instantly",
+          "Skipping training",
+          "Using zero GPUs"
+        ],
+        "correctIndex": 0,
+        "explanation": "Model performs task without prior examples.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_e9df3844f11e",
+        "prompt": "What is few-shot learning?",
+        "options": [
+          "Learning from few examples",
+          "Low memory usage",
+          "Quick training",
+          "Minimal coding"
+        ],
+        "correctIndex": 0,
+        "explanation": "Model learns from small examples.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_6a5dc23eaba4",
+        "prompt": "What is context window?",
+        "options": [
+          "Amount of input AI can handle",
+          "Screen size",
+          "Window UI",
+          "RAM slot"
+        ],
+        "correctIndex": 0,
+        "explanation": "Defines how much text model can process.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_416d33f2958c",
+        "prompt": "What is a token in AI?",
+        "options": [
+          "Piece of text",
+          "Security key",
+          "Password",
+          "Emoji"
+        ],
+        "correctIndex": 0,
+        "explanation": "Tokens are chunks of text processed by AI.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_c913e1687f45",
+        "prompt": "What is RLHF?",
+        "options": [
+          "Reinforcement Learning with Human Feedback",
+          "Random Logic Handler Framework",
+          "Real Learning Hyper Function",
+          "Robot Likes Human Food"
+        ],
+        "correctIndex": 0,
+        "explanation": "RLHF improves models using human feedback.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_76ebfd1ef3b3",
+        "prompt": "What is overfitting?",
+        "options": [
+          "Model memorizes data too well",
+          "Model runs too fast",
+          "Model too small",
+          "Model drinks coffee"
+        ],
+        "correctIndex": 0,
+        "explanation": "Overfitting reduces generalization.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_286570f4e464",
+        "prompt": "What is underfitting?",
+        "options": [
+          "Model too simple",
+          "Model too complex",
+          "Model too fast",
+          "Model sleepy"
+        ],
+        "correctIndex": 0,
+        "explanation": "Underfitting fails to learn patterns.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_ddfa6c134d42",
+        "prompt": "What is inference?",
+        "options": [
+          "Using trained model",
+          "Training model",
+          "Testing UI",
+          "Coding randomly"
+        ],
+        "correctIndex": 0,
+        "explanation": "Inference is applying a trained model to generate outputs.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_2289105529f2",
+        "prompt": "What is vector database used for?",
+        "options": [
+          "Storing embeddings",
+          "Saving images",
+          "Storing passwords",
+          "Saving memes"
+        ],
+        "correctIndex": 0,
+        "explanation": "Vector databases store embeddings for fast similarity search.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_afdfbe04f142",
+        "prompt": "What is prompt chaining?",
+        "options": [
+          "Combining multiple prompts",
+          "Repeating prompts",
+          "Deleting prompts",
+          "Copy-pasting prompts"
+        ],
+        "correctIndex": 0,
+        "explanation": "Prompt chaining links multiple prompts for complex workflows.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_e1753648dcce",
         "prompt": "What is multimodal AI?",
         "options": [
-          "AI that can handle text and images",
-          "AI with two keyboards",
-          "AI that only works at night",
-          "AI with extra browser tabs"
+          "Handles text and images",
+          "Handles only text",
+          "Handles only code",
+          "Handles only dreams"
         ],
         "correctIndex": 0,
-        "explanation": "Multimodal systems can work across different kinds of media."
+        "explanation": "Multimodal AI processes multiple data types.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_aac4c6bdc07e",
-        "prompt": "What is a common use of AI coding assistants?",
+        "id": "question_6d00d21435b1",
+        "prompt": "What is latency?",
         "options": [
-          "Explaining code snippets",
-          "Cooling your laptop",
-          "Charging a phone",
-          "Cleaning your desktop"
+          "Response delay",
+          "Accuracy",
+          "Memory size",
+          "Brightness"
         ],
         "correctIndex": 0,
-        "explanation": "Coding assistants can explain, draft, and debug code."
+        "explanation": "Latency is the time delay in response.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_e4b82601d3d2",
-        "prompt": "What is retrieval in AI usually for?",
+        "id": "question_8904050c0236",
+        "prompt": "What is throughput?",
         "options": [
-          "Grounding answers in documents",
-          "Making your monitor taller",
-          "Turning Wi-Fi orange",
-          "Sorting bookmarks"
+          "Requests per second",
+          "Typing speed",
+          "Model size",
+          "Battery life"
         ],
         "correctIndex": 0,
-        "explanation": "Retrieval helps AI use relevant source documents."
+        "explanation": "Throughput measures system capacity.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_242de64639d9",
-        "prompt": "Bias in AI usually means:",
+        "id": "question_9b77f78ffd55",
+        "prompt": "What is AI alignment?",
         "options": [
-          "Unfair patterns in outputs",
-          "A stronger battery",
-          "A faster fan",
-          "A hidden cheat code"
+          "Aligning AI with human values",
+          "Aligning UI",
+          "Aligning code",
+          "Aligning keyboard"
         ],
         "correctIndex": 0,
-        "explanation": "Bias can lead to unfair or skewed results."
+        "explanation": "AI alignment ensures safe and useful behavior.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_d5eea4fa2c0c",
-        "prompt": "What should you add if you want AI to sound friendly?",
+        "id": "question_79e2192c9b25",
+        "prompt": "What is grounding in AI?",
         "options": [
-          "A tone instruction",
-          "More random punctuation",
-          "Only capital letters",
-          "Absolutely no details"
+          "Using real data context",
+          "Stopping AI",
+          "Training GPU",
+          "Cooling server"
         ],
         "correctIndex": 0,
-        "explanation": "Tone instructions help shape the response style."
+        "explanation": "Grounding improves factual accuracy.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_a25e41a16710",
-        "prompt": "What is a model in AI?",
+        "id": "question_69afa266b676",
+        "prompt": "What is token limit?",
         "options": [
-          "A trained system that produces outputs",
-          "A cat walking on a keyboard",
-          "A laptop sticker",
-          "A browser extension only"
+          "Max input size AI handles",
+          "RAM limit",
+          "Disk size",
+          "Battery capacity"
         ],
         "correctIndex": 0,
-        "explanation": "An AI model maps inputs to outputs after training."
+        "explanation": "Token limit restricts input/output size.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_28fc20bacd66",
-        "prompt": "Which of these is a responsible team habit with AI?",
+        "id": "question_ec5eb6cd71cc",
+        "prompt": "What is classification in ML?",
         "options": [
-          "Edit the output before sharing",
-          "Trust every result forever",
-          "Upload every secret document",
-          "Skip all checking"
+          "Categorizing data",
+          "Generating text",
+          "Drawing images",
+          "Fixing bugs"
         ],
         "correctIndex": 0,
-        "explanation": "Reviewing the result is part of using AI responsibly."
+        "explanation": "Classification assigns labels to data.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_eb10f9d4ffd3",
-        "prompt": "If AI helps you write an email, what is your job after that?",
+        "id": "question_9c087de99bd5",
+        "prompt": "What is summarization?",
         "options": [
-          "Check tone and accuracy",
-          "Throw the laptop",
-          "Rename the internet",
-          "Pretend you never saw it"
+          "Shortening text",
+          "Writing code",
+          "Drawing UI",
+          "Playing music"
         ],
         "correctIndex": 0,
-        "explanation": "You should still verify that the final message is right."
+        "explanation": "Summarization condenses information.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_86a7df6cc3e9",
-        "prompt": "Which of these sounds like a strong prompt improvement?",
+        "id": "question_d26dd01b0240",
+        "prompt": "What is AI bias?",
         "options": [
-          "Add examples and context",
-          "Use less meaning",
-          "Remove all details",
-          "Yell at the screen"
+          "Unfair outputs",
+          "Fast processing",
+          "Better UI",
+          "More RAM"
         ],
         "correctIndex": 0,
-        "explanation": "Examples and context help guide the output."
+        "explanation": "Bias can lead to unfair results.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_7dd8b8e84781",
-        "prompt": "What is AI good at during brainstorming?",
+        "id": "question_341f367c893f",
+        "prompt": "What is AGI expected to do?",
         "options": [
-          "Generating many starting ideas",
-          "Replacing all humans",
-          "Making perfect plans every time",
-          "Fixing the office AC"
+          "Perform any intellectual task like humans",
+          "Only generate images",
+          "Only write code",
+          "Only play games"
         ],
         "correctIndex": 0,
-        "explanation": "AI is useful for generating fast first-pass ideas."
+        "explanation": "AGI aims for human-level intelligence across tasks.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_47fe3e53f1eb",
-        "prompt": "Which question would make coworkers laugh the most if AI answered it badly?",
+        "id": "question_4e6489bc8fa2",
+        "prompt": "What is a hallucination mitigation technique?",
         "options": [
-          "Write a serious memo in pirate voice",
-          "What is 2+2",
-          "What is a browser",
-          "What time is noon"
+          "Using RAG",
+          "Adding emojis",
+          "Restarting AI",
+          "Typing slower"
         ],
         "correctIndex": 0,
-        "explanation": "Asking for a weird tone twist can lead to funny outputs."
+        "explanation": "RAG reduces hallucination by grounding responses.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_eede899647b2",
-        "prompt": "If AI says the moon is made of office snacks, you should:",
+        "id": "question_d6f0f579a408",
+        "prompt": "What is a system prompt?",
         "options": [
-          "Not believe it without checking",
-          "Inform NASA immediately",
-          "Order more chips",
-          "Promote the AI"
+          "Instruction controlling AI behavior",
+          "Error message",
+          "Code comment",
+          "Keyboard shortcut"
         ],
         "correctIndex": 0,
-        "explanation": "Wild claims still need verification."
+        "explanation": "System prompts guide AI responses.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_9cf7f4b198fd",
-        "prompt": "What is one reason AI feels fast in teams?",
+        "id": "question_e37f8d6657aa",
+        "prompt": "What is fine-tuned model?",
         "options": [
-          "It can draft in seconds",
-          "It owns a race car",
-          "It drinks six coffees",
-          "It skips Mondays"
+          "Model trained for specific task",
+          "Smaller model",
+          "Faster model",
+          "Broken model"
         ],
         "correctIndex": 0,
-        "explanation": "AI can produce a draft very quickly."
+        "explanation": "Fine-tuned models are specialized.",
+        "difficulty": "",
+        "tags": []
       },
       {
-        "id": "question_eb3493476266",
-        "prompt": "What kind of question works well for beginner AI users?",
+        "id": "question_7ca9ac5e2276",
+        "prompt": "What is agent memory?",
         "options": [
-          "Simple and specific",
-          "Confusing and vague",
-          "Only written in symbols",
-          "Very mysterious"
+          "Stored context for AI agents",
+          "RAM usage",
+          "Hard disk",
+          "Cache files"
         ],
         "correctIndex": 0,
-        "explanation": "Simple and specific prompts are easier to answer well."
-      },
-      {
-        "id": "question_4df3f781d6d4",
-        "prompt": "If you ask AI for a table, why might that help?",
-        "options": [
-          "It makes results easier to scan",
-          "It gives the AI muscles",
-          "It improves keyboard speed",
-          "It changes the weather"
-        ],
-        "correctIndex": 0,
-        "explanation": "Structured formats can make the answer easier to read."
-      },
-      {
-        "id": "question_f61ad9b50407",
-        "prompt": "Which sounds like a healthy team use of AI?",
-        "options": [
-          "Use it to spark ideas, then discuss",
-          "Let it run the company alone",
-          "Use it for every life decision",
-          "Never question it"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI works best as a helpful teammate, not a total replacement."
-      },
-      {
-        "id": "question_20f1227bc781",
-        "prompt": "If an AI summary feels too long, what should you do next time?",
-        "options": [
-          "Ask for a shorter summary",
-          "Throw the summary away in anger",
-          "Restart the Wi-Fi",
-          "Type slower"
-        ],
-        "correctIndex": 0,
-        "explanation": "You can steer the length by asking directly."
-      },
-      {
-        "id": "question_f79cccd85361",
-        "prompt": "What is the most likely reason AI gave a weird answer?",
-        "options": [
-          "The prompt was unclear or the model guessed wrong",
-          "The chair was squeaky",
-          "The moon was full",
-          "Someone blinked too fast"
-        ],
-        "correctIndex": 0,
-        "explanation": "Unclear prompts and model errors can both cause weird answers."
-      },
-      {
-        "id": "question_9822352fcb5f",
-        "prompt": "What should a team do if AI writes something almost right?",
-        "options": [
-          "Edit and improve it",
-          "Frame it in a museum",
-          "Delete the internet",
-          "Stop using words"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI output often works best as a draft to refine."
-      },
-      {
-        "id": "question_8dc73044c6d5",
-        "prompt": "Which is the best way to ask AI for a social post?",
-        "options": [
-          "Write a cheerful LinkedIn post under 80 words",
-          "Make content",
-          "Internet words now",
-          "Do post thing"
-        ],
-        "correctIndex": 0,
-        "explanation": "Format, tone, and length all help."
-      },
-      {
-        "id": "question_a93c12ec3d7b",
-        "prompt": "What is one funny but true thing about AI?",
-        "options": [
-          "It can sound confident and still be wrong",
-          "It eats batteries",
-          "It sleeps on weekends",
-          "It hates punctuation"
-        ],
-        "correctIndex": 0,
-        "explanation": "Confidence does not guarantee correctness."
-      },
-      {
-        "id": "question_abced5bb3914",
-        "prompt": "Which team task can AI help with?",
-        "options": [
-          "Summarizing meeting notes",
-          "Physically moving desks",
-          "Making coffee by telepathy",
-          "Refilling the snack shelf by magic"
-        ],
-        "correctIndex": 0,
-        "explanation": "Summarizing notes is a common AI use case."
-      },
-      {
-        "id": "question_67c2cfff1cda",
-        "prompt": "If you want AI to sound formal, say:",
-        "options": [
-          "Use a professional tone",
-          "Be chaotic",
-          "Sound like a dragon",
-          "Please panic"
-        ],
-        "correctIndex": 0,
-        "explanation": "Explicit tone instructions help."
-      },
-      {
-        "id": "question_3723bd9a1424",
-        "prompt": "What is one reason teams like AI for first drafts?",
-        "options": [
-          "It reduces blank-page stress",
-          "It folds laundry",
-          "It sharpens pencils",
-          "It opens locked doors"
-        ],
-        "correctIndex": 0,
-        "explanation": "Getting started is often easier with a draft."
-      },
-      {
-        "id": "question_e444769c410e",
-        "prompt": "What kind of input helps AI summarize a document better?",
-        "options": [
-          "The actual document text",
-          "A potato",
-          "A blinking cursor",
-          "A mystery box"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI needs the relevant content to summarize it."
-      },
-      {
-        "id": "question_bd66e4453aa0",
-        "prompt": "What is one common role of AI in customer support?",
-        "options": [
-          "Answering repeated questions",
-          "Refilling office chairs",
-          "Installing windows by hand",
-          "Packing lunchboxes"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI often helps with FAQ-style support."
-      },
-      {
-        "id": "question_4faa7be232d4",
-        "prompt": "If AI gives three ideas and one is hilariously bad, the team should:",
-        "options": [
-          "Pick the useful ones and move on",
-          "Quit all projects",
-          "Blame the nearest lamp",
-          "Unplug the building"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI outputs are often mixed, so select the useful parts."
-      },
-      {
-        "id": "question_cf1be7d999f3",
-        "prompt": "Why is context useful in prompts?",
-        "options": [
-          "It helps the model understand what you actually want",
-          "It makes laptops heavier",
-          "It creates bonus Wi-Fi",
-          "It scares bugs away"
-        ],
-        "correctIndex": 0,
-        "explanation": "Context gives the model a clearer target."
-      },
-      {
-        "id": "question_ffe2d81a087a",
-        "prompt": "Which of these is a fun but helpful way to use AI with a team?",
-        "options": [
-          "Ask it for icebreaker questions",
-          "Ask it to cancel Mondays",
-          "Ask it to move the sun",
-          "Ask it to replace snacks"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI can help teams create playful prompts and games too."
-      },
-      {
-        "id": "question_f5d32f4d98ec",
-        "prompt": "What is one easy sign a prompt could be better?",
-        "options": [
-          "It gives almost no detail",
-          "It mentions the audience",
-          "It asks for a format",
-          "It includes context"
-        ],
-        "correctIndex": 0,
-        "explanation": "Very vague prompts usually produce weaker answers."
-      },
-      {
-        "id": "question_d641f06cfb2c",
-        "prompt": "Which task sounds like classification?",
-        "options": [
-          "Sorting emails into categories",
-          "Making toast",
-          "Charging headphones",
-          "Watering a cactus"
-        ],
-        "correctIndex": 0,
-        "explanation": "Classification is about assigning items to categories."
-      },
-      {
-        "id": "question_eb3e85b70ac6",
-        "prompt": "If AI writes a joke for your team and it flops, what happened?",
-        "options": [
-          "The prompt or model missed the vibe",
-          "Comedy is illegal now",
-          "The room lost oxygen",
-          "Tuesday happened"
-        ],
-        "correctIndex": 0,
-        "explanation": "Humor is tricky, and the model may miss the tone."
-      },
-      {
-        "id": "question_2120cda3ea56",
-        "prompt": "Which prompt is better for brainstorming names?",
-        "options": [
-          "Give me 12 playful names for an AI trivia game",
-          "Names",
-          "Invent stuff",
-          "Please produce nouns"
-        ],
-        "correctIndex": 0,
-        "explanation": "Specific creative requests usually work better."
-      },
-      {
-        "id": "question_321ce53b2061",
-        "prompt": "What is one safe habit when using AI at work?",
-        "options": [
-          "Avoid pasting sensitive info unless approved",
-          "Paste everything always",
-          "Trust it with passwords",
-          "Upload private payroll data for fun"
-        ],
-        "correctIndex": 0,
-        "explanation": "Sensitive information should be protected."
-      },
-      {
-        "id": "question_f781336742e9",
-        "prompt": "Which phrase best describes an AI assistant?",
-        "options": [
-          "Helpful tool, not magic truth machine",
-          "Perfect robot boss",
-          "Snack-powered wizard",
-          "Printer replacement only"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI can help a lot, but it still needs human judgment."
-      },
-      {
-        "id": "question_e0da6883c906",
-        "prompt": "What is a common reason to ask AI for examples?",
-        "options": [
-          "To better understand a concept",
-          "To make your desk taller",
-          "To repaint the office",
-          "To boost battery life"
-        ],
-        "correctIndex": 0,
-        "explanation": "Examples make explanations easier to grasp."
-      },
-      {
-        "id": "question_cb203d5a9649",
-        "prompt": "If you want AI to rewrite something more simply, ask it to:",
-        "options": [
-          "Use plain language",
-          "Use more mystery",
-          "Sound like an alien lawyer",
-          "Only speak in riddles"
-        ],
-        "correctIndex": 0,
-        "explanation": "Plain-language instructions help simplify output."
-      },
-      {
-        "id": "question_1a18e739d838",
-        "prompt": "Why do people compare multiple AI answers sometimes?",
-        "options": [
-          "To see which one is most useful",
-          "To increase gravity",
-          "To confuse the keyboard",
-          "To make the browser jealous"
-        ],
-        "correctIndex": 0,
-        "explanation": "Comparing answers can help you pick the best one."
-      },
-      {
-        "id": "question_f2421ec576d4",
-        "prompt": "What is one thing AI usually cannot guarantee?",
-        "options": [
-          "Perfect correctness every time",
-          "Fast drafting",
-          "Pattern-based writing help",
-          "Formatting in bullet points"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI cannot guarantee perfect accuracy."
-      },
-      {
-        "id": "question_2bb1d400d228",
-        "prompt": "Which of these is a good AI prompt add-on?",
-        "options": [
-          "Mention the audience",
-          "Hide the goal",
-          "Remove the topic",
-          "Use fewer helpful details"
-        ],
-        "correctIndex": 0,
-        "explanation": "The audience helps shape the response."
-      },
-      {
-        "id": "question_10f8b9a8605d",
-        "prompt": "Which is the funniest but worst way to trust AI?",
-        "options": [
-          "Using it as your only source for important facts",
-          "Using it for a draft",
-          "Using it for brainstorming",
-          "Using it to summarize notes"
-        ],
-        "correctIndex": 0,
-        "explanation": "Important facts should still be checked."
-      },
-      {
-        "id": "question_20f9c3f6d842",
-        "prompt": "If a model recognizes spam emails, what is it doing?",
-        "options": [
-          "Classification",
-          "Singing",
-          "Image painting",
-          "Coffee tasting"
-        ],
-        "correctIndex": 0,
-        "explanation": "Spam detection is a classification problem."
-      },
-      {
-        "id": "question_f002d6c7576e",
-        "prompt": "If your team wants fun AI prompts for Friday, a good idea is:",
-        "options": [
-          "Ask for absurd icebreakers",
-          "Ask AI to replace payroll",
-          "Ask AI to remove all deadlines",
-          "Ask AI to rename everyone"
-        ],
-        "correctIndex": 0,
-        "explanation": "Light creative prompts can make team sessions fun."
-      },
-      {
-        "id": "question_fcbf25a09705",
-        "prompt": "Why might AI ask for more context?",
-        "options": [
-          "Because it needs clearer direction",
-          "Because it is bored",
-          "Because it wants a vacation",
-          "Because the keyboard asked nicely"
-        ],
-        "correctIndex": 0,
-        "explanation": "More context often leads to a better result."
-      },
-      {
-        "id": "question_b82d5d032f83",
-        "prompt": "If AI outputs a table, a list, and a paragraph, which is best?",
-        "options": [
-          "Whichever matches your goal",
-          "Always the paragraph",
-          "Always the table",
-          "Always the one with the most commas"
-        ],
-        "correctIndex": 0,
-        "explanation": "The best format depends on what you need."
-      },
-      {
-        "id": "question_58de5989d3a1",
-        "prompt": "What is one reason teams use AI for meeting recaps?",
-        "options": [
-          "To save time on first drafts",
-          "To make meetings longer",
-          "To lower chair quality",
-          "To confuse everyone equally"
-        ],
-        "correctIndex": 0,
-        "explanation": "Recaps are a common time-saving use case."
-      },
-      {
-        "id": "question_f430d1579fa2",
-        "prompt": "If AI gives five headline ideas and two are silly, that means:",
-        "options": [
-          "You can still keep the good ones",
-          "The internet is broken",
-          "All ideas are banned",
-          "The monitor is judging you"
-        ],
-        "correctIndex": 0,
-        "explanation": "You can use AI output selectively."
-      },
-      {
-        "id": "question_b8dd10d7c00e",
-        "prompt": "What should a teammate do if AI sounds super sure but the answer seems strange?",
-        "options": [
-          "Verify it",
-          "Celebrate immediately",
-          "Put it on a poster",
-          "Tell no one and hope for the best"
-        ],
-        "correctIndex": 0,
-        "explanation": "Confidence is not the same as correctness."
-      },
-      {
-        "id": "question_8663c6ce5e5e",
-        "prompt": "What is a fun use of AI image tools on a team?",
-        "options": [
-          "Making silly event posters",
-          "Replacing your office walls",
-          "Fixing broken chairs",
-          "Rewiring the lights"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI image tools are great for playful visuals."
-      },
-      {
-        "id": "question_e40a91ceef23",
-        "prompt": "If you want AI to explain something to a beginner, ask it to:",
-        "options": [
-          "Explain it simply for a beginner",
-          "Use more jargon",
-          "Hide the answer",
-          "Write only in code"
-        ],
-        "correctIndex": 0,
-        "explanation": "Stating the audience level helps a lot."
-      },
-      {
-        "id": "question_1fab5b6cc35b",
-        "prompt": "What is one sign AI is helping your team well?",
-        "options": [
-          "It speeds up the rough draft stage",
-          "It does everyone's taxes secretly",
-          "It controls the moon",
-          "It makes every idea perfect"
-        ],
-        "correctIndex": 0,
-        "explanation": "Speeding up drafts is a realistic win."
-      },
-      {
-        "id": "question_65497a80323a",
-        "prompt": "Which question is most likely to create a funny AI answer?",
-        "options": [
-          "Write a pep talk from a dramatic potato",
-          "What is an email",
-          "What is noon",
-          "What is a mouse"
-        ],
-        "correctIndex": 0,
-        "explanation": "Creative prompts can lead to goofy results."
-      },
-      {
-        "id": "question_ab2c1d1ff15b",
-        "prompt": "Why might AI-generated team trivia stay fresh?",
-        "options": [
-          "Because it can pull from a larger pool",
-          "Because printers are scared of it",
-          "Because coffee tastes better near it",
-          "Because it changes the weather"
-        ],
-        "correctIndex": 0,
-        "explanation": "A larger pool means less repetition."
-      },
-      {
-        "id": "question_c3089de65f6b",
-        "prompt": "What is one smart reason to keep prompts reusable?",
-        "options": [
-          "They save time next time",
-          "They make your laptop shinier",
-          "They improve desk posture",
-          "They stop emails entirely"
-        ],
-        "correctIndex": 0,
-        "explanation": "Reusable prompts help teams move faster."
-      },
-      {
-        "id": "question_d1106fd7d0c5",
-        "prompt": "If an AI summary misses something important, what is the best reaction?",
-        "options": [
-          "Add more context and try again",
-          "Throw the computer",
-          "Cancel the meeting",
-          "Accuse the keyboard"
-        ],
-        "correctIndex": 0,
-        "explanation": "Iterating on the prompt often helps."
-      },
-      {
-        "id": "question_87cc1f08db1c",
-        "prompt": "Which task best matches text generation?",
-        "options": [
-          "Drafting a blog intro",
-          "Refilling staplers",
-          "Cleaning windows",
-          "Changing desk wheels"
-        ],
-        "correctIndex": 0,
-        "explanation": "Text generation creates written content."
-      },
-      {
-        "id": "question_0b99aae716d7",
-        "prompt": "What is a fun but practical thing to ask AI before a workshop?",
-        "options": [
-          "Give me 10 icebreaker questions",
-          "Delete all calendars",
-          "Invent a second Monday",
-          "Replace all chairs with beans"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI is useful for quick workshop prep."
-      },
-      {
-        "id": "question_f21dce45279e",
-        "prompt": "Why do example prompts help teammates learn AI faster?",
-        "options": [
-          "They show what a good request looks like",
-          "They make computers float",
-          "They erase all bugs",
-          "They refill the snack bowl"
-        ],
-        "correctIndex": 0,
-        "explanation": "Examples make prompt patterns easier to learn."
-      },
-      {
-        "id": "question_378dda3b1373",
-        "prompt": "If AI gives you a weirdly dramatic answer, what can you change?",
-        "options": [
-          "The tone instruction",
-          "The weather",
-          "Your chair wheels",
-          "The office ceiling"
-        ],
-        "correctIndex": 0,
-        "explanation": "Tone is something you can steer directly."
-      },
-      {
-        "id": "question_92aa9800cff3",
-        "prompt": "What is one thing AI can do for a project kickoff?",
-        "options": [
-          "Draft agenda ideas",
-          "Install the windows",
-          "Refill the fridge",
-          "Mop the hallway"
-        ],
-        "correctIndex": 0,
-        "explanation": "Drafting agenda ideas is a good kickoff use case."
-      },
-      {
-        "id": "question_1b5e1dac3c2e",
-        "prompt": "What should a team remember when AI gives 20 ideas?",
-        "options": [
-          "Quantity does not equal quality",
-          "All 20 are perfect",
-          "The longest one wins",
-          "The weirdest one is law"
-        ],
-        "correctIndex": 0,
-        "explanation": "More ideas is useful, but judgment still matters."
-      },
-      {
-        "id": "question_6886e4d9dd51",
-        "prompt": "Which prompt sounds strongest for a fun team quiz?",
-        "options": [
-          "Write 10 simple AI trivia questions with playful answer choices",
-          "Quiz",
-          "Think thoughts",
-          "Please do game thing"
-        ],
-        "correctIndex": 0,
-        "explanation": "A clear request with constraints works best."
-      },
-      {
-        "id": "question_517be5d7ccab",
-        "prompt": "What is one reason AI jokes can fail?",
-        "options": [
-          "Humor depends on context and taste",
-          "Jokes are illegal online",
-          "Comedy requires special batteries",
-          "Monitors dislike laughter"
-        ],
-        "correctIndex": 0,
-        "explanation": "Humor is subjective and context-heavy."
-      },
-      {
-        "id": "question_513a666deb87",
-        "prompt": "If you want AI to compare two tools, what helps most?",
-        "options": [
-          "Ask for pros and cons in a table",
-          "Say 'tools?'",
-          "Avoid naming the tools",
-          "Use only one word"
-        ],
-        "correctIndex": 0,
-        "explanation": "Specific structure makes comparisons clearer."
-      },
-      {
-        "id": "question_99dd1929beaa",
-        "prompt": "What does it mean to iterate on a prompt?",
-        "options": [
-          "Refine it and try again",
-          "Shout at the screen louder",
-          "Use random capitals",
-          "Add zero context"
-        ],
-        "correctIndex": 0,
-        "explanation": "Prompting often improves through revision."
-      },
-      {
-        "id": "question_581be4b10037",
-        "prompt": "Which of these is a realistic AI superpower?",
-        "options": [
-          "Speeding up rough drafts",
-          "Predicting every future meeting perfectly",
-          "Folding laundry from the cloud",
-          "Teleporting sandwiches"
-        ],
-        "correctIndex": 0,
-        "explanation": "Draft acceleration is realistic and useful."
-      },
-      {
-        "id": "question_77a614d13b35",
-        "prompt": "If AI gives a summary that sounds too robotic, ask it to:",
-        "options": [
-          "Rewrite it in a more natural tone",
-          "Use more random semicolons",
-          "Make it colder",
-          "Hide the verbs"
-        ],
-        "correctIndex": 0,
-        "explanation": "You can ask for a more human or natural tone."
-      },
-      {
-        "id": "question_c2b9cfbd6858",
-        "prompt": "Which team win is most believable from AI?",
-        "options": [
-          "Faster first drafts and clearer notes",
-          "Never needing meetings again",
-          "Unlimited snacks",
-          "Instant promotions"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI often helps with drafts and summaries."
-      },
-      {
-        "id": "question_7a5372d7b200",
-        "prompt": "What is one good way to test if a prompt is working?",
-        "options": [
-          "Try it and compare the output to your goal",
-          "Whistle at the laptop",
-          "Rotate your chair",
-          "Refresh ten times"
-        ],
-        "correctIndex": 0,
-        "explanation": "Testing against your goal is the best check."
-      },
-      {
-        "id": "question_c3f029d2227c",
-        "prompt": "If AI generates a wrong fact in a meeting recap, the team should:",
-        "options": [
-          "Correct it before sharing",
-          "Archive it forever",
-          "Frame it as modern art",
-          "Pretend accuracy is optional"
-        ],
-        "correctIndex": 0,
-        "explanation": "Review before sending is still important."
-      },
-      {
-        "id": "question_3cb00aa3e2ef",
-        "prompt": "Which of these is a fun team use for AI on a Friday?",
-        "options": [
-          "Generate fake award titles",
-          "Approve payroll alone",
-          "Replace management",
-          "Write everyone's passwords"
-        ],
-        "correctIndex": 0,
-        "explanation": "Playful low-stakes prompts can be great team fun."
-      },
-      {
-        "id": "question_07c24913f8c1",
-        "prompt": "If you want AI to sound more human, what usually helps?",
-        "options": [
-          "Give tone and audience guidance",
-          "Use fewer details",
-          "Hide your goal",
-          "Type while upside down"
-        ],
-        "correctIndex": 0,
-        "explanation": "Tone and audience instructions help shape the voice."
-      },
-      {
-        "id": "question_17c8b14a8da5",
-        "prompt": "What should a team do if AI output feels generic?",
-        "options": [
-          "Add more context and specificity",
-          "Give up forever",
-          "Switch off gravity",
-          "Rename the Wi-Fi"
-        ],
-        "correctIndex": 0,
-        "explanation": "Generic prompts often produce generic answers."
-      },
-      {
-        "id": "question_15b35b3fa89a",
-        "prompt": "Which of these is a common AI output format request?",
-        "options": [
-          "Put it in a table",
-          "Make it edible",
-          "Turn it into a chair",
-          "Print it on the moon"
-        ],
-        "correctIndex": 0,
-        "explanation": "Tables are a common format request."
-      },
-      {
-        "id": "question_74038576bad1",
-        "prompt": "What is one reason AI is fun in trivia games?",
-        "options": [
-          "It can mix serious and silly questions",
-          "It throws confetti from the keyboard",
-          "It sings during loading",
-          "It makes time stop"
-        ],
-        "correctIndex": 0,
-        "explanation": "A mix of simple and playful questions keeps games lively."
-      },
-      {
-        "id": "question_7dcf153f13f1",
-        "prompt": "If AI gives four title ideas and your team hates all four, the next move is:",
-        "options": [
-          "Give better guidance and retry",
-          "Delete all nouns",
-          "Turn off the office lights",
-          "Start a band"
-        ],
-        "correctIndex": 0,
-        "explanation": "A better prompt usually helps more than frustration."
-      },
-      {
-        "id": "question_13ca0bcc7879",
-        "prompt": "Which of these is most helpful when asking AI for event copy?",
-        "options": [
-          "Audience, tone, and length",
-          "Desk color",
-          "Chair brand",
-          "Coffee temperature"
-        ],
-        "correctIndex": 0,
-        "explanation": "Those details help the model target the result."
-      },
-      {
-        "id": "question_b3ab6858d1fe",
-        "prompt": "If AI writes a weird slogan, that means:",
-        "options": [
-          "You can ask for 10 better ones",
-          "The company must rebrand instantly",
-          "All slogans are cursed",
-          "Marketing is over"
-        ],
-        "correctIndex": 0,
-        "explanation": "You can iterate until you get something useful."
-      },
-      {
-        "id": "question_8567dc7a0ad5",
-        "prompt": "What is one realistic limitation of AI brainstorming?",
-        "options": [
-          "Not every idea will be good",
-          "It physically melts laptops",
-          "It turns emails into soup",
-          "It blocks daylight"
-        ],
-        "correctIndex": 0,
-        "explanation": "Brainstorming quantity does not guarantee quality."
-      },
-      {
-        "id": "question_c2de87ff850d",
-        "prompt": "What helps AI answer more accurately about a document?",
-        "options": [
-          "Giving the exact document context",
-          "Giving fewer facts",
-          "Giving no topic",
-          "Giving only emojis"
-        ],
-        "correctIndex": 0,
-        "explanation": "Grounding the answer in real context helps accuracy."
-      },
-      {
-        "id": "question_6434f53c0544",
-        "prompt": "If a teammate says 'AI is magic,' the better answer is:",
-        "options": [
-          "It is a useful tool, not magic",
-          "Yes, it knows all things forever",
-          "It controls traffic lights",
-          "It can smell lies"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI is powerful, but it is still a tool with limits."
-      },
-      {
-        "id": "question_078099f0aa11",
-        "prompt": "What is one easy way to make a question more fun?",
-        "options": [
-          "Add playful answer choices",
-          "Remove all personality",
-          "Use only technical jargon",
-          "Hide the prompt"
-        ],
-        "correctIndex": 0,
-        "explanation": "Playful answer choices can make trivia more entertaining."
-      },
-      {
-        "id": "question_aba819e31afb",
-        "prompt": "Which output is most useful for a busy team lead?",
-        "options": [
-          "A short clear summary",
-          "A giant mystery paragraph",
-          "A poem with no point",
-          "A confusing riddle"
-        ],
-        "correctIndex": 0,
-        "explanation": "Clear summaries are usually most useful."
-      },
-      {
-        "id": "question_33b6b5a81ae4",
-        "prompt": "If AI helps write a meeting recap, what should it include?",
-        "options": [
-          "Key decisions and actions",
-          "Only emojis",
-          "Just the weather",
-          "A sandwich ranking"
-        ],
-        "correctIndex": 0,
-        "explanation": "Action items and decisions are usually the most important parts."
-      },
-      {
-        "id": "question_8dcb855ee0b5",
-        "prompt": "What is one reason an AI game can feel dynamic?",
-        "options": [
-          "It pulls random questions from a big pool",
-          "It installs more RAM emotionally",
-          "It changes gravity",
-          "It orders pizza by itself"
-        ],
-        "correctIndex": 0,
-        "explanation": "Randomized pools make each round feel fresher."
-      },
-      {
-        "id": "question_6221438238f3",
-        "prompt": "If AI gives you a weird table, what should you do?",
-        "options": [
-          "Ask it to format the table more clearly",
-          "Accept chaos",
-          "Blame the spreadsheet spirits",
-          "Turn off the monitor"
-        ],
-        "correctIndex": 0,
-        "explanation": "You can revise formatting instructions directly."
-      },
-      {
-        "id": "question_86c7c11527a6",
-        "prompt": "What is the friendliest way to use AI in a team setting?",
-        "options": [
-          "As a helper, not a replacement",
-          "As the final boss of all decisions",
-          "As the legal department",
-          "As the snack manager"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI works best as a helper with people still in charge."
-      },
-      {
-        "id": "question_e43dda557804",
-        "prompt": "If AI writes a dramatic out-of-office reply for no reason, what should you adjust?",
-        "options": [
-          "The tone and style instructions",
-          "The moon phase",
-          "The desk lamp angle",
-          "The keyboard volume"
-        ],
-        "correctIndex": 0,
-        "explanation": "Style and tone are steerable."
-      },
-      {
-        "id": "question_8fe9d3c0a653",
-        "prompt": "Which prompt is best for a funny but simple AI trivia round?",
-        "options": [
-          "Write easy AI questions with light humor and clear answers",
-          "Questions now",
-          "Chaos quiz",
-          "Make words happen"
-        ],
-        "correctIndex": 0,
-        "explanation": "Clear direction about difficulty and tone helps."
-      },
-      {
-        "id": "question_48152421f289",
-        "prompt": "What is one useful thing AI can do before a presentation?",
-        "options": [
-          "Suggest talking points",
-          "Carry the projector",
-          "Fix the carpet",
-          "Move the chairs by mind power"
-        ],
-        "correctIndex": 0,
-        "explanation": "Talking points are a common use case."
-      },
-      {
-        "id": "question_866da14c6acf",
-        "prompt": "If your team laughs because AI gave a bizarre answer, the best next move is:",
-        "options": [
-          "Refine the prompt and try again",
-          "Retire the internet",
-          "Ban all keyboards",
-          "End the fiscal year"
-        ],
-        "correctIndex": 0,
-        "explanation": "Funny failures are often fixed with clearer instructions."
-      },
-      {
-        "id": "question_b1a88eed89a0",
-        "prompt": "What is one good rule for using AI in team games?",
-        "options": [
-          "Keep it fun, simple, and easy to follow",
-          "Make every question painfully hard",
-          "Hide the rules",
-          "Only reward confusion"
-        ],
-        "correctIndex": 0,
-        "explanation": "Simple, playful rules make the game more enjoyable."
-      },
-      {
-        "id": "question_fbeeda6af572",
-        "prompt": "Why might a team want 100 questions in a pool?",
-        "options": [
-          "To reduce repeats and keep rounds fresh",
-          "To make one game last forever",
-          "To confuse the host only",
-          "To punish the leaderboard"
-        ],
-        "correctIndex": 0,
-        "explanation": "A larger pool keeps games from feeling repetitive."
-      },
-      {
-        "id": "question_f114232cb63d",
-        "prompt": "If AI writes something great on the first try, you should probably:",
-        "options": [
-          "Still give it a quick review",
-          "Declare it sacred",
-          "Print 500 copies instantly",
-          "Assume every future answer is perfect"
-        ],
-        "correctIndex": 0,
-        "explanation": "Even strong outputs should still be checked."
-      },
-      {
-        "id": "question_c9ecbf11fbf9",
-        "prompt": "What is one good use of AI for team fun?",
-        "options": [
-          "Generating playful award categories",
-          "Approving all expenses",
-          "Running payroll unsupervised",
-          "Deleting old inboxes forever"
-        ],
-        "correctIndex": 0,
-        "explanation": "Playful low-risk uses are great for team fun."
-      },
-      {
-        "id": "question_e5fe50b5ca2d",
-        "prompt": "If you want AI trivia to be easier, ask for:",
-        "options": [
-          "Simple beginner-friendly questions",
-          "Impossible trick questions",
-          "Only advanced jargon",
-          "Pure mystery mode"
-        ],
-        "correctIndex": 0,
-        "explanation": "Difficulty is something you can specify."
-      },
-      {
-        "id": "question_68e3eefd0635",
-        "prompt": "Which statement about AI is most realistic?",
-        "options": [
-          "Helpful, fast, and imperfect",
-          "Always right forever",
-          "Basically psychic",
-          "A toaster with opinions"
-        ],
-        "correctIndex": 0,
-        "explanation": "AI can be very useful, but it is still imperfect."
-      },
-      {
-        "id": "question_c5de94e129db",
-        "prompt": "What should a host do if they want every game to feel different?",
-        "options": [
-          "Use a large randomized question pool",
-          "Use the same 4 questions forever",
-          "Hide the answers only",
-          "Change laptops each round"
-        ],
-        "correctIndex": 0,
-        "explanation": "Randomized pools help each game feel new."
-      },
-      {
-        "id": "question_b6c1a73ac2c6",
-        "prompt": "What is the funniest wrong idea about AI here?",
-        "options": [
-          "It can teleport snacks",
-          "It can draft emails",
-          "It can summarize text",
-          "It can suggest ideas"
-        ],
-        "correctIndex": 0,
-        "explanation": "Sadly, AI still cannot teleport snacks."
-      },
-      {
-        "id": "question_489e20e3ae2d",
-        "prompt": "If your team uses AI well, the goal is usually:",
-        "options": [
-          "Work faster and think better together",
-          "Never think again",
-          "Replace every conversation",
-          "Outsource reality"
-        ],
-        "correctIndex": 0,
-        "explanation": "The point is usually to support people, not remove them."
+        "explanation": "Memory helps agents remember context.",
+        "difficulty": "",
+        "tags": []
       }
     ],
     "avatars": [

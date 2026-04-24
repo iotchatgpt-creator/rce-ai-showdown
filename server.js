@@ -589,7 +589,19 @@ app.get('/api/questions/:id', (req, res) => {
 });
 
 app.post('/api/questions', (req, res) => {
-  const payloads = Array.isArray(req.body) ? req.body : [req.body || {}];
+  let payloads;
+  let isBulk = false;
+
+  if (Array.isArray(req.body)) {
+    payloads = req.body;
+    isBulk = true;
+  } else if (req.body && Array.isArray(req.body.items)) {
+    payloads = req.body.items;
+    isBulk = true;
+  } else {
+    payloads = [req.body || {}];
+  }
+
   const addedQuestions = [];
 
   for (const payload of payloads) {
@@ -604,7 +616,7 @@ app.post('/api/questions', (req, res) => {
   }
 
   saveDbState();
-  res.status(201).json(Array.isArray(req.body) ? addedQuestions : addedQuestions[0]);
+  res.status(201).json(isBulk ? addedQuestions : addedQuestions[0]);
 });
 
 app.put('/api/questions/:id', (req, res) => {

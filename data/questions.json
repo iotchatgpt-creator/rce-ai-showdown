@@ -1,497 +1,330 @@
 [
-  {
-    "prompt": "What does AI stand for?",
-    "options": [
-      "Automated Internet",
-      "Artificial Intelligence",
-      "Advanced Interface",
-      "Angry Intern"
-    ],
-    "correctIndex": 1,
-    "explanation": "AI stands for Artificial Intelligence."
-  },
-  {
-    "prompt": "What is Machine Learning?",
-    "options": [
-      "Learning patterns from data",
-      "Machines going to school",
-      "Manual Learning",
-      "Robots gossiping"
-    ],
-    "correctIndex": 0,
-    "explanation": "Machine Learning is about learning patterns from data."
-  },
-  {
-    "prompt": "What is an LLM?",
-    "options": [
-      "Large Language Model",
-      "Long Logic Machine",
-      "Little Learning Module",
-      "Loud Laptop Mode"
-    ],
-    "correctIndex": 0,
-    "explanation": "LLM stands for Large Language Model."
-  },
-  {
-    "prompt": "What does RAG stand for in AI?",
-    "options": [
-      "Retrieval Augmented Generation",
-      "Random Answer Generator",
-      "Recursive AI Graph",
-      "Really Awesome GPT"
-    ],
-    "correctIndex": 0,
-    "explanation": "RAG combines retrieval with generation for better answers."
-  },
-  {
-    "prompt": "What is Generative AI known for?",
-    "options": [
-      "Creating new content",
-      "Fixing Wi-Fi",
-      "Sorting socks",
-      "Generating electricity"
-    ],
-    "correctIndex": 0,
-    "explanation": "Generative AI creates text, images, and more."
-  },
-  {
-    "prompt": "What is AGI?",
-    "options": [
-      "Artificial General Intelligence",
-      "Automated Game Interface",
-      "Advanced GPT Instance",
-      "Angry Genius Interface"
-    ],
-    "correctIndex": 0,
-    "explanation": "AGI refers to human-level general intelligence."
-  },
-  {
-    "prompt": "What is a prompt in AI?",
-    "options": [
-      "User instruction",
-      "Battery alert",
-      "Keyboard shortcut",
-      "Secret code"
-    ],
-    "correctIndex": 0,
-    "explanation": "A prompt is what you ask the AI."
-  },
-  {
-    "prompt": "What is hallucination in AI?",
-    "options": [
-      "Wrong confident answer",
-      "AI dreaming",
-      "Visual glitch",
-      "GPU overheating"
-    ],
-    "correctIndex": 0,
-    "explanation": "Hallucination is when AI generates incorrect info confidently."
-  },
-  {
-    "prompt": "What is vibe coding?",
-    "options": [
-      "Coding with intuition + AI",
-      "Coding with music only",
-      "Writing code blindly",
-      "Typing with closed eyes"
-    ],
-    "correctIndex": 0,
-    "explanation": "Vibe coding is intuitive coding with AI assistance."
-  },
-  {
-    "prompt": "What is Spec Driven Development?",
-    "options": [
-      "Building from detailed specs",
-      "Coding randomly",
-      "Speculating features",
-      "Debugging dreams"
-    ],
-    "correctIndex": 0,
-    "explanation": "It means developing based on clear specifications."
-  },
-  {
-    "prompt": "What is an AI agent?",
-    "options": [
-      "System that takes actions autonomously",
-      "Call center bot",
-      "Random script",
-      "Excel macro"
-    ],
-    "correctIndex": 0,
-    "explanation": "Agents act independently to complete tasks."
-  },
-  {
-    "prompt": "What is Agentic AI?",
-    "options": [
-      "AI that can plan and act",
-      "AI that argues",
-      "AI that sleeps",
-      "AI that paints walls"
-    ],
-    "correctIndex": 0,
-    "explanation": "Agentic AI can plan and execute tasks."
-  },
-  {
-    "prompt": "What is MCP (Model Context Protocol)?",
-    "options": [
-      "Standard for connecting AI to tools",
-      "Memory Cache Processor",
-      "Model Control Panel",
-      "Magic Coding Portal"
-    ],
-    "correctIndex": 0,
-    "explanation": "MCP helps AI interact with external tools."
-  },
-  {
-    "prompt": "What is fine-tuning?",
-    "options": [
-      "Training model on specific data",
-      "Adjusting brightness",
-      "Fixing bugs",
-      "Charging battery"
-    ],
-    "correctIndex": 0,
-    "explanation": "Fine-tuning adapts models to specific tasks."
-  },
-  {
-    "prompt": "What is embedding in AI?",
-    "options": [
-      "Numeric representation of data",
-      "File compression",
-      "Code formatting",
-      "Image resizing"
-    ],
-    "correctIndex": 0,
-    "explanation": "Embeddings convert data into vectors."
-  },
-  {
-    "prompt": "Which tool is used for code assistance?",
-    "options": [
-      "GitHub Copilot",
-      "MS Paint",
-      "Calculator",
-      "WordPad AI"
-    ],
-    "correctIndex": 0,
-    "explanation": "Copilot assists developers with code."
-  },
-  {
-    "prompt": "What is prompt engineering?",
-    "options": [
-      "Designing better AI inputs",
-      "Building engines",
-      "Coding hardware",
-      "Fixing keyboards"
-    ],
-    "correctIndex": 0,
-    "explanation": "It focuses on crafting effective prompts."
-  },
-  {
-    "prompt": "What is zero-shot learning?",
-    "options": [
-      "Answer without examples",
-      "Learning instantly",
-      "Skipping training",
-      "Using zero GPUs"
-    ],
-    "correctIndex": 0,
-    "explanation": "Model performs task without prior examples."
-  },
-  {
-    "prompt": "What is few-shot learning?",
-    "options": [
-      "Learning from few examples",
-      "Low memory usage",
-      "Quick training",
-      "Minimal coding"
-    ],
-    "correctIndex": 0,
-    "explanation": "Model learns from small examples."
-  },
-  {
-    "prompt": "What is context window?",
-    "options": [
-      "Amount of input AI can handle",
-      "Screen size",
-      "Window UI",
-      "RAM slot"
-    ],
-    "correctIndex": 0,
-    "explanation": "Defines how much text model can process."
-  },
-  {
-    "prompt": "What is token in AI?",
-    "options": [
-      "Chunk of text",
-      "Security key",
-      "Password",
-      "Code block"
-    ],
-    "correctIndex": 0,
-    "explanation": "Tokens are pieces of text processed by models."
-  },
-  {
-    "prompt": "What is RLHF?",
-    "options": [
-      "Reinforcement Learning with Human Feedback",
-      "Random Learning Hyper Function",
-      "Real Logic Helper Framework",
-      "Robot Learning High Frequency"
-    ],
-    "correctIndex": 0,
-    "explanation": "RLHF aligns AI with human preferences."
-  },
-  {
-    "prompt": "What is overfitting?",
-    "options": [
-      "Model memorizes data too well",
-      "Model too fast",
-      "Too much RAM",
-      "Excess GPU usage"
-    ],
-    "correctIndex": 0,
-    "explanation": "Overfitting reduces generalization."
-  },
-  {
-    "prompt": "What is underfitting?",
-    "options": [
-      "Model too simple",
-      "Model too large",
-      "Model too fast",
-      "Model too funny"
-    ],
-    "correctIndex": 0,
-    "explanation": "Model fails to learn patterns."
-  },
-  {
-    "prompt": "What is training dataset?",
-    "options": [
-      "Data used to train model",
-      "Backup files",
-      "UI layout",
-      "Keyboard logs"
-    ],
-    "correctIndex": 0,
-    "explanation": "Training data teaches the model."
-  },
-  {
-    "prompt": "Who is considered father of AI?",
-    "options": [
-      "John McCarthy",
-      "Elon Musk",
-      "Alan Walker",
-      "Steve Jobs"
-    ],
-    "correctIndex": 0,
-    "explanation": "John McCarthy coined AI term."
-  },
-  {
-    "prompt": "When was AI term coined?",
-    "options": [
-      "1956",
-      "2000",
-      "1995",
-      "2020"
-    ],
-    "correctIndex": 0,
-    "explanation": "AI term introduced in Dartmouth conference."
-  },
-  {
-    "prompt": "What is GPT?",
-    "options": [
-      "Generative Pre-trained Transformer",
-      "General Processing Tool",
-      "Graph Processing Tech",
-      "Global Programming Tool"
-    ],
-    "correctIndex": 0,
-    "explanation": "GPT is a transformer-based model."
-  },
-  {
-    "prompt": "What is transformer in AI?",
-    "options": [
-      "Model architecture",
-      "Electric device",
-      "Code library",
-      "Compiler"
-    ],
-    "correctIndex": 0,
-    "explanation": "Transformers power modern AI models."
-  },
-  {
-    "prompt": "What is attention mechanism?",
-    "options": [
-      "Focus on important input parts",
-      "Memory cleaning",
-      "GPU boost",
-      "Screen focus"
-    ],
-    "correctIndex": 0,
-    "explanation": "Attention helps model focus context."
-  },
-  {
-    "prompt": "What is AI bias?",
-    "options": [
-      "Unfair outputs",
-      "Faster results",
-      "Better UX",
-      "High accuracy"
-    ],
-    "correctIndex": 0,
-    "explanation": "Bias leads to unfair decisions."
-  },
-  {
-    "prompt": "What is inference?",
-    "options": [
-      "Using trained model",
-      "Training process",
-      "Data cleaning",
-      "Debugging"
-    ],
-    "correctIndex": 0,
-    "explanation": "Inference is using model to predict."
-  },
-  {
-    "prompt": "What is dataset labeling?",
-    "options": [
-      "Tagging data for training",
-      "Deleting data",
-      "Encrypting files",
-      "Coding UI"
-    ],
-    "correctIndex": 0,
-    "explanation": "Labels help supervised learning."
-  },
-  {
-    "prompt": "What is supervised learning?",
-    "options": [
-      "Learning from labeled data",
-      "Self learning",
-      "Random guessing",
-      "GPU training"
-    ],
-    "correctIndex": 0,
-    "explanation": "Uses labeled datasets."
-  },
-  {
-    "prompt": "What is unsupervised learning?",
-    "options": [
-      "Learning without labels",
-      "Manual training",
-      "Testing only",
-      "Code execution"
-    ],
-    "correctIndex": 0,
-    "explanation": "Finds patterns without labels."
-  },
-  {
-    "prompt": "What is reinforcement learning?",
-    "options": [
-      "Learning via rewards",
-      "Learning fast",
-      "Learning with data only",
-      "Learning from UI"
-    ],
-    "correctIndex": 0,
-    "explanation": "Agents learn via rewards/penalties."
-  },
-  {
-    "prompt": "What is vector database?",
-    "options": [
-      "Stores embeddings",
-      "Stores images",
-      "Stores logs",
-      "Stores cookies"
-    ],
-    "correctIndex": 0,
-    "explanation": "Used in RAG systems."
-  },
-  {
-    "prompt": "What is latency in AI?",
-    "options": [
-      "Response time delay",
-      "Accuracy",
-      "Storage",
-      "Model size"
-    ],
-    "correctIndex": 0,
-    "explanation": "Latency is delay in response."
-  },
-  {
-    "prompt": "What is throughput?",
-    "options": [
-      "Requests handled per time",
-      "Accuracy",
-      "Speed typing",
-      "Model weight"
-    ],
-    "correctIndex": 0,
-    "explanation": "Measures system capacity."
-  },
-  {
-    "prompt": "What is hallucination mitigation?",
-    "options": [
-      "Reducing wrong outputs",
-      "Improving UI",
-      "Adding RAM",
-      "Cleaning logs"
-    ],
-    "correctIndex": 0,
-    "explanation": "Helps reduce incorrect answers."
-  },
-  {
-    "prompt": "What is prompt chaining?",
-    "options": [
-      "Combining prompts sequentially",
-      "Copy paste prompts",
-      "Repeating prompts",
-      "Looping code"
-    ],
-    "correctIndex": 0,
-    "explanation": "Used for complex workflows."
-  },
-  {
-    "prompt": "What is multi-modal AI?",
-    "options": [
-      "Handles text + image",
-      "Handles only text",
-      "Handles only code",
-      "Handles UI only"
-    ],
-    "correctIndex": 0,
-    "explanation": "Processes multiple data types."
-  },
-  {
-    "prompt": "What is token limit?",
-    "options": [
-      "Max text size AI handles",
-      "RAM limit",
-      "File size",
-      "CPU usage"
-    ],
-    "correctIndex": 0,
-    "explanation": "Limits input + output size."
-  },
-  {
-    "prompt": "What is AI alignment?",
-    "options": [
-      "Align AI with human values",
-      "Align code",
-      "Align UI",
-      "Align servers"
-    ],
-    "correctIndex": 0,
-    "explanation": "Ensures safe AI behavior."
-  },
-  {
-    "prompt": "What is grounding in AI?",
-    "options": [
-      "Using real data context",
-      "Stopping model",
-      "Training GPU",
-      "Cleaning logs"
-    ],
-    "correctIndex": 0,
-    "explanation": "Grounding improves accuracy."
-  }
-]
+    {
+      "prompt": "What does AI stand for?",
+      "options": ["Automated Internet", "Artificial Intelligence", "Advanced Interface", "Angry Intern"],
+      "correctIndex": 1,
+      "explanation": "AI stands for Artificial Intelligence.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is Machine Learning?",
+      "options": ["Learning patterns from data", "Machines going to school", "Manual Learning", "Robots gossiping"],
+      "correctIndex": 0,
+      "explanation": "Machine Learning is about learning patterns from data.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is an LLM?",
+      "options": ["Large Language Model", "Long Logic Machine", "Little Learning Module", "Loud Laptop Mode"],
+      "correctIndex": 0,
+      "explanation": "LLM stands for Large Language Model.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What does RAG stand for in AI?",
+      "options": ["Retrieval Augmented Generation", "Random Answer Generator", "Recursive AI Graph", "Really Awesome GPT"],
+      "correctIndex": 0,
+      "explanation": "RAG combines retrieval with generation for better answers.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is Generative AI known for?",
+      "options": ["Creating new content", "Fixing Wi-Fi", "Sorting socks", "Generating electricity"],
+      "correctIndex": 0,
+      "explanation": "Generative AI creates text, images, and more.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is AGI?",
+      "options": ["Artificial General Intelligence", "Automated Game Interface", "Advanced GPT Instance", "Angry Genius Interface"],
+      "correctIndex": 0,
+      "explanation": "AGI refers to human-level general intelligence.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is a prompt in AI?",
+      "options": ["User instruction", "Battery alert", "Keyboard shortcut", "Secret code"],
+      "correctIndex": 0,
+      "explanation": "A prompt is what you ask the AI.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is hallucination in AI?",
+      "options": ["Wrong confident answer", "AI dreaming", "Visual glitch", "GPU overheating"],
+      "correctIndex": 0,
+      "explanation": "Hallucination is when AI generates incorrect info confidently.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is vibe coding?",
+      "options": ["Coding with intuition + AI", "Coding with music only", "Writing code blindly", "Typing with closed eyes"],
+      "correctIndex": 0,
+      "explanation": "Vibe coding is intuitive coding with AI assistance.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is Spec Driven Development?",
+      "options": ["Building from detailed specs", "Coding randomly", "Speculating features", "Debugging dreams"],
+      "correctIndex": 0,
+      "explanation": "It means developing based on clear specifications.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is an AI agent?",
+      "options": ["System that takes actions autonomously", "Call center bot", "Random script", "Excel macro"],
+      "correctIndex": 0,
+      "explanation": "Agents act independently to complete tasks.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is Agentic AI?",
+      "options": ["AI that can plan and act", "AI that argues", "AI that sleeps", "AI that paints walls"],
+      "correctIndex": 0,
+      "explanation": "Agentic AI can plan and execute tasks.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is MCP (Model Context Protocol)?",
+      "options": ["Standard for connecting AI to tools", "Memory Cache Processor", "Model Control Panel", "Magic Coding Portal"],
+      "correctIndex": 0,
+      "explanation": "MCP helps AI interact with external tools.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is fine-tuning?",
+      "options": ["Training model on specific data", "Adjusting brightness", "Fixing bugs", "Charging battery"],
+      "correctIndex": 0,
+      "explanation": "Fine-tuning adapts models to specific tasks.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is embedding in AI?",
+      "options": ["Numeric representation of data", "File compression", "Code formatting", "Image resizing"],
+      "correctIndex": 0,
+      "explanation": "Embeddings convert data into vectors.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "Which tool is used for code assistance?",
+      "options": ["GitHub Copilot", "MS Paint", "Calculator", "WordPad AI"],
+      "correctIndex": 0,
+      "explanation": "Copilot assists developers with code.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is prompt engineering?",
+      "options": ["Designing better AI inputs", "Building engines", "Coding hardware", "Fixing keyboards"],
+      "correctIndex": 0,
+      "explanation": "It focuses on crafting effective prompts.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is zero-shot learning?",
+      "options": ["Answer without examples", "Learning instantly", "Skipping training", "Using zero GPUs"],
+      "correctIndex": 0,
+      "explanation": "Model performs task without prior examples.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is few-shot learning?",
+      "options": ["Learning from few examples", "Low memory usage", "Quick training", "Minimal coding"],
+      "correctIndex": 0,
+      "explanation": "Model learns from small examples.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is context window?",
+      "options": ["Amount of input AI can handle", "Screen size", "Window UI", "RAM slot"],
+      "correctIndex": 0,
+      "explanation": "Defines how much text model can process.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is a token in AI?",
+      "options": ["Piece of text", "Security key", "Password", "Emoji"],
+      "correctIndex": 0,
+      "explanation": "Tokens are chunks of text processed by AI.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is RLHF?",
+      "options": ["Reinforcement Learning with Human Feedback", "Random Logic Handler Framework", "Real Learning Hyper Function", "Robot Likes Human Food"],
+      "correctIndex": 0,
+      "explanation": "RLHF improves models using human feedback.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is overfitting?",
+      "options": ["Model memorizes data too well", "Model runs too fast", "Model too small", "Model drinks coffee"],
+      "correctIndex": 0,
+      "explanation": "Overfitting reduces generalization.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is underfitting?",
+      "options": ["Model too simple", "Model too complex", "Model too fast", "Model sleepy"],
+      "correctIndex": 0,
+      "explanation": "Underfitting fails to learn patterns.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is inference?",
+      "options": ["Using trained model", "Training model", "Testing UI", "Coding randomly"],
+      "correctIndex": 0,
+      "explanation": "Inference is applying a trained model to generate outputs.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is vector database used for?",
+      "options": ["Storing embeddings", "Saving images", "Storing passwords", "Saving memes"],
+      "correctIndex": 0,
+      "explanation": "Vector databases store embeddings for fast similarity search.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is prompt chaining?",
+      "options": ["Combining multiple prompts", "Repeating prompts", "Deleting prompts", "Copy-pasting prompts"],
+      "correctIndex": 0,
+      "explanation": "Prompt chaining links multiple prompts for complex workflows.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is multimodal AI?",
+      "options": ["Handles text and images", "Handles only text", "Handles only code", "Handles only dreams"],
+      "correctIndex": 0,
+      "explanation": "Multimodal AI processes multiple data types.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is latency?",
+      "options": ["Response delay", "Accuracy", "Memory size", "Brightness"],
+      "correctIndex": 0,
+      "explanation": "Latency is the time delay in response.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is throughput?",
+      "options": ["Requests per second", "Typing speed", "Model size", "Battery life"],
+      "correctIndex": 0,
+      "explanation": "Throughput measures system capacity.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is AI alignment?",
+      "options": ["Aligning AI with human values", "Aligning UI", "Aligning code", "Aligning keyboard"],
+      "correctIndex": 0,
+      "explanation": "AI alignment ensures safe and useful behavior.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is grounding in AI?",
+      "options": ["Using real data context", "Stopping AI", "Training GPU", "Cooling server"],
+      "correctIndex": 0,
+      "explanation": "Grounding improves factual accuracy.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is token limit?",
+      "options": ["Max input size AI handles", "RAM limit", "Disk size", "Battery capacity"],
+      "correctIndex": 0,
+      "explanation": "Token limit restricts input/output size.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is classification in ML?",
+      "options": ["Categorizing data", "Generating text", "Drawing images", "Fixing bugs"],
+      "correctIndex": 0,
+      "explanation": "Classification assigns labels to data.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is summarization?",
+      "options": ["Shortening text", "Writing code", "Drawing UI", "Playing music"],
+      "correctIndex": 0,
+      "explanation": "Summarization condenses information.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is AI bias?",
+      "options": ["Unfair outputs", "Fast processing", "Better UI", "More RAM"],
+      "correctIndex": 0,
+      "explanation": "Bias can lead to unfair results.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is AGI expected to do?",
+      "options": ["Perform any intellectual task like humans", "Only generate images", "Only write code", "Only play games"],
+      "correctIndex": 0,
+      "explanation": "AGI aims for human-level intelligence across tasks.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is a hallucination mitigation technique?",
+      "options": ["Using RAG", "Adding emojis", "Restarting AI", "Typing slower"],
+      "correctIndex": 0,
+      "explanation": "RAG reduces hallucination by grounding responses.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is a system prompt?",
+      "options": ["Instruction controlling AI behavior", "Error message", "Code comment", "Keyboard shortcut"],
+      "correctIndex": 0,
+      "explanation": "System prompts guide AI responses.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is fine-tuned model?",
+      "options": ["Model trained for specific task", "Smaller model", "Faster model", "Broken model"],
+      "correctIndex": 0,
+      "explanation": "Fine-tuned models are specialized.",
+      "difficulty": "",
+      "tags": []
+    },
+    {
+      "prompt": "What is agent memory?",
+      "options": ["Stored context for AI agents", "RAM usage", "Hard disk", "Cache files"],
+      "correctIndex": 0,
+      "explanation": "Memory helps agents remember context.",
+      "difficulty": "",
+      "tags": []
+    }
+  ]
