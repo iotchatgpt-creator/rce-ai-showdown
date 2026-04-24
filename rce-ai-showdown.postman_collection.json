@@ -1,0 +1,193 @@
+{
+  "info": {
+    "name": "RCE AI Sprint Showdown API",
+    "description": "API collection for managing questions in the RCE AI Sprint Showdown game.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Questions",
+      "item": [
+        {
+          "name": "List All Questions",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/questions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "questions"
+              ]
+            },
+            "description": "Returns a list of all available questions along with the total count."
+          },
+          "response": []
+        },
+        {
+          "name": "Get Single Question",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/questions/{{questionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "questions",
+                "{{questionId}}"
+              ]
+            },
+            "description": "Fetch a specific question by its ID."
+          },
+          "response": []
+        },
+        {
+          "name": "Create a Question",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"Which emoji best matches a chatbot?\",\n    \"options\": [\"🧠\", \"💬\", \"🌮\", \"🪴\"],\n    \"correctIndex\": 1,\n    \"explanation\": \"A chatbot is mainly about conversation.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/questions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "questions"
+              ]
+            },
+            "description": "Add a new question to the database."
+          },
+          "response": []
+        },
+        {
+          "name": "Replace a Question",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"prompt\": \"What does AI stand for (Updated)?\",\n    \"options\": [\"Automated Internet\", \"Artificial Intelligence\", \"Applied Interface\", \"Analog Instruction\"],\n    \"correctIndex\": 1,\n    \"explanation\": \"AI stands for Artificial Intelligence.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/questions/{{questionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "questions",
+                "{{questionId}}"
+              ]
+            },
+            "description": "Completely replaces an existing question. The payload must include all required fields just like the POST request."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Part of a Question",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"correctIndex\": 2,\n    \"explanation\": \"Updated explanation here.\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/questions/{{questionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "questions",
+                "{{questionId}}"
+              ]
+            },
+            "description": "Partially update an existing question. You only need to send the fields you want to change."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a Question",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/questions/{{questionId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "questions",
+                "{{questionId}}"
+              ]
+            },
+            "description": "Removes a question from the database."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete All Questions",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/api/questions",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "questions"
+              ]
+            },
+            "description": "Removes all questions from the database."
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "questionId",
+      "value": "question_a1b2c3",
+      "type": "string"
+    }
+  ]
+}

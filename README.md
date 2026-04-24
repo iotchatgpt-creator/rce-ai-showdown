@@ -216,34 +216,48 @@ npm start
 
 ## REST API
 
-The server exposes a JSON CRUD API for managing the question pool.
+The server exposes a JSON CRUD API for managing the question pool. All API endpoints use the `/api/questions` base route.
 
-Base route:
+### 1. List All Questions
+**GET** `/api/questions`
+Returns a list of all available questions along with the total count.
 
-- `/api/questions`
-
-Endpoints:
-
-- `GET /api/questions` - list all questions
-- `GET /api/questions/:id` - fetch one question
-- `POST /api/questions` - create a new question
-- `PUT /api/questions/:id` - replace an existing question
-- `PATCH /api/questions/:id` - update part of a question
-- `DELETE /api/questions/:id` - remove a question
-
-Question JSON shape:
-
+**Response payload:**
 ```json
 {
-  "prompt": "What does AI stand for?",
-  "options": ["Automated Internet", "Artificial Intelligence", "Applied Interface", "Analog Instruction"],
-  "correctIndex": 1,
-  "explanation": "AI stands for Artificial Intelligence."
+  "items": [
+    {
+      "id": "question_a1b2c3",
+      "prompt": "What does AI stand for?",
+      "options": ["Automated Internet", "Artificial Intelligence", "Applied Interface", "Analog Instruction"],
+      "correctIndex": 1,
+      "explanation": "AI stands for Artificial Intelligence."
+    }
+  ],
+  "total": 1
 }
 ```
 
-Example create request:
+### 2. Get Single Question
+**GET** `/api/questions/:id`
+Fetch a specific question by its ID.
 
+**Example Request:**
+```bash
+curl http://localhost:3000/api/questions/question_a1b2c3
+```
+
+### 3. Create a Question
+**POST** `/api/questions`
+Add a new question to the database.
+
+**Required Payload:**
+- `prompt` (string)
+- `options` (array of exactly 4 strings)
+- `correctIndex` (integer 0-3)
+- `explanation` (string, optional)
+
+**Example Request:**
 ```bash
 curl -X POST http://localhost:3000/api/questions \
   -H "Content-Type: application/json" \
@@ -254,6 +268,55 @@ curl -X POST http://localhost:3000/api/questions \
     "explanation": "A chatbot is mainly about conversation."
   }'
 ```
+
+### 4. Replace a Question
+**PUT** `/api/questions/:id`
+Completely replaces an existing question. The payload must include all required fields just like the POST request.
+
+**Example Request:**
+```bash
+curl -X PUT http://localhost:3000/api/questions/question_a1b2c3 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "prompt": "What does AI stand for (Updated)?",
+    "options": ["Automated Internet", "Artificial Intelligence", "Applied Interface", "Analog Instruction"],
+    "correctIndex": 1,
+    "explanation": "AI stands for Artificial Intelligence."
+  }'
+```
+
+### 5. Update Part of a Question
+**PATCH** `/api/questions/:id`
+Partially update an existing question. You only need to send the fields you want to change.
+
+**Example Request:**
+```bash
+curl -X PATCH http://localhost:3000/api/questions/question_a1b2c3 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "correctIndex": 2,
+    "explanation": "Updated explanation here."
+  }'
+```
+
+### 6. Delete a Question
+**DELETE** `/api/questions/:id`
+Removes a question from the database.
+
+**Example Request:**
+```bash
+curl -X DELETE http://localhost:3000/api/questions/question_a1b2c3
+```
+
+### 7. Delete All Questions
+**DELETE** `/api/questions`
+Removes all questions from the database.
+
+**Example Request:**
+```bash
+curl -X DELETE http://localhost:3000/api/questions
+```
+
 
 ## Push To GitHub
 

@@ -2,7 +2,7 @@
   "meta": {
     "schemaVersion": 1,
     "initializedAt": "2026-04-23T21:52:35.909Z",
-    "lastUpdatedAt": "2026-04-24T02:19:55.999Z"
+    "lastUpdatedAt": "2026-04-24T03:17:32.311Z"
   },
   "schema": {
     "version": 1,
@@ -1897,7 +1897,7 @@
         }
       ],
       "currentQuestionStartedAt": null,
-      "savedAt": "2026-04-24T02:19:55.999Z"
+      "savedAt": "2026-04-24T02:24:56.002Z"
     },
     {
       "code": "C5EUEU",
@@ -2159,7 +2159,7 @@
         }
       ],
       "currentQuestionStartedAt": null,
-      "savedAt": "2026-04-24T02:19:55.999Z"
+      "savedAt": "2026-04-24T02:24:56.002Z"
     },
     {
       "code": "H58VES",
@@ -2325,173 +2325,7 @@
         }
       ],
       "currentQuestionStartedAt": null,
-      "savedAt": "2026-04-24T02:19:55.999Z"
-    },
-    {
-      "code": "L5GVWN",
-      "hostId": "player_155ec6607c6d",
-      "phase": "lobby",
-      "questionIndex": 0,
-      "players": [
-        {
-          "id": "player_155ec6607c6d",
-          "token": "token_a87b86980762",
-          "name": "TestHost",
-          "score": 0,
-          "avatarId": null,
-          "isHost": true,
-          "connected": false,
-          "lastSeenAt": "2026-04-24T02:19:55.999Z"
-        }
-      ],
-      "questions": [
-        {
-          "id": "question_489e20e3ae2d",
-          "prompt": "If your team uses AI well, the goal is usually:",
-          "options": [
-            "Work faster and think better together",
-            "Never think again",
-            "Replace every conversation",
-            "Outsource reality"
-          ],
-          "correctIndex": 0,
-          "explanation": "The point is usually to support people, not remove them."
-        },
-        {
-          "id": "question_ecd59d4f0068",
-          "prompt": "What does AI stand for?",
-          "options": [
-            "Automated Internet",
-            "Artificial Intelligence",
-            "Applied Interface",
-            "Analog Instruction"
-          ],
-          "correctIndex": 1,
-          "explanation": "AI stands for Artificial Intelligence."
-        },
-        {
-          "id": "question_e43dda557804",
-          "prompt": "If AI writes a dramatic out-of-office reply for no reason, what should you adjust?",
-          "options": [
-            "The tone and style instructions",
-            "The moon phase",
-            "The desk lamp angle",
-            "The keyboard volume"
-          ],
-          "correctIndex": 0,
-          "explanation": "Style and tone are steerable."
-        },
-        {
-          "id": "question_e5fe50b5ca2d",
-          "prompt": "If you want AI trivia to be easier, ask for:",
-          "options": [
-            "Simple beginner-friendly questions",
-            "Impossible trick questions",
-            "Only advanced jargon",
-            "Pure mystery mode"
-          ],
-          "correctIndex": 0,
-          "explanation": "Difficulty is something you can specify."
-        },
-        {
-          "id": "question_17c8b14a8da5",
-          "prompt": "What should a team do if AI output feels generic?",
-          "options": [
-            "Add more context and specificity",
-            "Give up forever",
-            "Switch off gravity",
-            "Rename the Wi-Fi"
-          ],
-          "correctIndex": 0,
-          "explanation": "Generic prompts often produce generic answers."
-        },
-        {
-          "id": "question_321ce53b2061",
-          "prompt": "What is one safe habit when using AI at work?",
-          "options": [
-            "Avoid pasting sensitive info unless approved",
-            "Paste everything always",
-            "Trust it with passwords",
-            "Upload private payroll data for fun"
-          ],
-          "correctIndex": 0,
-          "explanation": "Sensitive information should be protected."
-        },
-        {
-          "id": "question_517be5d7ccab",
-          "prompt": "What is one reason AI jokes can fail?",
-          "options": [
-            "Humor depends on context and taste",
-            "Jokes are illegal online",
-            "Comedy requires special batteries",
-            "Monitors dislike laughter"
-          ],
-          "correctIndex": 0,
-          "explanation": "Humor is subjective and context-heavy."
-        },
-        {
-          "id": "question_47fe3e53f1eb",
-          "prompt": "Which question would make coworkers laugh the most if AI answered it badly?",
-          "options": [
-            "Write a serious memo in pirate voice",
-            "What is 2+2",
-            "What is a browser",
-            "What time is noon"
-          ],
-          "correctIndex": 0,
-          "explanation": "Asking for a weird tone twist can lead to funny outputs."
-        },
-        {
-          "id": "question_f2421ec576d4",
-          "prompt": "What is one thing AI usually cannot guarantee?",
-          "options": [
-            "Perfect correctness every time",
-            "Fast drafting",
-            "Pattern-based writing help",
-            "Formatting in bullet points"
-          ],
-          "correctIndex": 0,
-          "explanation": "AI cannot guarantee perfect accuracy."
-        },
-        {
-          "id": "question_1fab5b6cc35b",
-          "prompt": "What is one sign AI is helping your team well?",
-          "options": [
-            "It speeds up the rough draft stage",
-            "It does everyone's taxes secretly",
-            "It controls the moon",
-            "It makes every idea perfect"
-          ],
-          "correctIndex": 0,
-          "explanation": "Speeding up drafts is a realistic win."
-        },
-        {
-          "id": "question_f5d32f4d98ec",
-          "prompt": "What is one easy sign a prompt could be better?",
-          "options": [
-            "It gives almost no detail",
-            "It mentions the audience",
-            "It asks for a format",
-            "It includes context"
-          ],
-          "correctIndex": 0,
-          "explanation": "Very vague prompts usually produce weaker answers."
-        },
-        {
-          "id": "question_b6c1a73ac2c6",
-          "prompt": "What is the funniest wrong idea about AI here?",
-          "options": [
-            "It can teleport snacks",
-            "It can draft emails",
-            "It can summarize text",
-            "It can suggest ideas"
-          ],
-          "correctIndex": 0,
-          "explanation": "Sadly, AI still cannot teleport snacks."
-        }
-      ],
-      "currentQuestionStartedAt": null,
-      "savedAt": "2026-04-24T02:19:55.999Z"
+      "savedAt": "2026-04-24T02:24:56.003Z"
     }
   ],
   "completedGames": [

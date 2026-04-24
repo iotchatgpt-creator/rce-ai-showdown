@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 3000;
 const QUESTION_TIME_MS = 20000;
 const REVEAL_TIME_MS = 4000;
 const LEADERBOARD_TIME_MS = 4000;
-const QUESTIONS_PER_GAME = 12;
+const QUESTIONS_PER_GAME = 20;
 const RECONNECT_GRACE_MS = 300000; // 5 minutes
 const DATA_DIR = path.join(__dirname, 'data');
 const DB_FILE = path.join(DATA_DIR, 'app-db.json');
@@ -97,9 +97,9 @@ function ensureDbFile() {
   dbState.masterData.questions = Array.isArray(dbState.masterData.questions)
     ? dbState.masterData.questions
     : questionSeed.map((question) => ({
-        id: randomId('question'),
-        ...question,
-      }));
+      id: randomId('question'),
+      ...question,
+    }));
   dbState.masterData.avatars = AVAILABLE_AVATARS;
   dbState.playerProfiles = Array.isArray(dbState.playerProfiles) ? dbState.playerProfiles : [];
   dbState.activeRooms = Array.isArray(dbState.activeRooms) ? dbState.activeRooms : [];
@@ -642,6 +642,13 @@ app.patch('/api/questions/:id', (req, res) => {
   res.json(updated);
 });
 
+app.delete('/api/questions', (req, res) => {
+  const count = dbState.masterData.questions.length;
+  dbState.masterData.questions = [];
+  saveDbState();
+  res.json({ ok: true, deletedCount: count });
+});
+
 app.delete('/api/questions/:id', (req, res) => {
   const index = dbState.masterData.questions.findIndex((item) => item.id === req.params.id);
   if (index === -1) {
@@ -659,7 +666,7 @@ ensureDbFile();
 loadPersistedRooms();
 
 io.on('connection', (socket) => {
-  socket.on('createRoom', ({ name }, callback = () => {}) => {
+  socket.on('createRoom', ({ name }, callback = () => { }) => {
     const hostName = sanitizeName(name) || 'Host';
     const roomCode = getUniqueRoomCode();
     const host = createPlayer(hostName);
@@ -687,7 +694,7 @@ io.on('connection', (socket) => {
     emitRoomState(roomCode);
   });
 
-  socket.on('joinRoom', ({ roomCode, name, playerToken }, callback = () => {}) => {
+  socket.on('joinRoom', ({ roomCode, name, playerToken }, callback = () => { }) => {
     const cleanCode = String(roomCode || '').trim().toUpperCase();
     const playerName = sanitizeName(name);
     const room = rooms.get(cleanCode);
@@ -738,7 +745,7 @@ io.on('connection', (socket) => {
     emitRoomState(cleanCode);
   });
 
-  socket.on('resumeSession', ({ roomCode, playerToken }, callback = () => {}) => {
+  socket.on('resumeSession', ({ roomCode, playerToken }, callback = () => { }) => {
     const cleanCode = String(roomCode || '').trim().toUpperCase();
     const room = rooms.get(cleanCode);
 
@@ -769,7 +776,7 @@ io.on('connection', (socket) => {
     emitRoomState(cleanCode);
   });
 
-  socket.on('startGame', ({ roomCode }, callback = () => {}) => {
+  socket.on('startGame', ({ roomCode }, callback = () => { }) => {
     const room = rooms.get(roomCode);
     if (!room) {
       callback({ ok: false, error: 'Room not found.' });
@@ -803,7 +810,7 @@ io.on('connection', (socket) => {
     startQuestion(roomCode);
   });
 
-  socket.on('chooseAvatar', ({ roomCode, avatarId }, callback = () => {}) => {
+  socket.on('chooseAvatar', ({ roomCode, avatarId }, callback = () => { }) => {
     const room = rooms.get(roomCode);
     if (!room) {
       callback({ ok: false, error: 'Room not found.' });
@@ -837,7 +844,7 @@ io.on('connection', (socket) => {
     emitRoomState(roomCode);
   });
 
-  socket.on('submitAnswer', ({ roomCode, answerIndex }, callback = () => {}) => {
+  socket.on('submitAnswer', ({ roomCode, answerIndex }, callback = () => { }) => {
     const room = rooms.get(roomCode);
     if (!room || room.phase !== 'question') {
       callback({ ok: false, error: 'Question not active.' });
@@ -880,7 +887,7 @@ io.on('connection', (socket) => {
     }
   });
 
-  socket.on('prioritizeQuestion', ({ roomCode, questionId, action }, callback = () => {}) => {
+  socket.on('prioritizeQuestion', ({ roomCode, questionId, action }, callback = () => { }) => {
     const room = rooms.get(roomCode);
     if (!room) {
       callback({ ok: false, error: 'Room not found.' });
