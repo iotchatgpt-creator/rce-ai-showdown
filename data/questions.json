@@ -661,5 +661,70 @@
     "difficulty": "",
     "tags": [],
     "correctIndex": 2
+  },
+  {
+    "prompt": "What does 'API' stand for?",
+    "options": [
+      "Automated Python Instruction",
+      "Advanced Processing Integration",
+      "Applied Program Index",
+      "Application Programming Interface"
+    ],
+    "explanation": "API stands for Application Programming Interface, which allows two applications to talk to each other.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 3
+  },
+  {
+    "prompt": "What is an 'Algorithm' in AI?",
+    "options": [
+      "A programming language",
+      "A brand of computer processor",
+      "A set of rules or instructions given to an AI to help it learn or solve a problem",
+      "A type of physical robot"
+    ],
+    "explanation": "An algorithm is essentially a recipe of rules that the computer follows to complete a task.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 2
+  },
+  {
+    "prompt": "What is 'Data Mining'?",
+    "options": [
+      "Physically digging into server hard drives",
+      "Stealing passwords from a website",
+      "Deleting old data to save space",
+      "The practice of analyzing large databases to discover patterns and generate new information"
+    ],
+    "explanation": "Data mining involves extracting useful information and hidden patterns from massive datasets.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 3
+  },
+  {
+    "prompt": "Why are GPUs (Graphics Processing Units) often used for training AI instead of CPUs?",
+    "options": [
+      "They are much better at handling thousands of parallel calculations simultaneously",
+      "They use less electricity",
+      "They are the only chips that understand Python",
+      "They are cheaper to manufacture"
+    ],
+    "explanation": "GPUs excel at parallel processing, which is exactly what training neural networks requires.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 0
+  },
+  {
+    "prompt": "What does it mean if an AI model is 'Open Source'?",
+    "options": [
+      "It only works outdoors",
+      "It cannot be used for commercial purposes",
+      "Its source code and weights are made publicly available for anyone to use or modify",
+      "It is free to use but the code is hidden"
+    ],
+    "explanation": "Open-source AI models allow developers worldwide to inspect, modify, and build upon the underlying code.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 2
   }
 ]
