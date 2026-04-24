@@ -4,9 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RCE AI Sprint Showdown</title>
-    <link rel="stylesheet" href="/styles.css?v=20260423r" />
+    <meta name="description" content="A real-time multiplayer AI quiz game. Host a room, invite players, and compete in timed AI-themed questions!" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css?v=4.0" />
   </head>
   <body>
+    <!-- Reconnection Overlay -->
+    <div id="reconnect-overlay" class="reconnect-overlay hidden" aria-live="polite">
+      <div class="reconnect-card">
+        <div class="reconnect-spinner"></div>
+        <p class="reconnect-text">Reconnecting to game...</p>
+        <p class="reconnect-sub">Hang tight — we're bringing you back!</p>
+      </div>
+    </div>
+
     <div class="bg-orb orb-a" aria-hidden="true"></div>
     <div class="bg-orb orb-b" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
@@ -58,35 +71,41 @@
       </header>
 
       <main>
-        <section id="view-landing" class="view active card card-landing">
+        <section id="view-landing" class="view active card card-landing view-animate">
+          <div class="landing-hero-icon" aria-hidden="true">🤖</div>
           <h2>Choose your mode</h2>
+          <p class="landing-tagline">Host a quiz room or jump into the action!</p>
           <div class="actions two-col">
-            <button id="show-host" class="btn btn-primary">Host Game</button>
-            <button id="show-join" class="btn btn-secondary">Join Game</button>
+            <button id="show-host" class="btn btn-primary btn-glow" aria-label="Host a new game">🎮 Host Game</button>
+            <button id="show-join" class="btn btn-secondary btn-glow" aria-label="Join an existing game">🏃 Join Game</button>
           </div>
 
           <div id="host-form" class="panel hidden">
-            <label>Your Name</label>
-            <input id="host-name" placeholder="Host name" maxlength="24" />
-            <button id="create-room" class="btn btn-primary">Create Room</button>
+            <label for="host-name">Your Name</label>
+            <input id="host-name" placeholder="Host name" maxlength="24" autocomplete="off" />
+            <button id="create-room" class="btn btn-primary btn-glow">Create Room</button>
           </div>
 
           <div id="join-form" class="panel hidden">
-            <label>Your Name</label>
-            <input id="join-name" placeholder="Player name" maxlength="24" />
-            <label>Room Code</label>
-            <input id="join-room-code" placeholder="ABC123" maxlength="6" />
-            <button id="join-room" class="btn btn-primary">Join Room</button>
+            <label for="join-name">Your Name</label>
+            <input id="join-name" placeholder="Player name" maxlength="24" autocomplete="off" />
+            <label for="join-room-code">Room Code</label>
+            <input id="join-room-code" placeholder="ABC123" maxlength="6" autocomplete="off" />
+            <button id="join-room" class="btn btn-primary btn-glow">Join Room</button>
           </div>
           <p id="landing-error" class="error"></p>
         </section>
 
-        <section id="view-lobby" class="view card hidden">
+        <section id="view-lobby" class="view card hidden view-animate">
           <div class="lobby-top row space-between">
             <h2>Lobby</h2>
-            <span class="room-pill">Room: <strong id="room-code">------</strong></span>
+            <span class="room-pill room-pill-glow">Room: <strong id="room-code">------</strong></span>
           </div>
           <p id="lobby-notice" class="notice">Pick an avatar before the host starts. One avatar per player.</p>
+          <div class="lobby-ready-bar">
+            <div class="ready-bar-fill" id="ready-bar-fill" style="width: 0%"></div>
+            <span class="ready-bar-label" id="ready-bar-label">0 / 0 ready</span>
+          </div>
           <div class="lobby-grid">
             <section class="lobby-panel avatar-panel">
               <div class="panel-head row space-between">
@@ -102,7 +121,7 @@
               </div>
               <ul id="players-list" class="players"></ul>
               <div class="actions">
-                <button id="start-game" class="btn btn-primary hidden">Start Game</button>
+                <button id="start-game" class="btn btn-primary btn-glow btn-start-pulse hidden" aria-label="Start the game">🚀 Start Game</button>
               </div>
             </section>
             <section id="host-lobby-panel" class="lobby-panel host-lobby-panel hidden">
@@ -119,11 +138,17 @@
           </div>
         </section>
 
-        <section id="view-question" class="view card hidden">
+        <section id="view-question" class="view card hidden view-animate">
           <div class="question-stage">
             <div class="row space-between">
               <h2 id="question-progress">Question 1 / 10</h2>
-              <div class="timer" id="timer">15</div>
+              <div class="timer-ring-wrap" id="timer-ring-wrap">
+                <svg class="timer-ring" viewBox="0 0 80 80" aria-hidden="true">
+                  <circle class="timer-ring-bg" cx="40" cy="40" r="34" />
+                  <circle class="timer-ring-fg" id="timer-ring-fg" cx="40" cy="40" r="34" />
+                </svg>
+                <div class="timer-number" id="timer">20</div>
+              </div>
             </div>
             <div class="question-fun">
               <span id="question-sticker" class="question-sticker">🤖</span>
@@ -137,6 +162,10 @@
               <span class="tiny-note">Quick thinking still earns more bells</span>
             </div>
             <div id="question-options" class="options"></div>
+          </div>
+          <div class="answer-lock-bar" id="answer-lock-bar">
+            <div class="answer-lock-fill" id="answer-lock-fill" style="width: 0%"></div>
+            <span class="answer-lock-label" id="answer-lock-label">0 / 0 answered</span>
           </div>
           <p id="answer-status" class="notice answer-banner"></p>
           <section id="host-live-panel" class="host-live-panel hidden">
@@ -160,37 +189,51 @@
             </div>
             <div id="host-live-standings" class="host-live-standings"></div>
           </section>
+          <!-- Urgency vignette overlay -->
+          <div id="urgency-vignette" class="urgency-vignette hidden" aria-hidden="true"></div>
         </section>
 
-        <section id="view-reveal" class="view card hidden">
-          <h2>Answer Reveal</h2>
-          <p id="reveal-text"></p>
-          <p id="reveal-explanation" class="notice"></p>
+        <section id="view-reveal" class="view card hidden view-animate">
+          <div class="reveal-header">
+            <h2>📣 Answer Reveal</h2>
+            <span id="reveal-round-badge" class="reveal-round-badge"></span>
+          </div>
+          <div id="reveal-answer-card" class="reveal-answer-card">
+            <p id="reveal-text" class="reveal-answer-text"></p>
+            <p id="reveal-explanation" class="reveal-explanation"></p>
+          </div>
           <div class="reveal-race-card">
-            <div class="row space-between">
-              <h3>Emoji Race</h3>
-              <span class="tiny-note">Who is sprinting to the finish?</span>
+            <div class="race-card-header">
+              <h3>🏁 Live Race — Who's Leading?</h3>
+              <span class="tiny-note">Faster answers = bigger lead</span>
             </div>
             <div id="reveal-race" class="reveal-race"></div>
           </div>
+          <div id="reveal-standings" class="reveal-standings"></div>
         </section>
 
-        <section id="view-leaderboard" class="view card hidden">
-          <h2>Leaderboard</h2>
+        <section id="view-leaderboard" class="view card hidden view-animate">
+          <h2>📊 Leaderboard</h2>
           <ol id="leaderboard-list" class="leaderboard"></ol>
         </section>
 
-        <section id="view-final" class="view card hidden final-screen">
-          <h2>RCE AI Champion</h2>
+        <section id="view-final" class="view card hidden final-screen view-animate">
+          <div class="final-spotlight" aria-hidden="true"></div>
+          <h2>🏆 RCE AI Champion 🏆</h2>
           <p id="champion-name" class="champion"></p>
-          <p>Everyone else is catching up next round.</p>
-          <div class="confetti" aria-hidden="true"></div>
+          <p class="final-subtitle">Everyone played amazing — see you next round!</p>
+          <div id="celebration-overlay" class="celebration-overlay" aria-hidden="true"></div>
+          <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
+          <canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>
           <ol id="final-board" class="leaderboard"></ol>
+          <div class="final-actions">
+            <button id="play-again" class="btn btn-primary btn-glow btn-play-again">🔄 Play Again</button>
+          </div>
         </section>
       </main>
     </div>
 
     <script src="/socket.io/socket.io.js"></script>
-    <script src="/app.js?v=20260423r"></script>
+    <script src="/app.js?v=4.0"></script>
   </body>
 </html>

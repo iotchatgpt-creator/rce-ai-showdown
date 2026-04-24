@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io({ reconnection: true, reconnectionAttempts: 20, reconnectionDelay: 1000, reconnectionDelayMax: 5000 });
 
 const state = {
   playerId: null,
@@ -13,6 +13,8 @@ const state = {
   questionQueue: [],
   lockedCount: 0,
   totalParticipants: 0,
+  timerDurationMs: 20000,
+  timerStartedAt: null,
 };
 
 const views = {
@@ -65,6 +67,15 @@ const sceneWeather = document.getElementById('scene-weather');
 const scenePicnic = document.getElementById('scene-picnic');
 const sceneFriends = document.getElementById('scene-friends');
 const SESSION_KEY = 'rce-ai-showdown-session';
+const reconnectOverlay = document.getElementById('reconnect-overlay');
+const readyBarFill = document.getElementById('ready-bar-fill');
+const readyBarLabel = document.getElementById('ready-bar-label');
+const answerLockFill = document.getElementById('answer-lock-fill');
+const answerLockLabel = document.getElementById('answer-lock-label');
+const answerLockBar = document.getElementById('answer-lock-bar');
+const urgencyVignette = document.getElementById('urgency-vignette');
+const timerRingFg = document.getElementById('timer-ring-fg');
+const timerRingWrap = document.getElementById('timer-ring-wrap');
 
 const optionBadges = ['🍃', '🐟', '⭐', '🎁'];
 const avatarEmojiMap = {
@@ -410,23 +421,65 @@ function renderDecor() {
 }
 
 function showView(viewName) {
-  Object.values(views).forEach((v) => {
-    v.classList.add('hidden');
-    v.classList.remove('active');
-  });
-
+  const previous = Object.values(views).find((v) => v.classList.contains('active'));
   const selected = views[viewName];
+
+  if (previous && previous !== selected) {
+    previous.classList.add('view-exit');
+    setTimeout(() => {
+      previous.classList.add('hidden');
+      previous.classList.remove('active', 'view-exit');
+    }, 280);
+  } else {
+    Object.values(views).forEach((v) => {
+      if (v !== selected) { v.classList.add('hidden'); v.classList.remove('active'); }
+    });
+  }
+
   if (selected) {
     selected.classList.remove('hidden');
-    selected.classList.add('active');
+    selected.classList.add('active', 'view-enter');
+    setTimeout(() => selected.classList.remove('view-enter'), 400);
   }
 
   state.phase = viewName;
   updateChrome();
+  // Hide urgency on view change
+  if (urgencyVignette) urgencyVignette.classList.add('hidden');
 }
 
 function setLandingError(message = '') {
   landingError.textContent = message;
+}
+
+function playSound(type) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const osc = ctx.createOscillator();
+    const gain = ctx.createGain();
+    osc.connect(gain); gain.connect(ctx.destination);
+    if (type === 'click') { osc.frequency.value = 880; gain.gain.value = 0.08; osc.start(); osc.stop(ctx.currentTime + 0.06); }
+    else if (type === 'correct') { osc.frequency.value = 660; gain.gain.value = 0.12; osc.start(); osc.stop(ctx.currentTime + 0.15); setTimeout(() => { const o2 = ctx.createOscillator(); const g2 = ctx.createGain(); o2.connect(g2); g2.connect(ctx.destination); o2.frequency.value = 880; g2.gain.value = 0.12; o2.start(); o2.stop(ctx.currentTime + 0.15); }, 150); }
+    else if (type === 'wrong') { osc.type = 'sawtooth'; osc.frequency.value = 200; gain.gain.value = 0.08; osc.start(); osc.stop(ctx.currentTime + 0.25); }
+    else if (type === 'tick') { osc.frequency.value = 1200; gain.gain.value = 0.04; osc.start(); osc.stop(ctx.currentTime + 0.03); }
+    setTimeout(() => { try { ctx.close(); } catch(e){} }, 500);
+  } catch(e) {}
+}
+
+function updateReadyBar(ready, total) {
+  if (!readyBarFill || !readyBarLabel) return;
+  const pct = total > 0 ? Math.round((ready / total) * 100) : 0;
+  readyBarFill.style.width = pct + '%';
+  readyBarLabel.textContent = `${ready} / ${total} ready`;
+  if (pct >= 100) readyBarFill.classList.add('ready-complete');
+  else readyBarFill.classList.remove('ready-complete');
+}
+
+function updateAnswerLockBar(locked, total) {
+  if (!answerLockFill || !answerLockLabel) return;
+  const pct = total > 0 ? Math.round((locked / total) * 100) : 0;
+  answerLockFill.style.width = pct + '%';
+  answerLockLabel.textContent = `${locked} / ${total} answered`;
 }
 
 function renderPlayers(players) {
@@ -437,6 +490,7 @@ function renderPlayers(players) {
   avatarReadyCount.textContent = `${readyPlayers} ready`;
   if (hostReadyStat) hostReadyStat.textContent = `${readyPlayers} ready`;
   if (hostPlayerStat) hostPlayerStat.textContent = `${participants.length} players`;
+  updateReadyBar(readyPlayers, participants.length);
   playersListEl.innerHTML = '';
   participants.forEach((player) => {
     const li = document.createElement('li');
@@ -465,11 +519,30 @@ function renderLeaderboard(targetElement, leaderboard) {
   targetElement.innerHTML = '';
   leaderboard.forEach((item, index) => {
     const li = document.createElement('li');
+    let rankClass = '';
+    let badgeHtml = '';
+    
+    if (index === 0) {
+      rankClass = 'gold-medal';
+      badgeHtml = '<span class="badge-text">🏆 Champion!</span>';
+    } else if (index === 1) {
+      rankClass = 'silver-medal';
+      badgeHtml = '<span class="badge-text">🥈 Runner Up!</span>';
+    } else if (index === 2) {
+      rankClass = 'bronze-medal';
+      badgeHtml = '<span class="badge-text">🥉 Podium!</span>';
+    } else {
+      badgeHtml = '<span class="badge-text">🌟 Great Effort!</span>';
+    }
+    
+    if (rankClass) li.classList.add(rankClass);
+
     const avatarId = item.avatarId || avatarCatalog[index % avatarCatalog.length].id;
     li.innerHTML = `
       <div class="leaderboard-entry">
-        ${createAvatarMarkup(avatarId, 'happy')}
+        ${createAvatarMarkup(avatarId, index < 3 ? 'happy' : 'idle')}
         <span>${item.name}</span>
+        ${badgeHtml}
       </div>
       <strong>${item.score} pts</strong>
     `;
@@ -485,30 +558,111 @@ function renderRevealRace(answerSummary = []) {
 
   revealRace.innerHTML = '';
 
+  // Show round badge
+  const roundBadge = document.getElementById('reveal-round-badge');
+  if (roundBadge && state.currentQuestion) {
+    roundBadge.textContent = `Round ${state.currentQuestion.index} of ${state.currentQuestion.total}`;
+  }
+
+  // Bug fix #4: Empty race track fallback
+  if (ranked.length === 0) {
+    revealRace.innerHTML = '<div class="race-empty"><span class="race-empty-icon">🏁</span><p>No race data this round — everyone timed out!</p></div>';
+    renderRevealStandings([]);
+    return;
+  }
+
   ranked.forEach((item, index) => {
     const player = state.players.find((entry) => entry.id === item.playerId);
     const playerAvatarId = player ? player.avatarId : null;
-    const progress = topScore > 0 ? Math.max(6, Math.round((item.score / topScore) * 100)) : 6;
+    const progress = topScore > 0 ? Math.max(8, Math.round((item.score / topScore) * 100)) : 8;
+    const isLeader = index === 0 && item.score > 0;
     const lane = document.createElement('div');
-    lane.className = 'race-lane';
+    lane.className = `race-lane race-lane-stagger ${isLeader ? 'race-leader' : ''} ${item.correct ? 'race-correct' : item.answered ? 'race-wrong' : 'race-noans'}`;
+    lane.style.animationDelay = `${index * 120}ms`;
+
+    let rankLabel = '';
+    if (index === 0) rankLabel = '👑';
+    else if (index === 1) rankLabel = '2nd';
+    else if (index === 2) rankLabel = '3rd';
+    else rankLabel = `${index + 1}th`;
+
+    let resultIcon = '';
+    let resultText = '';
+    if (item.correct) {
+      resultIcon = '✅';
+      resultText = `+${item.earned} pts`;
+    } else if (item.answered) {
+      resultIcon = '❌';
+      resultText = 'Wrong';
+    } else {
+      resultIcon = '⏳';
+      resultText = 'No answer';
+    }
+
     lane.innerHTML = `
-      <div class="race-player-meta">
-        <span class="race-emoji">${getAvatarEmoji(playerAvatarId)}</span>
-        <div>
-          <strong>${item.name}</strong>
-          <span>${item.correct ? `+${item.earned} points` : item.answered ? 'Oops, no points' : 'No answer this time'}</span>
+      <div class="race-rank">${rankLabel}</div>
+      <div class="race-player-info">
+        <div class="race-player-meta">
+          <span class="race-emoji">${getAvatarEmoji(playerAvatarId)}</span>
+          <div>
+            <strong>${item.name}</strong>
+            <span class="race-result ${item.correct ? 'result-correct' : item.answered ? 'result-wrong' : 'result-skip'}">${resultIcon} ${resultText}</span>
+          </div>
         </div>
-      </div>
-      <div class="race-track">
-        <span class="race-start">Start</span>
-        <div class="race-line">
-          <span class="race-runner" style="left: calc(${progress}% - 20px)">${getAvatarEmoji(playerAvatarId)}</span>
+        <div class="race-track">
+          <div class="race-bar" style="width: 0%;" data-target="${progress}">
+            <span class="race-bar-runner">${getAvatarEmoji(playerAvatarId)}</span>
+          </div>
+          <div class="race-checkered"></div>
         </div>
-        <span class="race-finish">${index === 0 ? 'Leading' : `${item.score} pts`}</span>
+        <div class="race-score-label"><strong>${item.score}</strong> pts${item.correct ? ' <span class="pts-float">+' + item.earned + '</span>' : ''}</div>
       </div>
     `;
     revealRace.appendChild(lane);
   });
+
+  // Animate bars in with staggered delay
+  requestAnimationFrame(() => {
+    setTimeout(() => {
+      revealRace.querySelectorAll('.race-bar').forEach((bar, i) => {
+        setTimeout(() => { bar.style.width = bar.dataset.target + '%'; }, i * 150);
+      });
+    }, 200);
+  });
+
+  renderRevealStandings(ranked);
+}
+
+function renderRevealStandings(ranked) {
+  const standingsEl = document.getElementById('reveal-standings');
+  if (!standingsEl) return;
+
+  const top3 = ranked.slice(0, 3);
+  if (top3.length === 0) {
+    standingsEl.innerHTML = '';
+    return;
+  }
+
+  let html = '<div class="standings-header"><h3>🏅 Current Standings</h3></div><div class="standings-podium">';
+  
+  top3.forEach((item, index) => {
+    const player = state.players.find((entry) => entry.id === item.playerId);
+    const playerAvatarId = player ? player.avatarId : null;
+    const medals = ['🥇', '🥈', '🥉'];
+    const posLabels = ['1ST', '2ND', '3RD'];
+    html += `
+      <div class="standings-spot standings-${index + 1}">
+        <div class="standings-medal">${medals[index]}</div>
+        <span class="standings-avatar">${getAvatarEmoji(playerAvatarId)}</span>
+        <strong class="standings-name">${item.name}</strong>
+        <span class="standings-pts">${item.score} pts</span>
+        <span class="standings-pos">${posLabels[index]}</span>
+      </div>
+    `;
+  });
+
+  html += '</div>';
+  standingsEl.innerHTML = html;
 }
 
 function renderHostLobbyPanel() {
@@ -642,11 +796,35 @@ function renderAvatarPicker() {
 
 function startQuestionTimer(startedAt, durationMs) {
   clearInterval(state.timerInterval);
+  state.timerDurationMs = durationMs;
+  state.timerStartedAt = startedAt;
+  const circumference = 2 * Math.PI * 34;
+  if (timerRingFg) {
+    timerRingFg.style.strokeDasharray = circumference;
+    timerRingFg.style.strokeDashoffset = '0';
+  }
 
   const tick = () => {
     const elapsed = Date.now() - startedAt;
     const remainMs = Math.max(0, durationMs - elapsed);
-    timerEl.textContent = String(Math.ceil(remainMs / 1000));
+    const secs = Math.ceil(remainMs / 1000);
+    timerEl.textContent = String(secs);
+    // Circular ring progress
+    const fraction = 1 - (remainMs / durationMs);
+    if (timerRingFg) timerRingFg.style.strokeDashoffset = String(circumference * fraction);
+    // Color change: green -> yellow -> red
+    if (timerRingWrap) {
+      timerRingWrap.classList.remove('timer-warn', 'timer-danger');
+      if (secs <= 5) timerRingWrap.classList.add('timer-danger');
+      else if (secs <= 10) timerRingWrap.classList.add('timer-warn');
+    }
+    // Urgency vignette in last 5 seconds
+    if (urgencyVignette) {
+      if (secs <= 5 && secs > 0) { urgencyVignette.classList.remove('hidden'); }
+      else { urgencyVignette.classList.add('hidden'); }
+    }
+    // Tick sound in last 5s
+    if (secs <= 5 && secs > 0 && remainMs % 1000 < 250) playSound('tick');
   };
 
   tick();
@@ -656,6 +834,8 @@ function startQuestionTimer(startedAt, durationMs) {
 function clearQuestionTimer() {
   clearInterval(state.timerInterval);
   state.timerInterval = null;
+  if (urgencyVignette) urgencyVignette.classList.add('hidden');
+  if (timerRingWrap) timerRingWrap.classList.remove('timer-warn', 'timer-danger');
 }
 
 function lockOptionButtons() {
@@ -677,6 +857,8 @@ function renderQuestion(payload) {
   state.selectedAnswer = null;
   state.lockedCount = 0;
   state.totalParticipants = payload.totalParticipants || state.totalParticipants;
+  // Bug fix #1: ensure player count shows correctly during gameplay
+  playerCount.textContent = String(state.totalParticipants);
   const funMoment = questionFunMoments[(payload.index - 1) % questionFunMoments.length];
 
   questionProgress.textContent = `Question ${payload.index} / ${payload.total}`;
@@ -684,15 +866,19 @@ function renderQuestion(payload) {
   answerStatus.textContent = '';
   if (questionSticker) questionSticker.textContent = funMoment.sticker;
   if (questionVibe) questionVibe.textContent = funMoment.vibe;
+  updateAnswerLockBar(0, state.totalParticipants);
 
   questionOptions.innerHTML = '';
   payload.options.forEach((optionText, idx) => {
     const btn = document.createElement('button');
-    btn.className = `option option-${idx % optionBadges.length}`;
+    btn.className = `option option-${idx % optionBadges.length} option-appear`;
+    btn.style.animationDelay = `${idx * 80}ms`;
+    btn.setAttribute('aria-label', `Option ${idx + 1}: ${optionText}`);
     btn.innerHTML = `<span class="option-badge">${optionBadges[idx % optionBadges.length]}</span><span>${optionText}</span>`;
     if (!isHostView()) {
       btn.addEventListener('click', () => {
         if (state.selectedAnswer !== null) return;
+        playSound('click');
         markSelectedOption(btn);
         answerStatus.textContent = 'Locking answer...';
 
@@ -708,7 +894,8 @@ function renderQuestion(payload) {
             state.selectedAnswer = idx;
             lockOptionButtons();
             btn.classList.add('correct');
-            answerStatus.textContent = 'Answer locked!';
+            answerStatus.textContent = '✅ Answer locked!';
+            playSound('correct');
           }
         );
       });
@@ -794,6 +981,7 @@ socket.on('answerLocked', (payload) => {
   if (state.phase !== 'question') return;
   state.lockedCount = payload.lockedCount;
   state.totalParticipants = payload.totalPlayers;
+  updateAnswerLockBar(payload.lockedCount, payload.totalPlayers);
   answerStatus.textContent = isHostView()
     ? `Live status: ${payload.lockedCount}/${payload.totalPlayers} players have answered.`
     : `Locked answers: ${payload.lockedCount}/${payload.totalPlayers}`;
@@ -812,8 +1000,12 @@ socket.on('leaderboard', (payload) => {
       ? `${payload.champion.name} with ${payload.champion.score} points!`
       : 'No champion this round.';
     renderLeaderboard(finalBoard, payload.leaderboard);
+    if (typeof shootConfetti === 'function') shootConfetti();
+    if (typeof startCelebration === 'function') startCelebration();
     return;
   }
+  
+  if (typeof stopConfetti === 'function') stopConfetti();
 
   showView('leaderboard');
   renderLeaderboard(leaderboardList, payload.leaderboard);
@@ -886,30 +1078,66 @@ showView('landing');
 updateChrome();
 renderDecor();
 
-const savedSession = loadSession();
-if (savedSession && savedSession.roomCode && savedSession.playerToken) {
-  socket.emit(
-    'resumeSession',
-    {
-      roomCode: savedSession.roomCode,
-      playerToken: savedSession.playerToken,
-    },
-    (response) => {
-      if (!response.ok) {
-        clearSession();
-        return;
+// Bug fix #2 & #3: Auto-reconnect on socket connect event
+function attemptSessionResume() {
+  const saved = loadSession();
+  if (saved && saved.roomCode && saved.playerToken) {
+    if (reconnectOverlay) reconnectOverlay.classList.remove('hidden');
+    socket.emit(
+      'resumeSession',
+      { roomCode: saved.roomCode, playerToken: saved.playerToken },
+      (response) => {
+        if (reconnectOverlay) reconnectOverlay.classList.add('hidden');
+        if (!response.ok) {
+          clearSession();
+          return;
+        }
+        state.playerId = response.playerId;
+        state.roomCode = response.roomCode;
+        saveSession({
+          roomCode: response.roomCode,
+          playerId: response.playerId,
+          playerToken: response.playerToken,
+          playerName: response.playerName || saved.playerName,
+        });
       }
+    );
+  }
+}
 
-      state.playerId = response.playerId;
-      state.roomCode = response.roomCode;
-      saveSession({
-        roomCode: response.roomCode,
-        playerId: response.playerId,
-        playerToken: response.playerToken,
-        playerName: response.playerName || savedSession.playerName,
-      });
-    }
-  );
+socket.on('connect', () => {
+  if (reconnectOverlay) reconnectOverlay.classList.add('hidden');
+  // Auto-resume session on reconnect if we had an active session
+  if (state.roomCode && state.playerId) {
+    attemptSessionResume();
+  }
+});
+
+socket.on('disconnect', () => {
+  if (state.roomCode) {
+    if (reconnectOverlay) reconnectOverlay.classList.remove('hidden');
+  }
+});
+
+socket.on('reconnect_failed', () => {
+  if (reconnectOverlay) reconnectOverlay.classList.add('hidden');
+  clearSession();
+  showView('landing');
+});
+
+// Initial session resume on page load
+attemptSessionResume();
+
+// Play Again button
+const playAgainBtn = document.getElementById('play-again');
+if (playAgainBtn) {
+  playAgainBtn.addEventListener('click', () => {
+    clearSession();
+    state.playerId = null;
+    state.roomCode = null;
+    state.hostId = null;
+    showView('landing');
+  });
 }
 
 // Prevent accidental refresh: show confirmation dialog
@@ -937,3 +1165,200 @@ window.addEventListener('keydown', function (e) {
     }
   }
 });
+
+let confettiParticles = [];
+let confettiCtx = null;
+let confettiAnimId = null;
+
+function shootConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  if (!canvas) return;
+  confettiCtx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const colors = ['#8dca8a', '#86c8d9', '#f1ce78', '#ef9aa4'];
+  confettiParticles = [];
+
+  for (let i = 0; i < 150; i++) {
+    confettiParticles.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height - canvas.height,
+      r: Math.random() * 6 + 4,
+      dx: Math.random() * 4 - 2,
+      dy: Math.random() * 5 + 2,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      tilt: Math.random() * 10 - 10,
+      tiltAngleInc: (Math.random() * 0.07) + 0.05,
+      tiltAngle: 0
+    });
+  }
+
+  function render() {
+    confettiCtx.clearRect(0, 0, canvas.width, canvas.height);
+    let active = false;
+    for (let i = 0; i < confettiParticles.length; i++) {
+      let p = confettiParticles[i];
+      confettiCtx.beginPath();
+      confettiCtx.lineWidth = p.r;
+      confettiCtx.strokeStyle = p.color;
+      p.tiltAngle += p.tiltAngleInc;
+      confettiCtx.moveTo(p.x + p.tilt + p.r, p.y);
+      confettiCtx.lineTo(p.x + p.tilt, p.y + p.tilt + p.r);
+      confettiCtx.stroke();
+      p.y += p.dy;
+      p.x += Math.sin(p.tiltAngle) * 2 + p.dx;
+      if (p.y <= canvas.height) active = true;
+    }
+    if (active) {
+      confettiAnimId = requestAnimationFrame(render);
+    }
+  }
+
+  if (confettiAnimId) cancelAnimationFrame(confettiAnimId);
+  render();
+}
+
+function stopConfetti() {
+  if (confettiAnimId) {
+    cancelAnimationFrame(confettiAnimId);
+    confettiAnimId = null;
+  }
+  if (confettiCtx) {
+    const canvas = document.getElementById('confetti-canvas');
+    if (canvas) confettiCtx.clearRect(0, 0, canvas.width, canvas.height);
+  }
+}
+
+/* ---- Clapping AI Emoji Celebration with Applause Sound ---- */
+
+let celebrationTimer = null;
+let celebrationInterval = null;
+let applauseOscillators = [];
+
+const clapEmojis = ['👏', '🤖', '🎉', '🙌', '🥳', '✨', '💥', '🔥', '⭐', '🏆'];
+
+function playApplauseSound() {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    const duration = 6;
+    const sampleRate = ctx.sampleRate;
+    const bufferLength = sampleRate * duration;
+    const buffer = ctx.createBuffer(2, bufferLength, sampleRate);
+
+    // Generate applause noise with clapping texture
+    for (let ch = 0; ch < 2; ch++) {
+      const data = buffer.getChannelData(ch);
+      for (let i = 0; i < bufferLength; i++) {
+        const t = i / sampleRate;
+        // White noise base
+        let sample = (Math.random() * 2 - 1) * 0.3;
+        // Add rhythmic clapping bursts
+        const clapRate = 3.5;
+        const clapPhase = (t * clapRate) % 1;
+        if (clapPhase < 0.08) {
+          sample += (Math.random() * 2 - 1) * 0.7 * (1 - clapPhase / 0.08);
+        }
+        // Fade envelope: rise then sustain then fade out
+        let env = 1;
+        if (t < 0.5) env = t / 0.5;
+        else if (t > duration - 1.5) env = (duration - t) / 1.5;
+        data[i] = sample * env * 0.4;
+      }
+    }
+
+    const source = ctx.createBufferSource();
+    source.buffer = buffer;
+
+    // Shape it with a bandpass filter for warmth
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'bandpass';
+    filter.frequency.value = 2200;
+    filter.Q.value = 0.6;
+
+    const gainNode = ctx.createGain();
+    gainNode.gain.setValueAtTime(0.5, ctx.currentTime);
+    gainNode.gain.linearRampToValueAtTime(0.6, ctx.currentTime + 0.8);
+    gainNode.gain.linearRampToValueAtTime(0, ctx.currentTime + duration);
+
+    source.connect(filter);
+    filter.connect(gainNode);
+    gainNode.connect(ctx.destination);
+    source.start();
+
+    applauseOscillators.push({ ctx, source });
+
+    // Clean up after done
+    setTimeout(() => {
+      try { ctx.close(); } catch (e) {}
+    }, (duration + 1) * 1000);
+  } catch (e) {
+    // Web Audio not supported, skip sound
+  }
+}
+
+function spawnClappingEmoji() {
+  const overlay = document.getElementById('celebration-overlay');
+  if (!overlay) return;
+
+  const emoji = clapEmojis[Math.floor(Math.random() * clapEmojis.length)];
+  const el = document.createElement('span');
+  el.className = 'clap-emoji';
+  el.textContent = emoji;
+  el.style.left = (Math.random() * 90 + 5) + '%';
+  el.style.bottom = (Math.random() * 20) + '%';
+  el.style.fontSize = (1.8 + Math.random() * 2) + 'rem';
+  el.style.animationDelay = (Math.random() * 0.3) + 's';
+  el.style.animationDuration = (2.5 + Math.random() * 2) + 's';
+  overlay.appendChild(el);
+
+  // Remove after animation
+  setTimeout(() => {
+    if (el.parentNode) el.parentNode.removeChild(el);
+  }, 5000);
+}
+
+function startCelebration() {
+  stopCelebration();
+
+  // Spawn initial burst of emojis
+  for (let i = 0; i < 12; i++) {
+    setTimeout(() => spawnClappingEmoji(), i * 120);
+  }
+
+  // Keep spawning emojis
+  celebrationInterval = setInterval(() => {
+    const count = Math.floor(Math.random() * 3) + 2;
+    for (let i = 0; i < count; i++) {
+      setTimeout(() => spawnClappingEmoji(), i * 150);
+    }
+  }, 800);
+
+  // Play applause sound
+  playApplauseSound();
+
+  // Stop after 8 seconds
+  celebrationTimer = setTimeout(() => {
+    stopCelebration();
+  }, 8000);
+}
+
+function stopCelebration() {
+  if (celebrationTimer) {
+    clearTimeout(celebrationTimer);
+    celebrationTimer = null;
+  }
+  if (celebrationInterval) {
+    clearInterval(celebrationInterval);
+    celebrationInterval = null;
+  }
+  const overlay = document.getElementById('celebration-overlay');
+  if (overlay) overlay.innerHTML = '';
+
+  applauseOscillators.forEach(item => {
+    try { item.source.stop(); } catch (e) {}
+    try { item.ctx.close(); } catch (e) {}
+  });
+  applauseOscillators = [];
+}
+
