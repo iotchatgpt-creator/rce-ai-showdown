@@ -105,13 +105,7 @@ function ensureDbFile() {
   dbState.activeRooms = Array.isArray(dbState.activeRooms) ? dbState.activeRooms : [];
   dbState.completedGames = Array.isArray(dbState.completedGames) ? dbState.completedGames : [];
 
-  dbState.masterData.questions = dbState.masterData.questions.map((question) => ({
-    id: question.id || randomId('question'),
-    prompt: question.prompt,
-    options: question.options,
-    correctIndex: question.correctIndex,
-    explanation: question.explanation || '',
-  }));
+  dbState.masterData.questions = dbState.masterData.questions.map((question) => normalizeQuestionInput(question));
 
   fs.writeFileSync(DB_FILE, JSON.stringify(dbState, null, 2));
 }
@@ -259,7 +253,7 @@ function validateQuestionInput(payload, partial = false) {
 
 function normalizeQuestionInput(payload, existing = {}) {
   return {
-    id: existing.id || randomId('question'),
+    id: existing.id || payload.id || randomId('question'),
     prompt: Object.prototype.hasOwnProperty.call(payload, 'prompt')
       ? String(payload.prompt).trim()
       : existing.prompt,
@@ -272,6 +266,12 @@ function normalizeQuestionInput(payload, existing = {}) {
     explanation: Object.prototype.hasOwnProperty.call(payload, 'explanation')
       ? String(payload.explanation || '').trim()
       : existing.explanation || '',
+    difficulty: Object.prototype.hasOwnProperty.call(payload, 'difficulty')
+      ? String(payload.difficulty || '').trim()
+      : existing.difficulty || '',
+    tags: Object.prototype.hasOwnProperty.call(payload, 'tags')
+      ? Array.isArray(payload.tags) ? payload.tags.map(t => String(t).trim()) : []
+      : existing.tags || [],
   };
 }
 
@@ -589,17 +589,22 @@ app.get('/api/questions/:id', (req, res) => {
 });
 
 app.post('/api/questions', (req, res) => {
-  const errors = validateQuestionInput(req.body || {});
-  if (errors.length) {
-    res.status(400).json({ error: 'Invalid question payload.', details: errors });
-    return;
+  const payloads = Array.isArray(req.body) ? req.body : [req.body || {}];
+  const addedQuestions = [];
+
+  for (const payload of payloads) {
+    const errors = validateQuestionInput(payload);
+    if (errors.length) {
+      res.status(400).json({ error: 'Invalid question payload.', details: errors, payload });
+      return;
+    }
+    const question = normalizeQuestionInput(payload);
+    dbState.masterData.questions.push(question);
+    addedQuestions.push(question);
   }
 
-  const question = normalizeQuestionInput(req.body || {});
-  dbState.masterData.questions.push(question);
   saveDbState();
-
-  res.status(201).json(question);
+  res.status(201).json(Array.isArray(req.body) ? addedQuestions : addedQuestions[0]);
 });
 
 app.put('/api/questions/:id', (req, res) => {

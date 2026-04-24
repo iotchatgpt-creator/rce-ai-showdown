@@ -6,7 +6,7 @@
       "name": "master_questions",
       "description": "Seeded from data/questions.json on startup",
       "primaryKey": "id",
-      "columns": ["id", "prompt", "options", "correctIndex", "explanation"]
+      "columns": ["id", "prompt", "options", "correctIndex", "explanation", "difficulty", "tags"]
     },
     {
       "name": "player_profiles",
