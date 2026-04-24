@@ -531,5 +531,135 @@
     "explanation": "Memory helps agents remember context.",
     "difficulty": "",
     "tags": []
+  },
+  {
+    "prompt": "What does an AI's 'temperature' setting control?",
+    "options": [
+      "The randomness or creativity of the output",
+      "The brightness of the UI",
+      "How hot the server runs",
+      "The volume of the response"
+    ],
+    "explanation": "A higher temperature produces more creative, random outputs, while lower is more focused.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 0
+  },
+  {
+    "prompt": "What does 'NLP' stand for?",
+    "options": [
+      "Natural Language Processing",
+      "Numeric Learning Process",
+      "New Laptop Program",
+      "Neural Logic Protocol"
+    ],
+    "explanation": "NLP is the field of AI focused on understanding and generating human language.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 0
+  },
+  {
+    "prompt": "What does the 'T' in ChatGPT stand for?",
+    "options": [
+      "Transformer",
+      "Transfer",
+      "Translation",
+      "Terminal"
+    ],
+    "explanation": "It stands for Generative Pre-trained Transformer.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 0
+  },
+  {
+    "prompt": "What is Deep Learning?",
+    "options": [
+      "Machine learning using multi-layered neural networks",
+      "Reading long books",
+      "Storing data deep underground",
+      "Learning while sleeping"
+    ],
+    "explanation": "Deep learning uses deep artificial neural networks to learn complex patterns.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 0
+  },
+  {
+    "prompt": "What is an artificial neural network inspired by?",
+    "options": [
+      "The human brain's biological neurons",
+      "Clock gears",
+      "Spider webs",
+      "City traffic grids"
+    ],
+    "explanation": "Neural networks mimic the interconnected structure of biological neurons.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 0
+  },
+  {
+    "prompt": "What is a 'deepfake'?",
+    "options": [
+      "A completely invisible robot",
+      "A fake error message",
+      "AI-generated synthetic media that alters a person's likeness",
+      "A deep scratch on a server"
+    ],
+    "explanation": "Deepfakes use AI to convincingly replace a person's image or voice.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 2
+  },
+  {
+    "prompt": "What does it mean if an AI is called a 'Black Box'?",
+    "options": [
+      "It only runs in dark mode",
+      "It records audio like an airplane",
+      "Its internal decision-making process is hidden or unexplainable",
+      "It is shipped in a black crate"
+    ],
+    "explanation": "Black box models are so complex that humans cannot easily trace how they reached a conclusion.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 2
+  },
+  {
+    "prompt": "What is 'Computer Vision'?",
+    "options": [
+      "Wearing glasses with screens",
+      "Robots that paint",
+      "The field of AI focused on interpreting visual data",
+      "A new type of monitor"
+    ],
+    "explanation": "Computer vision enables machines to understand and process images and video.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 2
+  },
+  {
+    "prompt": "What is the Turing Test?",
+    "options": [
+      "A typing speed test",
+      "A test of a machine's ability to exhibit intelligent behavior indistinguishable from a human",
+      "A test to see if a computer is plugged in",
+      "A test for internet speed"
+    ],
+    "explanation": "Proposed by Alan Turing, it tests if a human can tell they are chatting with a machine.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 1
+  },
+  {
+    "prompt": "What is 'Sentiment Analysis'?",
+    "options": [
+      "Measuring typing pressure",
+      "Analyzing code errors",
+      "Using AI to identify the emotional tone of text",
+      "Teaching robots to cry"
+    ],
+    "explanation": "Sentiment analysis determines whether a text is positive, negative, or neutral.",
+    "difficulty": "",
+    "tags": [],
+    "correctIndex": 2
   }
 ]
