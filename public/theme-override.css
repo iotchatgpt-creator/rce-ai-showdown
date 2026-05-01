@@ -1,0 +1,599 @@
+/* ═══════════════════════════════════════════════════════
+   AI Showdown — Dark Tech / AI Robotics Theme Override
+   Overrides the base meadow/nature palette with a dark
+   cyberpunk-inspired AI aesthetic.
+   ═══════════════════════════════════════════════════════ */
+
+/* ── Root Variable Override ── */
+:root {
+  --bg: #0a0e1a;
+  --bg-deep: #060912;
+  --surface: rgba(15, 20, 35, 0.92);
+  --surface-strong: rgba(18, 24, 42, 0.98);
+  --line: rgba(56, 189, 248, 0.12);
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --yellow: #facc15;
+  --blue: #38bdf8;
+  --red: #f87171;
+  --green: #4ade80;
+  --leaf: #22d3ee;
+  --cream: #0f172a;
+  --card-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+
+  /* New tech accent colors */
+  --cyan: #22d3ee;
+  --purple: #a78bfa;
+  --neon-blue: #38bdf8;
+  --neon-green: #4ade80;
+  --neon-purple: #c084fc;
+  --dark-card: rgba(15, 23, 42, 0.85);
+}
+
+/* ── Body & Background ── */
+body,
+body.season-spring,
+body.season-summer,
+body.season-autumn,
+body.season-winter {
+  background:
+    radial-gradient(ellipse at 20% 0%, rgba(56, 189, 248, 0.08), transparent 50%),
+    radial-gradient(ellipse at 80% 100%, rgba(168, 85, 247, 0.06), transparent 50%),
+    linear-gradient(180deg, #0a0e1a 0%, #0f172a 50%, #060912 100%) !important;
+  color: var(--text);
+}
+
+/* ── Background Orbs — Neon Glow ── */
+.bg-orb {
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.orb-a,
+body.season-spring .orb-a,
+body.season-summer .orb-a,
+body.season-autumn .orb-a,
+body.season-winter .orb-a {
+  background: #38bdf8 !important;
+}
+
+.orb-b,
+body.season-spring .orb-b,
+body.season-summer .orb-b,
+body.season-autumn .orb-b,
+body.season-winter .orb-b {
+  background: #a78bfa !important;
+}
+
+/* ── Grid — Circuit Board Pattern ── */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px) !important;
+  background-size: 48px 48px !important;
+  opacity: 0.4 !important;
+}
+
+/* ── Hide Nature Elements ── */
+.bg-hills,
+.meadow-scene,
+.scene-weather,
+.scene-bird,
+.scene-tree,
+.scene-picnic,
+.picnic-blanket,
+.picnic-basket,
+.scene-friends {
+  display: none !important;
+}
+
+/* ── Hero Header ── */
+.hero h1 {
+  color: #f1f5f9 !important;
+  text-shadow: 0 0 40px rgba(56, 189, 248, 0.3);
+}
+
+.eyebrow,
+.section-kicker,
+.status-label,
+.metric-label {
+  color: var(--cyan) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  letter-spacing: 0.2em !important;
+}
+
+.subtitle {
+  color: var(--muted) !important;
+}
+
+/* ── Cards — Glassmorphism Dark ── */
+.card,
+.card-landing {
+  background: linear-gradient(
+    135deg,
+    rgba(15, 23, 42, 0.9),
+    rgba(30, 41, 59, 0.8)
+  ) !important;
+  border: 1px solid rgba(56, 189, 248, 0.15) !important;
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(56, 189, 248, 0.08) !important;
+  backdrop-filter: blur(20px) !important;
+  color: var(--text) !important;
+}
+
+.card h2,
+.card h3 {
+  color: #f1f5f9 !important;
+}
+
+/* ── Buttons — Neon Tech ── */
+.btn {
+  border-radius: 12px !important;
+  font-family: 'JetBrains Mono', 'Nunito', sans-serif !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.06em !important;
+  text-transform: uppercase !important;
+  transition: transform 120ms ease, box-shadow 200ms ease !important;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+  color: #fff !important;
+  box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35) !important;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 30px rgba(37, 99, 235, 0.5) !important;
+}
+
+.btn-secondary {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(168, 85, 247, 0.15)) !important;
+  color: var(--cyan) !important;
+  border: 1px solid rgba(56, 189, 248, 0.3) !important;
+  box-shadow: none !important;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(168, 85, 247, 0.25)) !important;
+  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.2) !important;
+}
+
+/* ── Inputs — Dark Glass ── */
+input {
+  background: rgba(30, 41, 59, 0.7) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  color: var(--text) !important;
+  border-radius: 12px !important;
+}
+
+input::placeholder {
+  color: rgba(148, 163, 184, 0.5) !important;
+}
+
+input:focus {
+  border-color: var(--cyan) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* ── Status Chips & Pills ── */
+.status-chip,
+.room-pill {
+  background: rgba(56, 189, 248, 0.1) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  color: var(--cyan) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+.status-chip.muted {
+  background: rgba(100, 116, 139, 0.1) !important;
+  color: var(--muted) !important;
+  border-color: rgba(100, 116, 139, 0.2) !important;
+}
+
+.room-pill-glow {
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* ── Hero Metrics ── */
+.hero-metrics > div {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+  border-radius: 16px !important;
+}
+
+.hero-metrics strong {
+  color: var(--cyan) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Player List ── */
+.players li {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+}
+
+.players li::before {
+  background: linear-gradient(180deg, var(--cyan), var(--purple)) !important;
+}
+
+.player-meta span {
+  color: var(--muted) !important;
+}
+
+/* ── Question Sticker ── */
+.question-sticker {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2)) !important;
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.15) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+}
+
+.question-vibe {
+  color: var(--muted) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.85rem !important;
+}
+
+/* ── Question Board ── */
+.question-board {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(56, 189, 248, 0.08) !important;
+}
+
+.question {
+  color: #f1f5f9 !important;
+}
+
+/* ── Answer Options — Neon Cards ── */
+.option {
+  border-radius: 16px !important;
+  border: 2px solid rgba(56, 189, 248, 0.12) !important;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.2s ease, border-color 0.2s ease !important;
+}
+
+.option:not(.locked):not(.host-readonly):hover {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 12px 24px rgba(56, 189, 248, 0.15) !important;
+}
+
+/* Option color overrides — keep the 4-color system but neon */
+.option:nth-child(1) {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.15), rgba(239, 68, 68, 0.05)) !important;
+  border-color: rgba(239, 68, 68, 0.25) !important;
+}
+
+.option:nth-child(2) {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.15), rgba(56, 189, 248, 0.05)) !important;
+  border-color: rgba(56, 189, 248, 0.25) !important;
+}
+
+.option:nth-child(3) {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.15), rgba(250, 204, 21, 0.05)) !important;
+  border-color: rgba(250, 204, 21, 0.25) !important;
+}
+
+.option:nth-child(4) {
+  background: linear-gradient(135deg, rgba(74, 222, 128, 0.15), rgba(74, 222, 128, 0.05)) !important;
+  border-color: rgba(74, 222, 128, 0.25) !important;
+}
+
+.option:nth-child(1):not(.locked):not(.host-readonly):hover {
+  border-color: #ef4444 !important;
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.2) !important;
+}
+
+.option:nth-child(2):not(.locked):not(.host-readonly):hover {
+  border-color: #38bdf8 !important;
+  box-shadow: 0 8px 24px rgba(56, 189, 248, 0.2) !important;
+}
+
+.option:nth-child(3):not(.locked):not(.host-readonly):hover {
+  border-color: #facc15 !important;
+  box-shadow: 0 8px 24px rgba(250, 204, 21, 0.2) !important;
+}
+
+.option:nth-child(4):not(.locked):not(.host-readonly):hover {
+  border-color: #4ade80 !important;
+  box-shadow: 0 8px 24px rgba(74, 222, 128, 0.2) !important;
+}
+
+/* ── Timer Ring ── */
+.timer-ring-bg {
+  stroke: rgba(56, 189, 248, 0.1) !important;
+}
+
+.timer-ring-fg {
+  stroke: var(--cyan) !important;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.4)) !important;
+}
+
+.timer-number {
+  color: var(--cyan) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Progress / Lock Bars ── */
+.lobby-ready-bar,
+.answer-lock-bar {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+}
+
+.ready-bar-fill,
+.answer-lock-fill {
+  background: linear-gradient(90deg, var(--cyan), var(--purple)) !important;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.3) !important;
+}
+
+.ready-bar-label,
+.answer-lock-label {
+  color: var(--muted) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Reveal Screen ── */
+.reveal-answer-card {
+  background: rgba(30, 41, 59, 0.7) !important;
+  border: 1px solid rgba(56, 189, 248, 0.15) !important;
+}
+
+.reveal-answer-text {
+  color: var(--neon-green) !important;
+}
+
+.reveal-explanation {
+  color: var(--muted) !important;
+}
+
+.reveal-race-card {
+  background: rgba(15, 23, 42, 0.5) !important;
+  border: 1px solid rgba(56, 189, 248, 0.08) !important;
+}
+
+/* ── Leaderboard ── */
+.leaderboard li {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+  color: var(--text) !important;
+}
+
+.leaderboard li:hover {
+  box-shadow: 0 10px 20px rgba(56, 189, 248, 0.1) !important;
+}
+
+.leaderboard li::before {
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(168, 85, 247, 0.2)) !important;
+  color: var(--cyan) !important;
+}
+
+.leaderboard li.gold-medal {
+  background: linear-gradient(135deg, rgba(250, 204, 21, 0.12), rgba(250, 204, 21, 0.04)) !important;
+  border: 2px solid rgba(250, 204, 21, 0.4) !important;
+  box-shadow: 0 0 30px rgba(250, 204, 21, 0.1) !important;
+}
+
+.leaderboard li.gold-medal::before {
+  background: linear-gradient(135deg, #facc15, #eab308) !important;
+  color: #1a1a2e !important;
+  box-shadow: 0 4px 15px rgba(250, 204, 21, 0.4) !important;
+}
+
+.leaderboard li.silver-medal {
+  background: linear-gradient(135deg, rgba(148, 163, 184, 0.12), rgba(148, 163, 184, 0.04)) !important;
+  border: 2px solid rgba(148, 163, 184, 0.3) !important;
+}
+
+.leaderboard li.silver-medal::before {
+  background: linear-gradient(135deg, #cbd5e1, #94a3b8) !important;
+  color: #1e293b !important;
+}
+
+.leaderboard li.bronze-medal {
+  background: linear-gradient(135deg, rgba(251, 146, 60, 0.12), rgba(251, 146, 60, 0.04)) !important;
+  border: 2px solid rgba(251, 146, 60, 0.3) !important;
+}
+
+.leaderboard li.bronze-medal::before {
+  background: linear-gradient(135deg, #fb923c, #ea580c) !important;
+  color: #1a1a2e !important;
+}
+
+.badge-text {
+  background: rgba(56, 189, 248, 0.1) !important;
+  color: var(--cyan) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Final / Champion Screen ── */
+.final-screen {
+  text-align: center;
+}
+
+.final-screen h2 {
+  text-shadow: 0 0 40px rgba(250, 204, 21, 0.3) !important;
+}
+
+.champion {
+  color: var(--yellow) !important;
+  text-shadow: 0 0 30px rgba(250, 204, 21, 0.25) !important;
+}
+
+.final-subtitle {
+  color: var(--muted) !important;
+}
+
+.final-spotlight {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(250, 204, 21, 0.06),
+    transparent 70%
+  ) !important;
+}
+
+/* ── Host Panels ── */
+.host-live-panel,
+.host-lobby-panel {
+  background: rgba(15, 23, 42, 0.6) !important;
+  border: 1px solid rgba(56, 189, 248, 0.1) !important;
+}
+
+.host-live-card {
+  background: rgba(30, 41, 59, 0.5) !important;
+  border: 1px solid rgba(56, 189, 248, 0.08) !important;
+}
+
+.host-stat-pill {
+  background: rgba(56, 189, 248, 0.1) !important;
+  color: var(--cyan) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Lobby Panels ── */
+.lobby-panel {
+  background: rgba(30, 41, 59, 0.4) !important;
+  border: 1px solid rgba(56, 189, 248, 0.08) !important;
+}
+
+/* ── Notice / Error ── */
+.notice {
+  color: var(--muted) !important;
+}
+
+.error {
+  color: #f87171 !important;
+}
+
+.answer-banner {
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Reconnect Overlay ── */
+.reconnect-overlay {
+  background: rgba(10, 14, 26, 0.9) !important;
+}
+
+.reconnect-card {
+  background: rgba(30, 41, 59, 0.95) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+}
+
+.reconnect-text {
+  color: var(--text) !important;
+}
+
+.reconnect-sub {
+  color: var(--muted) !important;
+}
+
+/* ── Tiny Notes ── */
+.tiny-note {
+  color: var(--muted) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Labels ── */
+label {
+  color: var(--muted) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+  font-size: 0.8rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.1em !important;
+}
+
+/* ── Scrollbar — Dark Tech ── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(56, 189, 248, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(56, 189, 248, 0.35);
+}
+
+/* ── Urgency Vignette — Red Neon ── */
+.urgency-vignette {
+  background: radial-gradient(
+    ellipse at center,
+    transparent 50%,
+    rgba(239, 68, 68, 0.08) 100%
+  ) !important;
+}
+
+/* ── Landing Hero Icon ── */
+.landing-hero-icon {
+  font-size: 3.5rem !important;
+  filter: drop-shadow(0 0 20px rgba(56, 189, 248, 0.3)) !important;
+}
+
+/* ── Reveal Round Badge ── */
+.reveal-round-badge {
+  background: rgba(56, 189, 248, 0.1) !important;
+  color: var(--cyan) !important;
+  border: 1px solid rgba(56, 189, 248, 0.2) !important;
+  font-family: 'JetBrains Mono', monospace !important;
+}
+
+/* ── Scan Line Animation (subtle CRT effect) ── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(56, 189, 248, 0.008) 2px,
+    rgba(56, 189, 248, 0.008) 4px
+  );
+  opacity: 0.5;
+}
+
+/* ── Avatar Picker — Dark Theme ── */
+.avatar-picker button,
+.avatar-picker .avatar-btn {
+  background: rgba(30, 41, 59, 0.6) !important;
+  border: 2px solid rgba(56, 189, 248, 0.12) !important;
+}
+
+.avatar-picker button:hover,
+.avatar-picker .avatar-btn:hover {
+  border-color: var(--cyan) !important;
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.2) !important;
+}
+
+/* ── Question Queue (Host) ── */
+.host-question-queue .queue-item,
+.host-question-queue > div {
+  background: rgba(30, 41, 59, 0.5) !important;
+  border: 1px solid rgba(56, 189, 248, 0.08) !important;
+  color: var(--text) !important;
+}
+
+/* ── Play Again Button ── */
+.btn-play-again {
+  background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+  box-shadow: 0 4px 30px rgba(37, 99, 235, 0.4) !important;
+}
+
+.btn-play-again:hover {
+  box-shadow: 0 8px 40px rgba(37, 99, 235, 0.6) !important;
+}
+
+/* ── Print Override ── */
+@media print {
+  body {
+    background: #0a0e1a !important;
+  }
+}

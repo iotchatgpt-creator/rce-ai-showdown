@@ -1,730 +1,197 @@
 [
   {
-    "prompt": "What does AI stand for?",
+    "prompt": "What is the primary role of a QE (Quality Engineer)?",
     "options": [
-      "Automated Internet",
-      "Artificial Intelligence",
-      "Advanced Interface",
-      "Angry Intern"
+      "Writing production feature code",
+      "Managing cloud infrastructure",
+      "Ensuring software meets quality standards through testing and validation",
+      "Designing UI mockups in Figma"
+    ],
+    "correctIndex": 2,
+    "explanation": "QEs are responsible for verifying that software works correctly, meets requirements, and is free of critical defects.",
+    "difficulty": "",
+    "tags": []
+  },
+  {
+    "prompt": "What does 'Acceptance Criteria' define in a user story?",
+    "options": [
+      "The database schema",
+      "The deployment schedule",
+      "The conditions that must be met for the story to be considered done",
+      "The color palette for the UI"
+    ],
+    "correctIndex": 2,
+    "explanation": "Acceptance Criteria spell out exactly what 'done' looks like — the testable conditions a feature must satisfy.",
+    "difficulty": "",
+    "tags": []
+  },
+  {
+    "prompt": "What is 'vibe coding'?",
+    "options": [
+      "A new JavaScript framework for animations",
+      "Pair programming with background music",
+      "Writing code while meditating",
+      "Describing intent in natural language and letting AI generate the code"
+    ],
+    "correctIndex": 3,
+    "explanation": "Vibe coding means you express what you want conversationally and AI handles the implementation — coding by intent, not by keystroke.",
+    "difficulty": "",
+    "tags": []
+  },
+  {
+    "prompt": "In Spec Driven Development (SDD), what comes first?",
+    "options": [
+      "Writing unit tests",
+      "Deploying to production",
+      "Writing a detailed specification document before any code",
+      "Creating the database tables"
+    ],
+    "correctIndex": 2,
+    "explanation": "SDD means writing a clear, detailed spec first — then AI agents read that spec and generate production-quality code from it.",
+    "difficulty": "",
+    "tags": []
+  },
+  {
+    "prompt": "What does MCP (Model Context Protocol) allow AI to do?",
+    "options": [
+      "Run faster on older hardware",
+      "Connect to and interact with external tools like Jira, qTest, and Figma",
+      "Train itself without human data",
+      "Replace the operating system"
     ],
     "correctIndex": 1,
-    "explanation": "AI stands for Artificial Intelligence.",
+    "explanation": "MCP is a standard that lets AI agents natively read from and write to external tools — no copy-pasting between screens.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What is Machine Learning?",
+    "prompt": "What does BDD stand for?",
     "options": [
-      "Machines going to school",
-      "Manual Learning",
-      "Robots gossiping",
-      "Learning patterns from data"
-    ],
-    "correctIndex": 3,
-    "explanation": "Machine Learning is about learning patterns from data.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is an LLM?",
-    "options": [
-      "Loud Laptop Mode",
-      "Little Learning Module",
-      "Large Language Model",
-      "Long Logic Machine"
+      "Build Deploy Destroy",
+      "Bug Driven Debugging",
+      "Behavior Driven Development",
+      "Binary Data Distribution"
     ],
     "correctIndex": 2,
-    "explanation": "LLM stands for Large Language Model.",
+    "explanation": "BDD uses Given-When-Then scenarios to describe expected software behavior in plain language before tests are written.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What does RAG stand for in AI?",
+    "prompt": "In QE, what does 'automation test coverage' measure at the API and UI level?",
     "options": [
-      "Random Answer Generator",
-      "Really Awesome GPT",
-      "Retrieval Augmented Generation",
-      "Recursive AI Graph"
-    ],
-    "correctIndex": 2,
-    "explanation": "RAG combines retrieval with generation for better answers.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is Generative AI known for?",
-    "options": [
-      "Generating electricity",
-      "Sorting socks",
-      "Fixing Wi-Fi",
-      "Creating new content"
-    ],
-    "correctIndex": 3,
-    "explanation": "Generative AI creates text, images, and more.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is AGI?",
-    "options": [
-      "Advanced GPT Instance",
-      "Angry Genius Interface",
-      "Artificial General Intelligence",
-      "Automated Game Interface"
-    ],
-    "correctIndex": 2,
-    "explanation": "AGI refers to human-level general intelligence.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is a prompt in AI?",
-    "options": [
-      "Keyboard shortcut",
-      "Secret code",
-      "User instruction",
-      "Battery alert"
-    ],
-    "correctIndex": 2,
-    "explanation": "A prompt is what you ask the AI.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is hallucination in AI?",
-    "options": [
-      "Wrong confident answer",
-      "Visual glitch",
-      "GPU overheating",
-      "AI dreaming"
-    ],
-    "correctIndex": 0,
-    "explanation": "Hallucination is when AI generates incorrect info confidently.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is vibe coding?",
-    "options": [
-      "Coding with music only",
-      "Typing with closed eyes",
-      "Coding with intuition + AI",
-      "Writing code blindly"
-    ],
-    "correctIndex": 2,
-    "explanation": "Vibe coding is intuitive coding with AI assistance.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is Spec Driven Development?",
-    "options": [
-      "Coding randomly",
-      "Building from detailed specs",
-      "Debugging dreams",
-      "Speculating features"
+      "How many developers wrote unit tests",
+      "How many user stories have automated API and UI tests covering their acceptance criteria",
+      "How fast the CI pipeline runs",
+      "How many lines of code the compiler checks"
     ],
     "correctIndex": 1,
-    "explanation": "It means developing based on clear specifications.",
+    "explanation": "Automation test coverage at the QE level tracks what percentage of stories and acceptance criteria are covered by automated API and UI tests — not unit tests.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What is an AI agent?",
+    "prompt": "What is a 'hallucination' in AI?",
     "options": [
-      "Call center bot",
-      "Excel macro",
-      "System that takes actions autonomously",
-      "Random script"
-    ],
-    "correctIndex": 2,
-    "explanation": "Agents act independently to complete tasks.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is Agentic AI?",
-    "options": [
-      "AI that argues",
-      "AI that paints walls",
-      "AI that can plan and act",
-      "AI that sleeps"
-    ],
-    "correctIndex": 2,
-    "explanation": "Agentic AI can plan and execute tasks.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is MCP (Model Context Protocol)?",
-    "options": [
-      "Magic Coding Portal",
-      "Model Control Panel",
-      "Standard for connecting AI to tools",
-      "Memory Cache Processor"
-    ],
-    "correctIndex": 2,
-    "explanation": "MCP helps AI interact with external tools.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is fine-tuning?",
-    "options": [
-      "Charging battery",
-      "Fixing bugs",
-      "Training model on specific data",
-      "Adjusting brightness"
-    ],
-    "correctIndex": 2,
-    "explanation": "Fine-tuning adapts models to specific tasks.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is embedding in AI?",
-    "options": [
-      "Image resizing",
-      "File compression",
-      "Code formatting",
-      "Numeric representation of data"
-    ],
-    "correctIndex": 3,
-    "explanation": "Embeddings convert data into vectors.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "Which tool is used for code assistance?",
-    "options": [
-      "GitHub Copilot",
-      "WordPad AI",
-      "Calculator",
-      "MS Paint"
-    ],
-    "correctIndex": 0,
-    "explanation": "Copilot assists developers with code.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is prompt engineering?",
-    "options": [
-      "Building engines",
-      "Coding hardware",
-      "Designing better AI inputs",
-      "Fixing keyboards"
-    ],
-    "correctIndex": 2,
-    "explanation": "It focuses on crafting effective prompts.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is zero-shot learning?",
-    "options": [
-      "Learning instantly",
-      "Skipping training",
-      "Answer without examples",
-      "Using zero GPUs"
-    ],
-    "correctIndex": 2,
-    "explanation": "Model performs task without prior examples.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is few-shot learning?",
-    "options": [
-      "Low memory usage",
-      "Minimal coding",
-      "Quick training",
-      "Learning from few examples"
-    ],
-    "correctIndex": 3,
-    "explanation": "Model learns from small examples.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is context window?",
-    "options": [
-      "Window UI",
-      "Amount of input AI can handle",
-      "RAM slot",
-      "Screen size"
+      "When the GPU overheats",
+      "When the AI generates confident but factually incorrect output",
+      "When the screen flickers",
+      "When the model runs out of memory"
     ],
     "correctIndex": 1,
-    "explanation": "Defines how much text model can process.",
+    "explanation": "AI hallucination is when the model produces something that sounds right but is actually wrong — a key risk when using AI for test generation.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What is a token in AI?",
+    "prompt": "What is waiFinder?",
     "options": [
-      "Piece of text",
-      "Security key",
-      "Password",
-      "Emoji"
-    ],
-    "correctIndex": 0,
-    "explanation": "Tokens are chunks of text processed by AI.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is RLHF?",
-    "options": [
-      "Robot Likes Human Food",
-      "Random Logic Handler Framework",
-      "Reinforcement Learning with Human Feedback",
-      "Real Learning Hyper Function"
-    ],
-    "correctIndex": 2,
-    "explanation": "RLHF improves models using human feedback.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is overfitting?",
-    "options": [
-      "Model drinks coffee",
-      "Model runs too fast",
-      "Model memorizes data too well",
-      "Model too small"
-    ],
-    "correctIndex": 2,
-    "explanation": "Overfitting reduces generalization.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is underfitting?",
-    "options": [
-      "Model too fast",
-      "Model sleepy",
-      "Model too complex",
-      "Model too simple"
+      "A Wi-Fi signal booster for office buildings",
+      "A GPS app for Disney parks",
+      "A new web browser",
+      "An AI toolset of rules, skills, and agents distributed across IDEs via a CLI"
     ],
     "correctIndex": 3,
-    "explanation": "Underfitting fails to learn patterns.",
+    "explanation": "waiFinder packages AI rules, skills, and agents in one source and distributes them to Cursor, Kiro, GitHub Copilot, and Amazon Q via the wai CLI.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What is inference?",
+    "prompt": "What is a 'regression test'?",
     "options": [
-      "Testing UI",
-      "Coding randomly",
-      "Using trained model",
-      "Training model"
-    ],
-    "correctIndex": 2,
-    "explanation": "Inference is applying a trained model to generate outputs.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is vector database used for?",
-    "options": [
-      "Storing embeddings",
-      "Saving memes",
-      "Saving images",
-      "Storing passwords"
-    ],
-    "correctIndex": 0,
-    "explanation": "Vector databases store embeddings for fast similarity search.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is prompt chaining?",
-    "options": [
-      "Copy-pasting prompts",
-      "Deleting prompts",
-      "Combining multiple prompts",
-      "Repeating prompts"
-    ],
-    "correctIndex": 2,
-    "explanation": "Prompt chaining links multiple prompts for complex workflows.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is multimodal AI?",
-    "options": [
-      "Handles only text",
-      "Handles only dreams",
-      "Handles only code",
-      "Handles text and images"
-    ],
-    "correctIndex": 3,
-    "explanation": "Multimodal AI processes multiple data types.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is latency?",
-    "options": [
-      "Memory size",
-      "Brightness",
-      "Accuracy",
-      "Response delay"
-    ],
-    "correctIndex": 3,
-    "explanation": "Latency is the time delay in response.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is throughput?",
-    "options": [
-      "Requests per second",
-      "Model size",
-      "Battery life",
-      "Typing speed"
-    ],
-    "correctIndex": 0,
-    "explanation": "Throughput measures system capacity.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is AI alignment?",
-    "options": [
-      "Aligning UI",
-      "Aligning keyboard",
-      "Aligning AI with human values",
-      "Aligning code"
-    ],
-    "correctIndex": 2,
-    "explanation": "AI alignment ensures safe and useful behavior.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is grounding in AI?",
-    "options": [
-      "Stopping AI",
-      "Cooling server",
-      "Training GPU",
-      "Using real data context"
-    ],
-    "correctIndex": 3,
-    "explanation": "Grounding improves factual accuracy.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is token limit?",
-    "options": [
-      "RAM limit",
-      "Battery capacity",
-      "Disk size",
-      "Max input size AI handles"
-    ],
-    "correctIndex": 3,
-    "explanation": "Token limit restricts input/output size.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is classification in ML?",
-    "options": [
-      "Generating text",
-      "Categorizing data",
-      "Drawing images",
-      "Fixing bugs"
+      "A test that only runs on Mondays",
+      "A test to verify that new changes haven't broken existing functionality",
+      "A test that measures server temperature",
+      "A test written by the product owner"
     ],
     "correctIndex": 1,
-    "explanation": "Classification assigns labels to data.",
+    "explanation": "Regression tests re-check existing features after code changes to make sure nothing that was working before is now broken.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What is summarization?",
+    "prompt": "What does 'shift left' mean in quality engineering?",
     "options": [
-      "Drawing UI",
-      "Shortening text",
-      "Playing music",
-      "Writing code"
+      "Moving the keyboard to the left",
+      "Starting testing and quality activities earlier in the development lifecycle",
+      "Deploying to the left data center",
+      "Reducing the font size in test reports"
     ],
     "correctIndex": 1,
-    "explanation": "Summarization condenses information.",
+    "explanation": "Shift left means catching defects earlier — during requirements and design — instead of waiting until after code is written.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What is AI bias?",
+    "prompt": "What is an AI 'prompt'?",
     "options": [
-      "Better UI",
-      "Fast processing",
-      "More RAM",
-      "Unfair outputs"
-    ],
-    "correctIndex": 3,
-    "explanation": "Bias can lead to unfair results.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is AGI expected to do?",
-    "options": [
-      "Only play games",
-      "Only write code",
-      "Only generate images",
-      "Perform any intellectual task like humans"
-    ],
-    "correctIndex": 3,
-    "explanation": "AGI aims for human-level intelligence across tasks.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is a hallucination mitigation technique?",
-    "options": [
-      "Using RAG",
-      "Restarting AI",
-      "Typing slower",
-      "Adding emojis"
-    ],
-    "correctIndex": 0,
-    "explanation": "RAG reduces hallucination by grounding responses.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is a system prompt?",
-    "options": [
-      "Instruction controlling AI behavior",
-      "Keyboard shortcut",
-      "Error message",
-      "Code comment"
-    ],
-    "correctIndex": 0,
-    "explanation": "System prompts guide AI responses.",
-    "difficulty": "",
-    "tags": []
-  },
-  {
-    "prompt": "What is fine-tuned model?",
-    "options": [
-      "Faster model",
-      "Smaller model",
-      "Model trained for specific task",
-      "Broken model"
+      "A pop-up error message",
+      "A keyboard shortcut",
+      "The instruction or question you give to an AI model",
+      "A type of database query"
     ],
     "correctIndex": 2,
-    "explanation": "Fine-tuned models are specialized.",
+    "explanation": "A prompt is what you type to tell the AI what you want — the quality of your prompt directly affects the quality of the output.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What is agent memory?",
+    "prompt": "What is 'exploratory testing'?",
     "options": [
-      "RAM usage",
-      "Hard disk",
-      "Cache files",
-      "Stored context for AI agents"
+      "Testing software without predefined scripts, using creativity and domain knowledge",
+      "Testing only the login page",
+      "Running automated tests overnight",
+      "Reading the source code without executing it"
     ],
-    "correctIndex": 3,
-    "explanation": "Memory helps agents remember context.",
+    "correctIndex": 0,
+    "explanation": "Exploratory testing is unscripted, experience-driven testing where the QE uses judgment and curiosity to find defects that scripted tests miss.",
     "difficulty": "",
     "tags": []
   },
   {
-    "prompt": "What does an AI's 'temperature' setting control?",
+    "prompt": "What does 'defect leakage' measure?",
     "options": [
-      "The randomness or creativity of the output",
-      "The brightness of the UI",
-      "How hot the server runs",
-      "The volume of the response"
+      "How fast water drains from the server room",
+      "How many bugs escape testing and reach production",
+      "How many lines of code were deleted",
+      "How long the build takes to compile"
     ],
-    "explanation": "A higher temperature produces more creative, random outputs, while lower is more focused.",
+    "correctIndex": 1,
+    "explanation": "Defect leakage is the percentage of bugs that slip past QE into production — a key quality metric that teams track to improve their testing process.",
     "difficulty": "",
-    "tags": [],
-    "correctIndex": 0
+    "tags": []
   },
   {
-    "prompt": "What does 'NLP' stand for?",
+    "prompt": "Why is SDD (Spec Driven Development) valuable for QE?",
     "options": [
-      "Natural Language Processing",
-      "Numeric Learning Process",
-      "New Laptop Program",
-      "Neural Logic Protocol"
+      "It eliminates the need for any testing",
+      "It gives QE a clear, detailed spec to derive test cases from before code is written",
+      "It automatically deploys code to production",
+      "It replaces the QE role entirely with AI"
     ],
-    "explanation": "NLP is the field of AI focused on understanding and generating human language.",
+    "correctIndex": 1,
+    "explanation": "When developers write detailed specs before coding, QE gets a clear contract to test against — no more guessing what the feature is supposed to do.",
     "difficulty": "",
-    "tags": [],
-    "correctIndex": 0
-  },
-  {
-    "prompt": "What does the 'T' in ChatGPT stand for?",
-    "options": [
-      "Transformer",
-      "Transfer",
-      "Translation",
-      "Terminal"
-    ],
-    "explanation": "It stands for Generative Pre-trained Transformer.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 0
-  },
-  {
-    "prompt": "What is Deep Learning?",
-    "options": [
-      "Machine learning using multi-layered neural networks",
-      "Reading long books",
-      "Storing data deep underground",
-      "Learning while sleeping"
-    ],
-    "explanation": "Deep learning uses deep artificial neural networks to learn complex patterns.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 0
-  },
-  {
-    "prompt": "What is an artificial neural network inspired by?",
-    "options": [
-      "The human brain's biological neurons",
-      "Clock gears",
-      "Spider webs",
-      "City traffic grids"
-    ],
-    "explanation": "Neural networks mimic the interconnected structure of biological neurons.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 0
-  },
-  {
-    "prompt": "What is a 'deepfake'?",
-    "options": [
-      "A completely invisible robot",
-      "A fake error message",
-      "AI-generated synthetic media that alters a person's likeness",
-      "A deep scratch on a server"
-    ],
-    "explanation": "Deepfakes use AI to convincingly replace a person's image or voice.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 2
-  },
-  {
-    "prompt": "What does it mean if an AI is called a 'Black Box'?",
-    "options": [
-      "It only runs in dark mode",
-      "It records audio like an airplane",
-      "Its internal decision-making process is hidden or unexplainable",
-      "It is shipped in a black crate"
-    ],
-    "explanation": "Black box models are so complex that humans cannot easily trace how they reached a conclusion.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 2
-  },
-  {
-    "prompt": "What is 'Computer Vision'?",
-    "options": [
-      "Wearing glasses with screens",
-      "Robots that paint",
-      "The field of AI focused on interpreting visual data",
-      "A new type of monitor"
-    ],
-    "explanation": "Computer vision enables machines to understand and process images and video.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 2
-  },
-  {
-    "prompt": "What is the Turing Test?",
-    "options": [
-      "A typing speed test",
-      "A test of a machine's ability to exhibit intelligent behavior indistinguishable from a human",
-      "A test to see if a computer is plugged in",
-      "A test for internet speed"
-    ],
-    "explanation": "Proposed by Alan Turing, it tests if a human can tell they are chatting with a machine.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 1
-  },
-  {
-    "prompt": "What is 'Sentiment Analysis'?",
-    "options": [
-      "Measuring typing pressure",
-      "Analyzing code errors",
-      "Using AI to identify the emotional tone of text",
-      "Teaching robots to cry"
-    ],
-    "explanation": "Sentiment analysis determines whether a text is positive, negative, or neutral.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 2
-  },
-  {
-    "prompt": "What does 'API' stand for?",
-    "options": [
-      "Automated Python Instruction",
-      "Advanced Processing Integration",
-      "Applied Program Index",
-      "Application Programming Interface"
-    ],
-    "explanation": "API stands for Application Programming Interface, which allows two applications to talk to each other.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 3
-  },
-  {
-    "prompt": "What is an 'Algorithm' in AI?",
-    "options": [
-      "A programming language",
-      "A brand of computer processor",
-      "A set of rules or instructions given to an AI to help it learn or solve a problem",
-      "A type of physical robot"
-    ],
-    "explanation": "An algorithm is essentially a recipe of rules that the computer follows to complete a task.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 2
-  },
-  {
-    "prompt": "What is 'Data Mining'?",
-    "options": [
-      "Physically digging into server hard drives",
-      "Stealing passwords from a website",
-      "Deleting old data to save space",
-      "The practice of analyzing large databases to discover patterns and generate new information"
-    ],
-    "explanation": "Data mining involves extracting useful information and hidden patterns from massive datasets.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 3
-  },
-  {
-    "prompt": "Why are GPUs (Graphics Processing Units) often used for training AI instead of CPUs?",
-    "options": [
-      "They are much better at handling thousands of parallel calculations simultaneously",
-      "They use less electricity",
-      "They are the only chips that understand Python",
-      "They are cheaper to manufacture"
-    ],
-    "explanation": "GPUs excel at parallel processing, which is exactly what training neural networks requires.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 0
-  },
-  {
-    "prompt": "What does it mean if an AI model is 'Open Source'?",
-    "options": [
-      "It only works outdoors",
-      "It cannot be used for commercial purposes",
-      "Its source code and weights are made publicly available for anyone to use or modify",
-      "It is free to use but the code is hidden"
-    ],
-    "explanation": "Open-source AI models allow developers worldwide to inspect, modify, and build upon the underlying code.",
-    "difficulty": "",
-    "tags": [],
-    "correctIndex": 2
+    "tags": []
   }
 ]

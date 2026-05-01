@@ -1,0 +1,594 @@
+{
+  "meta": {
+    "schemaVersion": 1,
+    "initializedAt": "2026-04-30T19:58:21.849Z",
+    "lastUpdatedAt": "2026-05-01T09:18:49.057Z"
+  },
+  "schema": {
+    "version": 1,
+    "engine": "embedded-json-store",
+    "tables": [
+      {
+        "name": "master_questions",
+        "description": "Seeded from data/questions.json on startup",
+        "primaryKey": "id",
+        "columns": [
+          "id",
+          "prompt",
+          "options",
+          "correctIndex",
+          "explanation",
+          "difficulty",
+          "tags"
+        ]
+      },
+      {
+        "name": "player_profiles",
+        "description": "Saved host and participant identity records",
+        "primaryKey": "token",
+        "columns": [
+          "token",
+          "playerId",
+          "name",
+          "lastRoomCode",
+          "role",
+          "avatarId",
+          "lastSeenAt"
+        ]
+      },
+      {
+        "name": "active_rooms",
+        "description": "Saved room, player, and lobby/game state",
+        "primaryKey": "code",
+        "columns": [
+          "code",
+          "hostId",
+          "phase",
+          "questionIndex",
+          "players",
+          "questions",
+          "savedAt"
+        ]
+      },
+      {
+        "name": "completed_games",
+        "description": "Recent finished game history",
+        "primaryKey": "finishedAt",
+        "columns": [
+          "roomCode",
+          "finishedAt",
+          "champion",
+          "leaderboard",
+          "totalQuestions"
+        ]
+      }
+    ]
+  },
+  "masterData": {
+    "questions": [
+      {
+        "id": "question_f282eebeab41",
+        "prompt": "What is the primary role of a QE (Quality Engineer)?",
+        "options": [
+          "Writing production feature code",
+          "Managing cloud infrastructure",
+          "Ensuring software meets quality standards through testing and validation",
+          "Designing UI mockups in Figma"
+        ],
+        "correctIndex": 2,
+        "explanation": "QEs are responsible for verifying that software works correctly, meets requirements, and is free of critical defects.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_fee69412b1f2",
+        "prompt": "What does 'Acceptance Criteria' define in a user story?",
+        "options": [
+          "The database schema",
+          "The deployment schedule",
+          "The conditions that must be met for the story to be considered done",
+          "The color palette for the UI"
+        ],
+        "correctIndex": 2,
+        "explanation": "Acceptance Criteria spell out exactly what 'done' looks like — the testable conditions a feature must satisfy.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_0f8f735d2d2f",
+        "prompt": "What is 'vibe coding'?",
+        "options": [
+          "A new JavaScript framework for animations",
+          "Pair programming with background music",
+          "Writing code while meditating",
+          "Describing intent in natural language and letting AI generate the code"
+        ],
+        "correctIndex": 3,
+        "explanation": "Vibe coding means you express what you want conversationally and AI handles the implementation — coding by intent, not by keystroke.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_4544abbad8a7",
+        "prompt": "In Spec Driven Development (SDD), what comes first?",
+        "options": [
+          "Writing unit tests",
+          "Deploying to production",
+          "Writing a detailed specification document before any code",
+          "Creating the database tables"
+        ],
+        "correctIndex": 2,
+        "explanation": "SDD means writing a clear, detailed spec first — then AI agents read that spec and generate production-quality code from it.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_e8d476d1b0a3",
+        "prompt": "What does MCP (Model Context Protocol) allow AI to do?",
+        "options": [
+          "Run faster on older hardware",
+          "Connect to and interact with external tools like Jira, qTest, and Figma",
+          "Train itself without human data",
+          "Replace the operating system"
+        ],
+        "correctIndex": 1,
+        "explanation": "MCP is a standard that lets AI agents natively read from and write to external tools — no copy-pasting between screens.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_d9a170cfb948",
+        "prompt": "What does BDD stand for?",
+        "options": [
+          "Build Deploy Destroy",
+          "Bug Driven Debugging",
+          "Behavior Driven Development",
+          "Binary Data Distribution"
+        ],
+        "correctIndex": 2,
+        "explanation": "BDD uses Given-When-Then scenarios to describe expected software behavior in plain language before tests are written.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_6e6de174b5e8",
+        "prompt": "What is 'test coverage' a measure of?",
+        "options": [
+          "How many developers are on the team",
+          "How fast the tests run",
+          "How much of the codebase is exercised by tests",
+          "How many bugs are in production"
+        ],
+        "correctIndex": 2,
+        "explanation": "Test coverage tells you what percentage of your code is actually being tested — higher coverage means fewer blind spots.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_4ba2732eb222",
+        "prompt": "What is a 'hallucination' in AI?",
+        "options": [
+          "When the GPU overheats",
+          "When the AI generates confident but factually incorrect output",
+          "When the screen flickers",
+          "When the model runs out of memory"
+        ],
+        "correctIndex": 1,
+        "explanation": "AI hallucination is when the model produces something that sounds right but is actually wrong — a key risk when using AI for test generation.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_e1859ba6fc6e",
+        "prompt": "What is waiFinder?",
+        "options": [
+          "A Wi-Fi signal booster for office buildings",
+          "A GPS app for Disney parks",
+          "A new web browser",
+          "An AI toolset of rules, skills, and agents distributed across IDEs via a CLI"
+        ],
+        "correctIndex": 3,
+        "explanation": "waiFinder packages AI rules, skills, and agents in one source and distributes them to Cursor, Kiro, GitHub Copilot, and Amazon Q via the wai CLI.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_d9ccc2c94bfd",
+        "prompt": "What is a 'regression test'?",
+        "options": [
+          "A test that only runs on Mondays",
+          "A test to verify that new changes haven't broken existing functionality",
+          "A test that measures server temperature",
+          "A test written by the product owner"
+        ],
+        "correctIndex": 1,
+        "explanation": "Regression tests re-check existing features after code changes to make sure nothing that was working before is now broken.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_d14e2cadf756",
+        "prompt": "What does 'shift left' mean in quality engineering?",
+        "options": [
+          "Moving the keyboard to the left",
+          "Starting testing and quality activities earlier in the development lifecycle",
+          "Deploying to the left data center",
+          "Reducing the font size in test reports"
+        ],
+        "correctIndex": 1,
+        "explanation": "Shift left means catching defects earlier — during requirements and design — instead of waiting until after code is written.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_d7acf0c6fe1f",
+        "prompt": "What is an AI 'prompt'?",
+        "options": [
+          "A pop-up error message",
+          "A keyboard shortcut",
+          "The instruction or question you give to an AI model",
+          "A type of database query"
+        ],
+        "correctIndex": 2,
+        "explanation": "A prompt is what you type to tell the AI what you want — the quality of your prompt directly affects the quality of the output.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_0c4675595856",
+        "prompt": "What is 'exploratory testing'?",
+        "options": [
+          "Testing software without predefined scripts, using creativity and domain knowledge",
+          "Testing only the login page",
+          "Running automated tests overnight",
+          "Reading the source code without executing it"
+        ],
+        "correctIndex": 0,
+        "explanation": "Exploratory testing is unscripted, experience-driven testing where the QE uses judgment and curiosity to find defects that scripted tests miss.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_b2eb3d1dd100",
+        "prompt": "What does 'defect leakage' measure?",
+        "options": [
+          "How fast water drains from the server room",
+          "How many bugs escape testing and reach production",
+          "How many lines of code were deleted",
+          "How long the build takes to compile"
+        ],
+        "correctIndex": 1,
+        "explanation": "Defect leakage is the percentage of bugs that slip past QE into production — a key quality metric that teams track to improve their testing process.",
+        "difficulty": "",
+        "tags": []
+      },
+      {
+        "id": "question_bfa72d6efbb5",
+        "prompt": "Why is SDD (Spec Driven Development) valuable for QE?",
+        "options": [
+          "It eliminates the need for any testing",
+          "It gives QE a clear, detailed spec to derive test cases from before code is written",
+          "It automatically deploys code to production",
+          "It replaces the QE role entirely with AI"
+        ],
+        "correctIndex": 1,
+        "explanation": "When developers write detailed specs before coding, QE gets a clear contract to test against — no more guessing what the feature is supposed to do.",
+        "difficulty": "",
+        "tags": []
+      }
+    ],
+    "avatars": [
+      "cat",
+      "bear",
+      "duck",
+      "bunny",
+      "fox",
+      "frog",
+      "cat-pearl",
+      "cat-toffee",
+      "bear-hazel",
+      "bear-mocha",
+      "duck-daisy",
+      "duck-sunny",
+      "bunny-rose",
+      "bunny-lulu",
+      "fox-ember",
+      "fox-sienna",
+      "frog-mint",
+      "frog-olive",
+      "cat-honey",
+      "bear-coco"
+    ]
+  },
+  "playerProfiles": [
+    {
+      "token": "token_15922b57c548",
+      "playerId": "player_7058fdc5277b",
+      "name": "SANDEEP",
+      "lastRoomCode": "87AAY9",
+      "role": "host",
+      "avatarId": null,
+      "lastSeenAt": "2026-04-30T20:11:29.837Z"
+    },
+    {
+      "token": "token_9bc0e0ec0c04",
+      "playerId": "player_8d2365974307",
+      "name": "SANDEEP",
+      "lastRoomCode": "57FR7F",
+      "role": "host",
+      "avatarId": null,
+      "lastSeenAt": "2026-04-30T21:10:21.861Z"
+    },
+    {
+      "token": "token_8828bff4465a",
+      "playerId": "player_103e6c1cdcf9",
+      "name": "SANDEEP",
+      "lastRoomCode": "YTEKZR",
+      "role": "host",
+      "avatarId": null,
+      "lastSeenAt": "2026-04-30T21:21:34.314Z"
+    },
+    {
+      "token": "token_cc48b9eeef9c",
+      "playerId": "player_87cf1ca883ea",
+      "name": "sandeep",
+      "lastRoomCode": "YV3644",
+      "role": "host",
+      "avatarId": null,
+      "lastSeenAt": "2026-04-30T21:28:52.158Z"
+    },
+    {
+      "token": "token_663591a1974b",
+      "playerId": "player_a6d927160602",
+      "name": "SANDEEP",
+      "lastRoomCode": "G6R9R9",
+      "role": "host",
+      "avatarId": null,
+      "lastSeenAt": "2026-04-30T22:37:45.498Z"
+    },
+    {
+      "token": "token_05466cb1fe8b",
+      "playerId": "player_866f4ef3b0ee",
+      "name": "SANDEEP",
+      "lastRoomCode": "4HXZM9",
+      "role": "host",
+      "avatarId": null,
+      "lastSeenAt": "2026-05-01T09:13:49.055Z"
+    }
+  ],
+  "activeRooms": [
+    {
+      "code": "YTEKZR",
+      "hostId": "player_103e6c1cdcf9",
+      "phase": "lobby",
+      "questionIndex": 0,
+      "players": [
+        {
+          "id": "player_103e6c1cdcf9",
+          "token": "token_8828bff4465a",
+          "name": "SANDEEP",
+          "score": 0,
+          "avatarId": null,
+          "isHost": true,
+          "connected": true,
+          "lastSeenAt": "2026-04-30T21:21:34.313Z"
+        }
+      ],
+      "questions": [
+        {
+          "id": "question_4ba2732eb222",
+          "prompt": "What is a 'hallucination' in AI?",
+          "options": [
+            "When the GPU overheats",
+            "When the AI generates confident but factually incorrect output",
+            "When the screen flickers",
+            "When the model runs out of memory"
+          ],
+          "correctIndex": 1,
+          "explanation": "AI hallucination is when the model produces something that sounds right but is actually wrong — a key risk when using AI for test generation.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_bfa72d6efbb5",
+          "prompt": "Why is SDD (Spec Driven Development) valuable for QE?",
+          "options": [
+            "It eliminates the need for any testing",
+            "It gives QE a clear, detailed spec to derive test cases from before code is written",
+            "It automatically deploys code to production",
+            "It replaces the QE role entirely with AI"
+          ],
+          "correctIndex": 1,
+          "explanation": "When developers write detailed specs before coding, QE gets a clear contract to test against — no more guessing what the feature is supposed to do.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_d9a170cfb948",
+          "prompt": "What does BDD stand for?",
+          "options": [
+            "Build Deploy Destroy",
+            "Bug Driven Debugging",
+            "Behavior Driven Development",
+            "Binary Data Distribution"
+          ],
+          "correctIndex": 2,
+          "explanation": "BDD uses Given-When-Then scenarios to describe expected software behavior in plain language before tests are written.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_0c4675595856",
+          "prompt": "What is 'exploratory testing'?",
+          "options": [
+            "Testing software without predefined scripts, using creativity and domain knowledge",
+            "Testing only the login page",
+            "Running automated tests overnight",
+            "Reading the source code without executing it"
+          ],
+          "correctIndex": 0,
+          "explanation": "Exploratory testing is unscripted, experience-driven testing where the QE uses judgment and curiosity to find defects that scripted tests miss.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_d14e2cadf756",
+          "prompt": "What does 'shift left' mean in quality engineering?",
+          "options": [
+            "Moving the keyboard to the left",
+            "Starting testing and quality activities earlier in the development lifecycle",
+            "Deploying to the left data center",
+            "Reducing the font size in test reports"
+          ],
+          "correctIndex": 1,
+          "explanation": "Shift left means catching defects earlier — during requirements and design — instead of waiting until after code is written.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_f282eebeab41",
+          "prompt": "What is the primary role of a QE (Quality Engineer)?",
+          "options": [
+            "Writing production feature code",
+            "Managing cloud infrastructure",
+            "Ensuring software meets quality standards through testing and validation",
+            "Designing UI mockups in Figma"
+          ],
+          "correctIndex": 2,
+          "explanation": "QEs are responsible for verifying that software works correctly, meets requirements, and is free of critical defects.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_0f8f735d2d2f",
+          "prompt": "What is 'vibe coding'?",
+          "options": [
+            "A new JavaScript framework for animations",
+            "Pair programming with background music",
+            "Writing code while meditating",
+            "Describing intent in natural language and letting AI generate the code"
+          ],
+          "correctIndex": 3,
+          "explanation": "Vibe coding means you express what you want conversationally and AI handles the implementation — coding by intent, not by keystroke.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_b2eb3d1dd100",
+          "prompt": "What does 'defect leakage' measure?",
+          "options": [
+            "How fast water drains from the server room",
+            "How many bugs escape testing and reach production",
+            "How many lines of code were deleted",
+            "How long the build takes to compile"
+          ],
+          "correctIndex": 1,
+          "explanation": "Defect leakage is the percentage of bugs that slip past QE into production — a key quality metric that teams track to improve their testing process.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_d7acf0c6fe1f",
+          "prompt": "What is an AI 'prompt'?",
+          "options": [
+            "A pop-up error message",
+            "A keyboard shortcut",
+            "The instruction or question you give to an AI model",
+            "A type of database query"
+          ],
+          "correctIndex": 2,
+          "explanation": "A prompt is what you type to tell the AI what you want — the quality of your prompt directly affects the quality of the output.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_4544abbad8a7",
+          "prompt": "In Spec Driven Development (SDD), what comes first?",
+          "options": [
+            "Writing unit tests",
+            "Deploying to production",
+            "Writing a detailed specification document before any code",
+            "Creating the database tables"
+          ],
+          "correctIndex": 2,
+          "explanation": "SDD means writing a clear, detailed spec first — then AI agents read that spec and generate production-quality code from it.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_e8d476d1b0a3",
+          "prompt": "What does MCP (Model Context Protocol) allow AI to do?",
+          "options": [
+            "Run faster on older hardware",
+            "Connect to and interact with external tools like Jira, qTest, and Figma",
+            "Train itself without human data",
+            "Replace the operating system"
+          ],
+          "correctIndex": 1,
+          "explanation": "MCP is a standard that lets AI agents natively read from and write to external tools — no copy-pasting between screens.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_e1859ba6fc6e",
+          "prompt": "What is waiFinder?",
+          "options": [
+            "A Wi-Fi signal booster for office buildings",
+            "A GPS app for Disney parks",
+            "A new web browser",
+            "An AI toolset of rules, skills, and agents distributed across IDEs via a CLI"
+          ],
+          "correctIndex": 3,
+          "explanation": "waiFinder packages AI rules, skills, and agents in one source and distributes them to Cursor, Kiro, GitHub Copilot, and Amazon Q via the wai CLI.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_fee69412b1f2",
+          "prompt": "What does 'Acceptance Criteria' define in a user story?",
+          "options": [
+            "The database schema",
+            "The deployment schedule",
+            "The conditions that must be met for the story to be considered done",
+            "The color palette for the UI"
+          ],
+          "correctIndex": 2,
+          "explanation": "Acceptance Criteria spell out exactly what 'done' looks like — the testable conditions a feature must satisfy.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_d9ccc2c94bfd",
+          "prompt": "What is a 'regression test'?",
+          "options": [
+            "A test that only runs on Mondays",
+            "A test to verify that new changes haven't broken existing functionality",
+            "A test that measures server temperature",
+            "A test written by the product owner"
+          ],
+          "correctIndex": 1,
+          "explanation": "Regression tests re-check existing features after code changes to make sure nothing that was working before is now broken.",
+          "difficulty": "",
+          "tags": []
+        },
+        {
+          "id": "question_6e6de174b5e8",
+          "prompt": "What is 'test coverage' a measure of?",
+          "options": [
+            "How many developers are on the team",
+            "How fast the tests run",
+            "How much of the codebase is exercised by tests",
+            "How many bugs are in production"
+          ],
+          "correctIndex": 2,
+          "explanation": "Test coverage tells you what percentage of your code is actually being tested — higher coverage means fewer blind spots.",
+          "difficulty": "",
+          "tags": []
+        }
+      ],
+      "currentQuestionStartedAt": null,
+      "savedAt": "2026-05-01T09:18:49.057Z"
+    }
+  ],
+  "completedGames": []
+}

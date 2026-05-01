@@ -344,7 +344,7 @@ function emitLeaderboard(roomCode, final = false) {
     leaderboard,
     final,
     champion: leaderboard[0] || null,
-    title: final ? 'RCE AI Champion — Iteration 2.14' : null,
+    title: final ? 'AI Champion' : null,
   };
 
   room.lastLeaderboardPayload = payload;
@@ -943,5 +943,5 @@ io.on('connection', (socket) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`RCE AI Sprint Showdown listening on ${PORT}`);
+  console.log(`AI Showdown listening on ${PORT}`);
 });

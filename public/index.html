@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>RCE AI Sprint Showdown</title>
+    <title>AI Showdown — Tech Quiz Arena</title>
     <meta name="description" content="A real-time multiplayer AI quiz game. Host a room, invite players, and compete in timed AI-themed questions!" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800;900&family=JetBrains+Mono:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles.css?v=4.0" />
+    <link rel="stylesheet" href="/theme-override.css?v=1.0" />
   </head>
   <body>
     <!-- Reconnection Overlay -->
@@ -23,34 +24,12 @@
     <div class="bg-orb orb-a" aria-hidden="true"></div>
     <div class="bg-orb orb-b" aria-hidden="true"></div>
     <div class="bg-grid" aria-hidden="true"></div>
-    <div class="bg-hills" aria-hidden="true">
-      <div class="hill hill-back"></div>
-      <div class="hill hill-front"></div>
-    </div>
-    <div id="meadow-scene" class="meadow-scene" aria-hidden="true">
-      <div id="scene-weather" class="scene-weather"></div>
-      <div class="scene-bird bird-one"></div>
-      <div class="scene-bird bird-two"></div>
-      <div class="scene-tree tree-left">
-        <span class="tree-canopy"></span>
-        <span class="tree-trunk"></span>
-      </div>
-      <div class="scene-tree tree-right">
-        <span class="tree-canopy"></span>
-        <span class="tree-trunk"></span>
-      </div>
-      <div id="scene-picnic" class="scene-picnic">
-        <div class="picnic-blanket"></div>
-        <div class="picnic-basket"></div>
-        <div id="scene-friends" class="scene-friends"></div>
-      </div>
-    </div>
     <div class="app-shell">
       <header class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">AI quiz room</p>
-          <h1>RCE AI Sprint Showdown</h1>
-          <p class="subtitle">Pick a name. Pick an avatar. Start the game.</p>
+          <p class="eyebrow">AI QUIZ ARENA</p>
+          <h1>AI Showdown</h1>
+          <p class="subtitle">Pick a name. Pick an avatar. Battle it out.</p>
         </div>
         <div class="hero-status">
           <div class="status-row">
@@ -77,7 +56,7 @@
           <p class="landing-tagline">Host a quiz room or jump into the action!</p>
           <div class="actions two-col">
             <button id="show-host" class="btn btn-primary btn-glow" aria-label="Host a new game">🎮 Host Game</button>
-            <button id="show-join" class="btn btn-secondary btn-glow" aria-label="Join an existing game">🏃 Join Game</button>
+            <button id="show-join" class="btn btn-secondary btn-glow" aria-label="Join an existing game">⚡ Join Game</button>
           </div>
 
           <div id="host-form" class="panel hidden">
@@ -159,7 +138,7 @@
           <div class="question-board">
             <div class="question-board-header row space-between">
               <span>Pick the best answer</span>
-              <span class="tiny-note">Quick thinking still earns more bells</span>
+              <span class="tiny-note">Quick thinking earns bonus points</span>
             </div>
             <div id="question-options" class="options"></div>
           </div>
@@ -195,7 +174,7 @@
 
         <section id="view-reveal" class="view card hidden view-animate">
           <div class="reveal-header">
-            <h2>📣 Answer Reveal</h2>
+            <h2>🔍 Answer Reveal</h2>
             <span id="reveal-round-badge" class="reveal-round-badge"></span>
           </div>
           <div id="reveal-answer-card" class="reveal-answer-card">
@@ -204,7 +183,7 @@
           </div>
           <div class="reveal-race-card">
             <div class="race-card-header">
-              <h3>🏁 Live Race — Who's Leading?</h3>
+              <h3>📊 Live Race — Who's Leading?</h3>
               <span class="tiny-note">Faster answers = bigger lead</span>
             </div>
             <div id="reveal-race" class="reveal-race"></div>
@@ -219,9 +198,9 @@
 
         <section id="view-final" class="view card hidden final-screen view-animate">
           <div class="final-spotlight" aria-hidden="true"></div>
-          <h2>🏆 RCE AI Champion 🏆</h2>
+          <h2>🏆 AI Champion 🏆</h2>
           <p id="champion-name" class="champion"></p>
-          <p class="final-subtitle">Everyone played amazing — see you next round!</p>
+          <p class="final-subtitle">Well played — see you next round!</p>
           <div id="celebration-overlay" class="celebration-overlay" aria-hidden="true"></div>
           <canvas id="confetti-canvas" class="confetti-canvas"></canvas>
           <canvas id="fireworks-canvas" class="fireworks-canvas"></canvas>

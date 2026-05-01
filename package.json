@@ -1,7 +1,7 @@
 {
-  "name": "rce-ai-sprint-showdown",
+  "name": "ai-showdown",
   "version": "1.0.0",
-  "description": "Kahoot-style multiplayer quiz game with Express and Socket.IO",
+  "description": "Multiplayer AI quiz game with Express and Socket.IO",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
